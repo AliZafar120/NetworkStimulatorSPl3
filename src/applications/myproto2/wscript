@@ -1,0 +1,13 @@
+## -*- Mode: python; py-indent-offset: 4; indent-tabs-mode: nil; coding: utf-8; -*-
+
+def build(bld):
+    module = bld.create_ns3_module('myproto2', ['internet-stack'])
+    module.source = [
+        'myproto2.cc',
+        ]
+    headers = bld.new_task_gen('ns3header')
+    headers.module = 'myproto2'
+    headers.source = [
+        'myproto2.h',
+        'myproto2-helper.h',
+        ]
