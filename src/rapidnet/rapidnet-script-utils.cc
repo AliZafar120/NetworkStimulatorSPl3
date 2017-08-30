@@ -56,6 +56,7 @@ InitRapidNetApps (int numNodes, Ptr<RapidNetApplicationHelper> appHelper,
 
   CsmaHelper::EnablePcapAll (pcapLogFileName, true);
 
+
   return appHelper->Install (csmaNodes);
 }
 
