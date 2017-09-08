@@ -1,0 +1,21 @@
+ECA Rule d1Eca0Ins ACTION_ADD<reachable(@Src, Dest, Cost)> :- EVENT_INSERT<link(@Src, Dest, Cost)>.
+ECA Rule d1Eca0Del ACTION_DELETE<reachable(@Src, Dest, Cost)> :- EVENT_DELETE<link(@Src, Dest, Cost)>.
+ECA Rule d2Local1Eca0RemoteIns ACTION_ADD<d2linkMid(Src, @Mid, Cost1)> :- EVENT_RECV<d2Local1d2linkMidsend(Src, @Mid, Cost1)>.
+ECA Rule d2Local1Eca0RemoteDel ACTION_DELETE<d2linkMid(Src, @Mid, Cost1)> :- EVENT_RECV<d2linkMidDelete(Src, @Mid, Cost1)>.
+ECA Rule d2Local1Eca0Ins ACTION_REMOTE_SEND<d2Local1d2linkMidsend(Src, @Mid, Cost1)> :- EVENT_INSERT<link(@Src, Mid, Cost1)>.
+ECA Rule d2Local1Eca0Del ACTION_REMOTE_SEND<d2linkMidDelete(Src, @Mid, Cost1)> :- EVENT_DELETE<link(@Src, Mid, Cost1)>.
+ECA Rule d2Local2Eca0RemoteIns ACTION_ADD<reachable(@Src, Dest, Cost)> :- EVENT_RECV<d2Local2reachablesend(@Src, Dest, Cost)>.
+ECA Rule d2Local2Eca0RemoteDel ACTION_DELETE<reachable(@Src, Dest, Cost)> :- EVENT_RECV<reachableDelete(@Src, Dest, Cost)>.
+ECA Rule d2Local2Eca0Ins ACTION_REMOTE_SEND<d2Local2reachablesend(@Src, Dest, Cost)> :- EVENT_INSERT<d2linkMid(Src, @Mid, Cost1)>, reachable(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule d2Local2Eca0Del ACTION_REMOTE_SEND<reachableDelete(@Src, Dest, Cost)> :- EVENT_DELETE<d2linkMid(Src, @Mid, Cost1)>, reachable(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule d2Local2Eca1Ins ACTION_REMOTE_SEND<d2Local2reachablesend(@Src, Dest, Cost)> :- EVENT_INSERT<reachable(@Mid, Dest, Cost2)>, d2linkMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
+ECA Rule d2Local2Eca1Del ACTION_REMOTE_SEND<reachableDelete(@Src, Dest, Cost)> :- EVENT_DELETE<reachable(@Mid, Dest, Cost2)>, d2linkMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
+ECA Rule d3Local1Eca0RemoteIns ACTION_ADD<d3reachableMid(Src, @Mid, Cost1)> :- EVENT_RECV<d3Local1d3reachableMidsend(Src, @Mid, Cost1)>.
+ECA Rule d3Local1Eca0RemoteDel ACTION_DELETE<d3reachableMid(Src, @Mid, Cost1)> :- EVENT_RECV<d3reachableMidDelete(Src, @Mid, Cost1)>.
+ECA Rule d3Local1Eca0Ins ACTION_REMOTE_SEND<d3Local1d3reachableMidsend(Src, @Mid, Cost1)> :- EVENT_INSERT<reachable(@Src, Mid, Cost1)>.
+ECA Rule d3Local1Eca0Del ACTION_REMOTE_SEND<d3reachableMidDelete(Src, @Mid, Cost1)> :- EVENT_DELETE<reachable(@Src, Mid, Cost1)>.
+ECA Rule d3Local2Eca0RemoteIns ACTION_ADD<reachable(@Src, Dest, Cost)> :- EVENT_RECV<d3Local2reachablesend(@Src, Dest, Cost)>.
+ECA Rule d3Local2Eca0Ins ACTION_REMOTE_SEND<d3Local2reachablesend(@Src, Dest, Cost)> :- EVENT_INSERT<d3reachableMid(Src, @Mid, Cost1)>, link(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule d3Local2Eca0Del ACTION_REMOTE_SEND<reachableDelete(@Src, Dest, Cost)> :- EVENT_DELETE<d3reachableMid(Src, @Mid, Cost1)>, link(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule d3Local2Eca1Ins ACTION_REMOTE_SEND<d3Local2reachablesend(@Src, Dest, Cost)> :- EVENT_INSERT<link(@Mid, Dest, Cost2)>, d3reachableMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
+ECA Rule d3Local2Eca1Del ACTION_REMOTE_SEND<reachableDelete(@Src, Dest, Cost)> :- EVENT_DELETE<link(@Mid, Dest, Cost2)>, d3reachableMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.

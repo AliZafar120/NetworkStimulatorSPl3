@@ -1,0 +1,1 @@
+ECA Rule r1Eca0Ins ACTION_LOCAL_SEND<onehop(@Src, Dest, Cost)> :- EVENT_INSERT<link(@Src, Dest, Cost)>, Cost > 0.

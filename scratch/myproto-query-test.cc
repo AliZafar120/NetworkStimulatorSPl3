@@ -70,7 +70,6 @@ initApps()
 
   address.SetBase (base, "255.255.255.0");
   address.Assign (csmaDevices);
-
   apps.Add(Create<Myproto2Helper>()->Install(mainAppNodes));
   queryapps.Add(Create<MyprotoQueryHelper>()->Install(queryAppNodes));
 

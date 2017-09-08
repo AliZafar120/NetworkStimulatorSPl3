@@ -1,0 +1,24 @@
+ECA Rule r1Eca0Ins ACTION_ADD<onehop(@Src, Dest, Cost)> :- EVENT_INSERT<link(@Src, Dest, Cost)>, Cost > 0.
+ECA Rule r1Eca0Del ACTION_DELETE<onehop(@Src, Dest, Cost)> :- EVENT_DELETE<link(@Src, Dest, Cost)>, Cost > 0.
+ECA Rule r2Local1Eca0RemoteIns ACTION_ADD<r2linkMid(Src, @Mid, Cost1)> :- EVENT_RECV<r2Local1r2linkMidsend(Src, @Mid, Cost1)>.
+ECA Rule r2Local1Eca0RemoteDel ACTION_DELETE<r2linkMid(Src, @Mid, Cost1)> :- EVENT_RECV<r2linkMidDelete(Src, @Mid, Cost1)>.
+ECA Rule r2Local1Eca0Ins ACTION_REMOTE_SEND<r2Local1r2linkMidsend(Src, @Mid, Cost1)> :- EVENT_INSERT<link(@Src, Mid, Cost1)>.
+ECA Rule r2Local1Eca0Del ACTION_REMOTE_SEND<r2linkMidDelete(Src, @Mid, Cost1)> :- EVENT_DELETE<link(@Src, Mid, Cost1)>.
+ECA Rule r2Local2Eca0RemoteIns ACTION_ADD<twohops(@Src, Mid, Cost)> :- EVENT_RECV<r2Local2twohopssend(@Src, Mid, Cost)>.
+ECA Rule r2Local2Eca0RemoteDel ACTION_DELETE<twohops(@Src, Mid, Cost)> :- EVENT_RECV<twohopsDelete(@Src, Mid, Cost)>.
+ECA Rule r2Local2Eca0Ins ACTION_REMOTE_SEND<r2Local2twohopssend(@Src, Mid, Cost)> :- EVENT_INSERT<r2linkMid(Src, @Mid, Cost1)>, onehop(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule r2Local2Eca0Del ACTION_REMOTE_SEND<twohopsDelete(@Src, Mid, Cost)> :- EVENT_DELETE<r2linkMid(Src, @Mid, Cost1)>, onehop(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule r2Local2Eca1Ins ACTION_REMOTE_SEND<r2Local2twohopssend(@Src, Mid, Cost)> :- EVENT_INSERT<onehop(@Mid, Dest, Cost2)>, r2linkMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
+ECA Rule r2Local2Eca1Del ACTION_REMOTE_SEND<twohopsDelete(@Src, Mid, Cost)> :- EVENT_DELETE<onehop(@Mid, Dest, Cost2)>, r2linkMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
+ECA Rule r3Local1Eca0RemoteIns ACTION_ADD<r3onehopMid(Src, @Mid, Cost1)> :- EVENT_RECV<r3Local1r3onehopMidsend(Src, @Mid, Cost1)>.
+ECA Rule r3Local1Eca0RemoteDel ACTION_DELETE<r3onehopMid(Src, @Mid, Cost1)> :- EVENT_RECV<r3onehopMidDelete(Src, @Mid, Cost1)>.
+ECA Rule r3Local1Eca0Ins ACTION_REMOTE_SEND<r3Local1r3onehopMidsend(Src, @Mid, Cost1)> :- EVENT_INSERT<onehop(@Src, Mid, Cost1)>.
+ECA Rule r3Local1Eca0Del ACTION_REMOTE_SEND<r3onehopMidDelete(Src, @Mid, Cost1)> :- EVENT_DELETE<onehop(@Src, Mid, Cost1)>.
+ECA Rule r3Local2Eca0Ins ACTION_REMOTE_SEND<threehops(@Src, Dest, Cost)> :- EVENT_INSERT<r3onehopMid(Src, @Mid, Cost1)>, twohops(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule r3Local2Eca1Ins ACTION_REMOTE_SEND<threehops(@Src, Dest, Cost)> :- EVENT_INSERT<twohops(@Mid, Dest, Cost2)>, r3onehopMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
+ECA Rule r4Local1Eca0RemoteIns ACTION_ADD<r4twohopsMid(Src, @Mid, Cost1)> :- EVENT_RECV<r4Local1r4twohopsMidsend(Src, @Mid, Cost1)>.
+ECA Rule r4Local1Eca0RemoteDel ACTION_DELETE<r4twohopsMid(Src, @Mid, Cost1)> :- EVENT_RECV<r4twohopsMidDelete(Src, @Mid, Cost1)>.
+ECA Rule r4Local1Eca0Ins ACTION_REMOTE_SEND<r4Local1r4twohopsMidsend(Src, @Mid, Cost1)> :- EVENT_INSERT<twohops(@Src, Mid, Cost1)>.
+ECA Rule r4Local1Eca0Del ACTION_REMOTE_SEND<r4twohopsMidDelete(Src, @Mid, Cost1)> :- EVENT_DELETE<twohops(@Src, Mid, Cost1)>.
+ECA Rule r4Local2Eca0Ins ACTION_REMOTE_SEND<threehops(@Src, Dest, Cost)> :- EVENT_INSERT<r4twohopsMid(Src, @Mid, Cost1)>, onehop(@Mid, Dest, Cost2), Cost := Cost1+ Cost2.
+ECA Rule r4Local2Eca1Ins ACTION_REMOTE_SEND<threehops(@Src, Dest, Cost)> :- EVENT_INSERT<onehop(@Mid, Dest, Cost2)>, r4twohopsMid(Src, @Mid, Cost1), Cost := Cost1+ Cost2.
