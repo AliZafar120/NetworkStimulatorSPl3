@@ -70,6 +70,7 @@ all_modules = (
     'applications/myproto-query',
     'l4-platform',
     'applications/pingpong-l4',
+     'applications/mytest',
     )
 
 def set_options(opt):
