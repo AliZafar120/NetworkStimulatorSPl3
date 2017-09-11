@@ -1,0 +1,13 @@
+Tuples
+Derived :- Path,bestPath
+Base :- link
+.
+Attributes
+link :- String(P),String(P),int
+path :- String(P),String(P),int,list
+bestPath :- String(P),String(P),int,list
+.
+Rules
+r1  path_(X,Y,C,P) :- link=(X,Y,C),P=list{X,Y}.
+r2  path_(X,Y,C,P) :- link=(X,Z,C1),bestPath(Z,Y,C2,P2),C=add(C1,C2),P2=n_contains(X),P=list(X,list_P2).
+r3  bestPath(X,Y,C, P) :- path(X,Y,C,P), bool(ismin(C))

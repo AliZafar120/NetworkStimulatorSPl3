@@ -1,0 +1,11 @@
+Derived :- Path,bestPath.
+Base :- link.
+
+Attributes
+link :- String(P),String(P),int.
+path :- String(P),String(P),int,list.
+bestPath :- String(P),String(P),int,list.
+
+Rules
+
+r1 :- 
