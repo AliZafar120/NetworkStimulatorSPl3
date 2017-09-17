@@ -14,6 +14,9 @@ public class ApplicationLogParser {
     String logFilePath="";
     BestRouteRules rules= new BestRouteRules();
     BufferedReader bufferedLogFile;
+    HashMap<String,Integer> derivationManager= new HashMap<String, Integer>();
+    // keeps <nodeOrigin,<TupleType,DerivationCounter>>
+
     HashMap<String,ArrayList<Tuple>> nodesWithTupleLogs;
 
 
@@ -27,7 +30,7 @@ public class ApplicationLogParser {
         this.logFilePath = logFilePath;
 
         applyRule= new HashMap<String, String>();
-
+        derivationManager= new HashMap<String, Integer>();
     }
 
     public void setLogFilePath(String logFilePath) {
@@ -95,10 +98,34 @@ public class ApplicationLogParser {
 
 
 
-    public void getLogFormat(String logline){
-        if(isSend(logline)) System.out.println(getReceiver(logline));
-        if(isReceive(logline)) System.out.println(getSender(logline));
-        System.out.println(getLogSource(logline));
+    public LogFormat getLogFormat(String logline){
+        int derived=isderive(logline);
+        String time=getTupleTime(logline);
+        String node=getLogSource(logline);
+        int derivationCounter=0;
+
+        Tuple t= new Tuple();
+        t.type=getTupleType(logline);
+        t.attributes=getTupleAttributes(logline);
+        t.tupleOrigin=t.attributes.get(0).tupleAttributeValue;
+        if(isSend(logline))t.tupleDestination=getReceiver(logline);
+        if(isReceive(logline))t.tupleSource=getSender(logline);
+
+        String rule=getRule(t);
+
+
+        if(!derivationManager.keySet().contains(t.tupleOrigin+t.type)){
+             derivationManager.put(t.tupleOrigin+t.type,1);
+             derivationCounter=1;
+        }
+        else{
+            derivationCounter=derivationManager.get(t.tupleOrigin+t.type)+1;
+            derivationManager.put(t.tupleOrigin+t.type,derivationCounter);
+        }
+
+        LogFormat logFormat= new LogFormat(t,derived,node,time,rule,derivationCounter);
+        return  logFormat;
+        /*
         System.out.println(getTupleTime(logline));
         System.out.println(isderive(logline));
         System.out.println(getTupleType(logline));
@@ -111,11 +138,19 @@ public class ApplicationLogParser {
                     System.out.println(value);
                 }
             }
-        }
+        }*/
 
     }
 
 
+    public ArrayList<LogFormat> getAllFormattedLog(ArrayList<String> logs){
+        ArrayList<LogFormat> formattedLogs= new ArrayList<LogFormat>();
+        for(String logline:logs){
+            formattedLogs.add(getLogFormat(logline));
+        }
+
+        return formattedLogs;
+    }
 
     //end of parsing
 
@@ -132,6 +167,19 @@ public class ApplicationLogParser {
         return  splitlog[1].replace(":","");
 
 
+    }
+
+    public String getRule(Tuple t){
+        if(t.type=="path"){
+            if(t.attributes.get(3).tupleAttributelistValue.size()==2) return "r1";
+            else return "r2";
+        }
+        else if(t.type=="bestPath"){
+            return "r3";
+        }
+        else {
+            return  null;
+        }
     }
 
 
