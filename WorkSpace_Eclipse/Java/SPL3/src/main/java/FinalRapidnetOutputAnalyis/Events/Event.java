@@ -2,12 +2,15 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class Event {
-		String occuredAtNode;
+		String node;
 		String eventName;
 		String time;
 		Tuple tuple;
+		int derived;
+		int derivationCounter;
+		String rule;
 	public Event() {
-		occuredAtNode="";
+		node="";
 		eventName="";
 		time="";
 		tuple= new Tuple();
@@ -16,30 +19,30 @@ public class Event {
 		super();
 		this.eventName = eventName;
 	}
-	public Event(String occuredAtNode, String eventName) {
+	public Event(String node, String eventName) {
 		super();
-		this.occuredAtNode = occuredAtNode;
+		this.node = node;
 		this.eventName = eventName;
 	}
-	public Event(String occuredAtNode, String eventName, String time) {
+	public Event(String node, String eventName, String time) {
 		super();
-		this.occuredAtNode = occuredAtNode;
+		this.node = node;
 		this.eventName = eventName;
 		this.time = time;
 	}
-	public Event(String occuredAtNode, String eventName, String time,
+	public Event(String node, String eventName, String time,
 			Tuple tuple) {
 		super();
-		this.occuredAtNode = occuredAtNode;
+		this.node = node;
 		this.eventName = eventName;
 		this.time = time;
 		this.tuple = tuple;
 	}
 	public String getOccuredAtNode() {
-		return occuredAtNode;
+		return node;
 	}
 	public void setOccuredAtNode(String occuredAtNode) {
-		this.occuredAtNode = occuredAtNode;
+		this.node = occuredAtNode;
 	}
 	public String getEventName() {
 		return eventName;

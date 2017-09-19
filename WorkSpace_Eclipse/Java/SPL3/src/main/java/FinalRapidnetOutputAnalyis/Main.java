@@ -18,7 +18,11 @@ public class Main {
         System.out.println(r1.derivedTuple);
         System.out.println(r1.terms);*/
        // if("a * b".matches("[+\\-*/]")) System.out.println("okj");
-       ArrayList <LogFormat> formattedlogs = new ArrayList<LogFormat>();
+
+
+        //*********************currently working on this
+
+        ArrayList <LogFormat> formattedlogs = new ArrayList<LogFormat>();
 
        ApplicationLogParser parse= new ApplicationLogParser();
 
@@ -28,10 +32,18 @@ public class Main {
         ArrayList<String> stringlogs=parse.parseRapidnetLog();
         formattedlogs= parse.getAllFormattedLog(stringlogs);
         System.out.println(formattedlogs.size());
+        System.out.println(formattedlogs.get(0).t.equals(formattedlogs.get(0).t));
+
+        //*************************************Currently working on this
+
 
        // parse.setRuleBuffer();
        // System.out.println(elapsedTime());
 
+        //**********using main for test
+
+
+        //**********using main for test
     }
 
     public static void startStopwatch() {

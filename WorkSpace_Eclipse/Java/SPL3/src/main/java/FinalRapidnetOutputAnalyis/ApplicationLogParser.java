@@ -114,13 +114,14 @@ public class ApplicationLogParser {
         String rule=getRule(t);
 
 
-        if(!derivationManager.keySet().contains(t.tupleOrigin+t.type)){
-             derivationManager.put(t.tupleOrigin+t.type,1);
-             derivationCounter=1;
-        }
-        else{
-            derivationCounter=derivationManager.get(t.tupleOrigin+t.type)+1;
-            derivationManager.put(t.tupleOrigin+t.type,derivationCounter);
+        if(derived==1) {
+            if (!derivationManager.keySet().contains(t.tupleOrigin + t.type +t.attributes.get(0).tupleAttributeValue+t.attributes.get(1).tupleAttributeValue)) {
+                derivationManager.put(t.tupleOrigin + t.type+t.attributes.get(0).tupleAttributeValue+t.attributes.get(1).tupleAttributeValue, 1);
+                derivationCounter = 1;
+            } else {
+                derivationCounter = derivationManager.get(t.tupleOrigin + t.type+t.attributes.get(0).tupleAttributeValue+t.attributes.get(1).tupleAttributeValue) + 1;
+                derivationManager.put(t.tupleOrigin + t.type, derivationCounter);
+            }
         }
 
         LogFormat logFormat= new LogFormat(t,derived,node,time,rule,derivationCounter);
@@ -186,8 +187,8 @@ public class ApplicationLogParser {
     public int isderive(String log){
         //+-t
        String []splitlog= log.split(" ");
-       if(splitlog[2]=="Inserting") return  1;
-       else if(splitlog[2]=="Delete") return  0;
+       if(splitlog[2].contains("Insert")) return  1;
+       else if(splitlog[2].contains("Delet")) return  0;
        else return -1;
     }
 

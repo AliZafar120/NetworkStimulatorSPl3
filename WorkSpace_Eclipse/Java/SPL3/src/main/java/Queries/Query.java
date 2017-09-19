@@ -1,12 +1,16 @@
 package Queries;
 
+import FinalRapidnetOutputAnalyis.Events.Event;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
 
 public class Query {
-
+    ArrayList<Event>queryOutputEvents;
+    public Query(){
+        queryOutputEvents= new ArrayList<Event>();
+    }
 
     public Tuple insertQuery(String time,Tuple t, String Node){
         //it's the base level
