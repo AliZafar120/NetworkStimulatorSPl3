@@ -38,6 +38,18 @@ public class Event {
 		this.time = time;
 		this.tuple = tuple;
 	}
+	public Event(String eventName,String time, String node, Tuple t,String rule, int derivationCounter) {
+		super();
+		this.eventName = eventName;
+		this.node = node;
+		this.time = time;
+		this.tuple = t;
+		this.rule=rule;
+		this.derivationCounter=derivationCounter;
+	}
+
+
+
 	public String getOccuredAtNode() {
 		return node;
 	}
@@ -56,7 +68,7 @@ public class Event {
 	public void setTime(String time) {
 		this.time = time;
 	}
-	public Tuple getTuple() {
+	public Tuple getTupkle() {
 		return tuple;
 	}
 	public void setTuple(Tuple tuple) {

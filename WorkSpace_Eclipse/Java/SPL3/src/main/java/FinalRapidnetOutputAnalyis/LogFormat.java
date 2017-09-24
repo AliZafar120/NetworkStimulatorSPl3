@@ -3,12 +3,12 @@ package FinalRapidnetOutputAnalyis;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class LogFormat {
-    Tuple t;
-    int derived;
-    String time;
-    String rule;
-    String node;
-    int derivationCounter;
+    public Tuple t;
+    public int derived;
+    public String time;
+    public String rule;
+    public String node;
+    public int derivationCounter;
 
     public LogFormat(Tuple t, int derived,  String node,String time,String rule, int derivationCounter) {
         this.t = t;

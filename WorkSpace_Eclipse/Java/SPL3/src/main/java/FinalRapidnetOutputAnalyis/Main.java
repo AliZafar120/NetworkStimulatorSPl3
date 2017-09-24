@@ -34,6 +34,7 @@ public class Main {
         System.out.println(formattedlogs.size());
         System.out.println(formattedlogs.get(0).t.equals(formattedlogs.get(0).t));
 
+
         //*************************************Currently working on this
 
 

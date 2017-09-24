@@ -67,4 +67,47 @@ public class Tuple {
 
 		return  true;
 	}
+
+	public boolean attributesEquals(Tuple anotherTuple){
+
+		//tuple name
+		if (this.type.compareTo(anotherTuple.type)!=0)
+			return  false;//if tuple type does not match
+		//Attributes
+		if(attributes.size()!=anotherTuple.attributes.size())
+			return false;//if attributes size does not match
+		for (int i=0;i<attributes.size();i++) {
+			if(attributes.get(i).tupleAttributeName.compareTo(anotherTuple.attributes.get(i).tupleAttributeName)!=0)
+				return false;
+			if(attributes.get(i).islist!=anotherTuple.attributes.get(i).islist)
+				return false;
+			if(attributes.get(i).islist==true && attributes.size()!=anotherTuple.attributes.size())
+				return false;
+			if(attributes.get(i).islist==true) {
+				for (int j = 0; j < attributes.get(i).tupleAttributelistValue.size(); j++) {
+					if (attributes.get(i).tupleAttributelistValue.get(j).compareTo(anotherTuple.attributes.get(i).tupleAttributelistValue.get(j)) != 0)
+						return false;
+				}
+			}
+		}
+		return  true;
+
+	}
+
+	@Override
+	public String toString() {
+		String output = "Tuple : "+this.type +" TupleOrigin :"+this.tupleOrigin;
+		for(TupleAttribute attr: attributes){
+			if(!attr.islist) {
+				output +=" Attributes : "+attr.tupleAttributeName+"("+attr.tupleAttributeValue+")";
+			}
+			else{
+				output +=" Attributes : "+attr.tupleAttributeName+"(";
+				for(String listItem:attr.tupleAttributelistValue){
+					output +="{"+listItem+"},";
+				}
+			}
+		}
+		return output;
+	}
 }
