@@ -18,4 +18,8 @@ public class LogFormat {
         this.derivationCounter = derivationCounter;//c
         this.time=time;
     }
+
+    public String getTime(){
+        return this.time.replaceAll("\\D+","");
+    }
 }

@@ -2,6 +2,11 @@ package FinalRapidnetOutputAnalyis;
 
 
 import FinalRapidnetOutputAnalyis.Rules.Rule;
+import FinalRapidnetOutputAnalyis.Tuples.Attribute.TupleAttribute;
+import FinalRapidnetOutputAnalyis.Tuples.Tuple;
+import Queries.Query;
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,8 +38,17 @@ public class Main {
         formattedlogs= parse.getAllFormattedLog(stringlogs);
         System.out.println(formattedlogs.size());
         System.out.println(formattedlogs.get(0).t.equals(formattedlogs.get(0).t));
+        System.out.println(formattedlogs.get(0).t.attributesEquals(formattedlogs.get(0).t));
+
+        Tuple qtuple=formattedlogs.get(30).t;
+
+        Query query= new Query();
+        query.setLogs(formattedlogs);
 
 
+        query.existQuery("0","10000000000","10.1.1.3",qtuple);
+        System.out.println(query.queryOutputEvents);
+        //System.out.println("102".compareTo("101")>0);
         //*************************************Currently working on this
 
 
