@@ -147,7 +147,16 @@ public class ApplicationLogParser {
     public ArrayList<LogFormat> getAllFormattedLog(ArrayList<String> logs){
         ArrayList<LogFormat> formattedLogs= new ArrayList<LogFormat>();
         for(String logline:logs){
-            formattedLogs.add(getLogFormat(logline));
+            LogFormat format=getLogFormat(logline);
+
+            if(format.rule!=null && format.rule.compareTo("r2")==0 && format.t.tupleDestination!=null){
+                LogFormat tempformat=new LogFormat(format.t,1,format.node,format.time,format.rule,format.derivationCounter);
+                formattedLogs.add(tempformat);//addding appear for rule2
+
+            }
+
+            formattedLogs.add(format);
+
         }
 
         return formattedLogs;
@@ -159,13 +168,13 @@ public class ApplicationLogParser {
     //needed for easy parsing of log files
     public String getTupleTime(String log){
         String []splitlog= log.split(" ");
-        return  splitlog[0].replace("[","").replace("]","");
+        return  splitlog[0].replace("[","").replace("]","").replaceAll("\\s+","");
     }
 
 
     public String getLogSource(String log){
         String []splitlog= log.split(" ");
-        return  splitlog[1].replace(":","");
+        return  splitlog[1].replace(":","").replaceAll("\\s+","");
 
 
     }
@@ -243,11 +252,11 @@ public class ApplicationLogParser {
     }
 
     public String getReceiver(String logLine){
-        return logLine.split("to")[1];
+        return logLine.split("to")[1].replaceAll("\\s+","");
     }
 
     public String getSender(String logLine){
-        return logLine.split("from")[1];
+        return logLine.split("from")[1].replaceAll("\\s+","");
     }
 
     public boolean willApplyRules(String log){

@@ -12,7 +12,7 @@ public class DelayEvent extends Event{
         this.eventName="Delay";
     }
 
-    public DelayEvent(String timeSend, String nodeSource, String nodeDestination,Tuple t, long delayTime) {
+    public DelayEvent(String timeSend, String nodeSource, String nodeDestination,Tuple t, String delayTime) {
         super();
         this.eventName = "Delay";
         this.timeSend=timeSend;

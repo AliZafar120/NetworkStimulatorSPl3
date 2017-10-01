@@ -79,14 +79,20 @@ public class Tuple {
 		for (int i=0;i<attributes.size();i++) {
 			if(attributes.get(i).tupleAttributeName.compareTo(anotherTuple.attributes.get(i).tupleAttributeName)!=0)
 				return false;
-			if(attributes.get(i).islist!=anotherTuple.attributes.get(i).islist)
-				return false;
-			if(attributes.get(i).islist==true && attributes.size()!=anotherTuple.attributes.size())
-				return false;
-			if(attributes.get(i).islist==true) {
-				for (int j = 0; j < attributes.get(i).tupleAttributelistValue.size(); j++) {
-					if (attributes.get(i).tupleAttributelistValue.get(j).compareTo(anotherTuple.attributes.get(i).tupleAttributelistValue.get(j)) != 0)
-						return false;
+			if(attributes.get(i).islist==false && anotherTuple.attributes.get(i).islist==false){
+				if(attributes.get(i).tupleAttributeValue.compareTo(anotherTuple.attributes.get(i).tupleAttributeValue)!=0)
+					return false;
+
+			}else {
+				if (attributes.get(i).islist != anotherTuple.attributes.get(i).islist)
+					return false;
+				if (attributes.get(i).islist == true && attributes.size() != anotherTuple.attributes.size())
+					return false;
+				if (attributes.get(i).islist == true) {
+					for (int j = 0; j < attributes.get(i).tupleAttributelistValue.size(); j++) {
+						if (attributes.get(i).tupleAttributelistValue.get(j).compareTo(anotherTuple.attributes.get(i).tupleAttributelistValue.get(j)) != 0)
+							return false;
+					}
 				}
 			}
 		}

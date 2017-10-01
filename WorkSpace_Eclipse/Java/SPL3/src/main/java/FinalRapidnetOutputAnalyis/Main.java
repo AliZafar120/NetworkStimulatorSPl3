@@ -32,7 +32,7 @@ public class Main {
        ApplicationLogParser parse= new ApplicationLogParser();
 
 
-       parse.setLogFilePath("/home/ali/Workspace/Java/SPL3/src/RapidnetOutputAnalysis/outputPath.txt");
+       parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/Log2.txt");
         parse.setLogFilebuffer();
         ArrayList<String> stringlogs=parse.parseRapidnetLog();
         formattedlogs= parse.getAllFormattedLog(stringlogs);
@@ -40,13 +40,13 @@ public class Main {
         System.out.println(formattedlogs.get(0).t.equals(formattedlogs.get(0).t));
         System.out.println(formattedlogs.get(0).t.attributesEquals(formattedlogs.get(0).t));
 
-        Tuple qtuple=formattedlogs.get(30).t;
+        Tuple qtuple=formattedlogs.get(24).t;//31
 
         Query query= new Query();
         query.setLogs(formattedlogs);
 
 
-        query.existQuery("0","10000000000","10.1.1.3",qtuple);
+        query.existQuery("0","10000000000","10.1.1.1",qtuple);
         System.out.println(query.queryOutputEvents);
         //System.out.println("102".compareTo("101")>0);
         //*************************************Currently working on this
