@@ -125,6 +125,11 @@ public class ApplicationLogParser {
         }
 
         LogFormat logFormat= new LogFormat(t,derived,node,time,rule,derivationCounter);
+        if(derived==-1){
+            logFormat.exchangeIsderived=exchangeIsderived(logline);
+        }else{
+            logFormat.exchangeIsderived=-1;
+        }
         return  logFormat;
         /*
         System.out.println(getTupleTime(logline));
@@ -150,9 +155,14 @@ public class ApplicationLogParser {
             LogFormat format=getLogFormat(logline);
 
             if(format.rule!=null && format.rule.compareTo("r2")==0 && format.t.tupleDestination!=null){
-                LogFormat tempformat=new LogFormat(format.t,1,format.node,format.time,format.rule,format.derivationCounter);
-                formattedLogs.add(tempformat);//addding appear for rule2
+                if(format.exchangeIsderived==0) {
+                    LogFormat tempformat = new LogFormat(format.t, 0, format.node, format.time, format.rule, format.derivationCounter);
+                    formattedLogs.add(tempformat);//addding appear for rule2
+                }else {
+                    LogFormat tempformat = new LogFormat(format.t, 1, format.node, format.time, format.rule, format.derivationCounter);
+                    formattedLogs.add(tempformat);//addding appear for rule2
 
+                }
             }
 
             formattedLogs.add(format);
@@ -248,6 +258,12 @@ public class ApplicationLogParser {
     public boolean isReceive(String logline){
         if(logline.contains("Received"))return  true;
         else return false;
+
+    }
+
+    public int exchangeIsderived(String logline){
+        if(logline.contains("Delete"))return  0;
+        else return 1;
 
     }
 

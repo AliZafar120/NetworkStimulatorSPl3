@@ -5,6 +5,7 @@ import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 public class LogFormat {
     public Tuple t;
     public int derived;
+    public int exchangeIsderived;//means not exchange 0 means delete and 1 means insert
     public String time;
     public String rule;
     public String node;

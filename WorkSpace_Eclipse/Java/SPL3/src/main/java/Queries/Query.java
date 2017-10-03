@@ -61,7 +61,7 @@ public class Query {
                        log.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue)==0
 
                  ){
-                    insertQuery(time,log.t,Node);
+                   appearQuery(time,log.t,Node,log.rule,log.derivationCounter);
                    break;
                }
 
@@ -102,7 +102,7 @@ public class Query {
                 }
             }else{
 
-                receiveQuery(time,Node,tuple,1);
+               // receiveQuery(time,Node,tuple,1);//ommitted as another log was inserted for r2 rule
 
                 /*for(LogFormat receivedPathLog: logs){
                     if(receivedPathLog.t.type.compareTo("path")==0 &&
@@ -155,7 +155,7 @@ public class Query {
         //if()
 
         for(LogFormat log: logs){
-            if(log.derived==-1 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0 && log.t.tupleDestination.compareTo(destination)==0){
+            if(log.derived==-1 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0 && log.t.tupleDestination.compareTo(destination)==0 && log.exchangeIsderived==isderive){
                 queryOutputEvents.add(new DelayEvent(log.time,log.node,destination,log.t,""+new BigInteger(destinationArrivalTime).subtract(new BigInteger(log.getTime()))));
                 queryOutputEvents.add(new SendEvent(log.time,node,log.t.tupleDestination,tuple));
 
@@ -165,12 +165,14 @@ public class Query {
 
 
         for(LogFormat log: logs){
-            if(log.derived==1 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0){
 
-            appearQuery(log.time,log.t,node,log.rule,log.derivationCounter);
-            return;
+            if (isderive==1&& log.derived == 1 && log.t.attributesEquals(tuple) && log.node.compareTo(node) == 0) {
+
+                    appearQuery(log.time, log.t, node, log.rule, log.derivationCounter);
+                    return;
             }
-            if(log.derived==0 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0){
+
+            if(isderive==0 && log.derived==0 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0){
 
                 disappearQuery(log.time,log.t,node,log.rule,log.derivationCounter);
                 return;
@@ -182,7 +184,7 @@ public class Query {
 
     public void receiveQuery( String time, String node, Tuple tuple, int isderive){
         for(LogFormat log: logs){
-            if(log.derived==-1 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0){
+            if(log.derived==-1 && log.t.attributesEquals(tuple) && log.node.compareTo(node)==0 && log.exchangeIsderived==isderive){
             queryOutputEvents.add(new ReceiveEvent(log.time,node,log.t.tupleSource,tuple));
             sendQuery(log.t.tupleSource,node,tuple,log.getTime(), isderive);
                 break;
@@ -300,54 +302,87 @@ public class Query {
         queryOutputEvents.add(new UnderiveEvent(time,Node,tuple,rule));
 
         //need to modify this to return tuples
-
         if(rule.compareTo("r1")==0){
             for (LogFormat log:logs){
                 if(log.t.type.compareTo("link")==0 &&
                         log.time.compareTo(time)==0 &&
+                        log.derived==0 &&
                         log.node.compareTo(Node)==0 &&
                         log.t.attributes.get(0).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue)==0 &&
                         log.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue)==0
 
                         ){
-                    deleteQuery(time,log.t,Node);
+                    disappearQuery(time,log.t,Node,log.rule,log.derivationCounter);
+                    break;
                 }
 
             }
 
         }
         else if(rule.compareTo("r2")==0){
-
+            boolean isanybestpath=false;
+            LogFormat bestpath= null;
+            for(LogFormat linklogs: logs){
+                if(linklogs.t.type.compareTo("link")==0 &&
+                        linklogs.node.compareTo(Node)==0
+                        &&
+                        linklogs.derived==0 &&
+                        linklogs.t.attributes.get(0).tupleAttributeValue.compareTo(Node)==0 &&
+                        linklogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue)==0
+                        ){
+                    disappearQuery(linklogs.time,linklogs.t,Node,linklogs.rule,linklogs.derivationCounter);
+                    //existQuery(0,Long.parseLong(time),Node,linklogs.t);
+                    return;
+                }
+            }
             for(LogFormat bestPathlogs: logs){
+                if(new BigInteger(bestPathlogs.getTime()).compareTo(new BigInteger(time.replaceAll("ns","")))>=0) break;
                 if(bestPathlogs.t.type.compareTo("bestPath")==0 &&
+                        bestPathlogs.derived==0 &&
                         bestPathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue)==0
-                        && bestPathlogs.time.compareTo(time)==0
                         && bestPathlogs.node.compareTo(Node)==0
                         ){
-
-                    for(LogFormat linklogs: logs){
-                        if(linklogs.t.type.compareTo("link")==0 &&
-                                linklogs.node.compareTo(Node)==0
-                                &&
-                                linklogs.t.attributes.get(0).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue)==0
-                                && linklogs.t.attributes.get(2).tupleAttributeValue+bestPathlogs.t.attributes.get(2).tupleAttributeValue==tuple.attributes.get(2).tupleAttributeValue
-                                ){
-
-                            disappearQuery(time,bestPathlogs.t,Node,"r3",bestPathlogs.derivationCounter);
-                            //existQuery(0,Long.parseLong(time),Node,linklogs.t);
-                        }
-                    }
-
+                    isanybestpath=true;
+                    bestpath=bestPathlogs;
                 }
 
+            }
+            if(isanybestpath){
+                disappearQuery(time,bestpath.t,Node,bestpath.rule,bestpath.derivationCounter);
+
+
+            }else{
+
+                //receiveQuery(time,Node,tuple,0);
+
+                /*for(LogFormat receivedPathLog: logs){
+                    if(receivedPathLog.t.type.compareTo("path")==0 &&
+                            receivedPathLog.node.compareTo(Node)==0
+                            &&
+                            receivedPathLog.derived==-1
+                            &&receivedPathLog.t.attributes.get(0).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue)==0
+                            &&receivedPathLog.t.attributes.get(2).tupleAttributeValue+bestpath.t.attributes.get(1).tupleAttributeValue==tuple.attributes.get(1).tupleAttributeValue
+
+                            && receivedPathLog.t.attributes.get(2).tupleAttributeValue+bestpath.t.attributes.get(2).tupleAttributeValue==tuple.attributes.get(2).tupleAttributeValue
+                            ){
+
+
+                        //receiveQuery(time,Node,Node,receivedPathLog.rule,bestpath.derivationCounter);
+
+                        //existQuery(0,Long.parseLong(time),Node,linklogs.t);
+                    }
+                }*/
 
 
             }
+
 
         }
         else if(rule.compareTo("r3")==0){
             for(LogFormat log: logs){
                 if(log.t.type.compareTo("path")==0
+                        &&log.derived==0
+                        &&log.node.compareTo(Node)==0
                         && log.t.attributes.get(0).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue)==0
                         && log.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue)==0
 
@@ -355,12 +390,13 @@ public class Query {
                         && log.t.attributes.get(3).tupleAttributelistValue.size()==tuple.attributes.get(3).tupleAttributelistValue.size()
                         ){
 
-                    disappearQuery(time,log.t,Node,"r3",log.derivationCounter);
-
+                    disappearQuery(log.time,log.t,Node,log.rule,log.derivationCounter);
+                    break;
                 }
 
             }
         }
+
 
 
     }
