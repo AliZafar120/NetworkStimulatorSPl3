@@ -402,4 +402,70 @@ public class Query {
     }
 
 
+
+    //starting negative provenance queries
+
+    public void nexistQuery(String stime, String ftime, String node, Tuple tuple ){
+        for(LogFormat log:logs ){
+            String timeOfLog=log.getTime();
+               /* if(i==29){
+                    System.out.println();
+                }*/
+            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime))<=0  && log.t.attributesEquals(t)){
+                queryOutputEvents.add(new NAppearEvent(log.time,ftime,node,tuple));
+                disappearQuery(log.time,log.t,node,log.rule,log.derivationCounter);
+              return;
+            }
+        }
+
+        //since not dissappeared so never arrived so query nappear
+        nappearQuery(stime,ftime,node,tuple);
+
+
+    }
+
+    public void nappearQuery(String stime, String ftime,String node, Tuple tuple){
+        queryOutputEvents.add(new NAppearEvent(stime,ftime,node,tuple));
+        if(tuple.type.compareTo("link")==0){
+            ninsertQuery(stime,ftime,node,tuple);
+        }
+        // how to identify if it will be localtuple?
+
+        else{
+           // nreceiveQuery(stime,ftime);
+        }
+
+
+    }
+
+    public void nderiveQuery(){
+
+    }
+
+
+    public void nsendQuery(){
+
+    }
+
+    public void nreceiveQuery(){
+
+    }
+    public void narriveQuery(){
+
+    }
+
+    public void ninsertQuery(String stime, String ftime, String node, Tuple tuple){
+        queryOutputEvents.add(new NInsertEvent(stime,ftime,node,tuple));
+
+    }
+
+
+
+
+
+
+
+
+
+
 }
