@@ -1,5 +1,8 @@
 package GraphTest;
 
+import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.view.mxGraph;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -49,20 +52,6 @@ public class GraphGenerator extends JFrame implements ActionListener {
         return panel;
     }
 
-    private JPanel getRapidnetApplicationPanel(){
-        JPanel panel= new JPanel();
-        button_rapidnet_log_file= new JButton("Upload Log file");
-        button_rapidnet_NDlog_file= new JButton("NDLog file");
-        button_generate_rapidnet_graph= new JButton("Generate Graph");
-        button_rapidnet_log_file.addActionListener(this);
-        button_generate_rapidnet_graph.addActionListener(this);
-        panel.add(button_rapidnet_log_file);
-        panel.add(button_rapidnet_NDlog_file);
-        panel.add(button_generate_rapidnet_graph);
-
-        return panel;
-    }
-
     private void changePanel(JPanel panel) {
         getContentPane().removeAll();
         getContentPane().add(panel, new FlowLayout());
@@ -94,21 +83,54 @@ public class GraphGenerator extends JFrame implements ActionListener {
 
         if(actionEvent.getSource() == button_generate_rapidnet_graph) {
 
-            changePanel(getGraph());
+            getGraph();
             repaint();
             // this.paint(null);
 
         }
     }
 
-    public JPanel getGraph(){
-        JPanel mainPanel= new JPanel();
-        JPanel graphPanel = new GraphPanel();
+    public void getGraph(){
+        setVisible(true);
+/*
+        mxGraph graph = new mxGraph();
+        Object parent = graph.getDefaultParent();
 
-        JScrollPane scrollablePanel = new JScrollPane(graphPanel);
-        mainPanel.add(scrollablePanel);
-        return  new GraphPanel();
+        graph.getModel().beginUpdate();
+        try
+        {
+            Object v1 = graph.insertVertex(parent, null, "Hello", 20, 20, 10,
+                    10);
+            //x,y,width,height
+
+            Object v2 = graph.insertVertex(parent, null, "World!", 240, 150,
+                    80, 30);
+            graph.insertEdge(parent, null, "Edge", v1, v2);
+        }
+        finally
+        {
+            graph.getModel().endUpdate();
+        }
+
+        mxGraphComponent graphComponent = new mxGraphComponent(graph);
+        getContentPane().add(graphComponent);*/
+       // return  new GraphPanel();
     }
+
+    private JPanel getRapidnetApplicationPanel(){
+        JPanel panel= new JPanel();
+        button_rapidnet_log_file= new JButton("Upload Log file");
+        button_rapidnet_NDlog_file= new JButton("NDLog file");
+        button_generate_rapidnet_graph= new JButton("Generate Graph");
+        button_rapidnet_log_file.addActionListener(this);
+        button_generate_rapidnet_graph.addActionListener(this);
+        panel.add(button_rapidnet_log_file);
+        panel.add(button_rapidnet_NDlog_file);
+        panel.add(button_generate_rapidnet_graph);
+
+        return panel;
+    }
+
 
 
 

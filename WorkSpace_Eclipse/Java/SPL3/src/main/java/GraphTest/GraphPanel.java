@@ -1,39 +1,36 @@
 package GraphTest;
 
+import com.mxgraph.swing.mxGraphComponent;
+import com.mxgraph.view.mxGraph;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class GraphPanel extends JPanel{
-/*
-    public void paint(Graphics g) {
-        super.paintComponent(g);
-        g.drawRect(230,80,10,10);
-        g.setColor(Color.RED);
-        g.fillRect(230,80,10,10);
+public class GraphPanel extends ScrollPane{
 
-    }*/
+    public GraphPanel(){
 
-    private String sShape = "Line";
-    public void setShape(String shape)
-    {
-        sShape = shape;
-        repaint();
+        mxGraph graph = new mxGraph();
+        Object parent = graph.getDefaultParent();
+
+        graph.getModel().beginUpdate();
+        try
+        {
+            Object v1 = graph.insertVertex(parent, null, "Hello", 20, 20, 10,
+                    10);
+            //x,y,width,height
+
+            Object v2 = graph.insertVertex(parent, null, "World!", 240, 150,
+                    80, 30);
+            graph.insertEdge(parent, null, "Edge", v1, v2);
+        }
+        finally
+        {
+            graph.getModel().endUpdate();
+        }
+
+        mxGraphComponent graphComponent = new mxGraphComponent(graph);
+        this.add(graphComponent);
     }
-    @Override
-    public void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        if ("Line".equalsIgnoreCase(sShape))
-        {
-            g.drawLine(10, 20, 500, 500);
-        }
-        else if ("Circle".equalsIgnoreCase(sShape))
-        {
-            g.drawOval(50, 100 , 200, 200);
-        }
-        else if ("Rectangle".equalsIgnoreCase(sShape))
-        {
-            g.drawRect(10, 20, 150, 200);
-        }
-    }
+
 }

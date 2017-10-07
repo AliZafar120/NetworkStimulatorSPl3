@@ -8,6 +8,9 @@ import sun.rmi.runtime.Log;
 import java.math.BigInteger;
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Query {
     public ArrayList<Event>queryOutputEvents;
@@ -406,12 +409,11 @@ public class Query {
     //starting negative provenance queries
 
     public void nexistQuery(String stime, String ftime, String node, Tuple tuple ){
+        queryOutputEvents.add(new NExistEvent(stime,ftime,node,tuple));
         for(LogFormat log:logs ){
             String timeOfLog=log.getTime();
-               /* if(i==29){
-                    System.out.println();
-                }*/
-            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime))<=0  && log.t.attributesEquals(t)){
+
+            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime.replaceAll("\\D+","")))<=0  && log.t.attributesEquals(tuple)){
                 queryOutputEvents.add(new NAppearEvent(log.time,ftime,node,tuple));
                 disappearQuery(log.time,log.t,node,log.rule,log.derivationCounter);
               return;
@@ -431,26 +433,135 @@ public class Query {
         }
         // how to identify if it will be localtuple?
 
+        if(isNotDerivedLocalTuple(node,tuple)){
+            nderiveQuery(stime,ftime,node,tuple);
+        }
         else{
-           // nreceiveQuery(stime,ftime);
+            nreceiveQuery(stime,ftime,node,tuple,1 );
+        }
+
+
+
+    }
+
+    public boolean isNotDerivedLocalTuple(String node,Tuple tuple){
+
+        if(tuple.type.compareTo("link")==0  && tuple.attributes.get(0).tupleAttributeValue.compareTo(node)==0){
+            return true;
+        }
+        if(tuple.type.compareTo("path")==0  && tuple.attributes.get(0).tupleAttributeValue.compareTo(node)==0){
+            if(tuple.attributes.get(2).tupleAttributelistValue.size()!=2) return false;
+            return true;
+        }
+        if(tuple.type.compareTo("bestPath")==0  && tuple.attributes.get(0).tupleAttributeValue.compareTo(node)==0){
+            return true;
+        }
+        return  false;
+
+    }
+
+    public boolean nderiveQuery(String stime,String ftime,String node,Tuple tuple){
+       // queryOutputEvents.add(new UnderiveEvent(time,Node,tuple,rule));
+        if(tuple.type.compareTo("link")==0){
+            ninsertQuery(stime,ftime,node,tuple);
+        }
+        else if(tuple.type.compareTo("path")==0){
+            if(tuple.attributes.get(2).tupleAttributelistValue.size()==2){
+                Tuple searchTuple = new Tuple();
+                searchTuple.type="link";
+                searchTuple.attributes.add(tuple.attributes.get(0));
+                searchTuple.attributes.add(tuple.attributes.get(1));
+                nexistQuery(stime,ftime,node,searchTuple);
+            }else{
+                Tuple searchTuple = new Tuple();
+                //log e node e link jotogula ase segula bestpath e ase kina
+
+                //thankle se onuzayi bestpath ber kora jabe
+                searchTuple.type="bestPath";
+                searchTuple.attributes.add(tuple.attributes.get(0));
+                searchTuple.attributes.add(tuple.attributes.get(1));
+                nexistQuery(stime,ftime,node,searchTuple);
+            }
+
+        }
+        else if(tuple.type.compareTo("bestPath")==0){
+        Tuple searchTuple = new Tuple();
+        searchTuple.type="path";
+        searchTuple.attributes=tuple.attributes;
+        nexistQuery(stime,ftime,node,searchTuple);
+        }
+
+
+        return false;
+    }
+
+
+    public void nsendQuery(String stime, String ftime,String node, Tuple tuple,int isexchangedDerive){
+        queryOutputEvents.add(new NSendEvent(stime,ftime,node,tuple));
+        for(LogFormat log:logs ){
+            String timeOfLog=log.getTime();
+               /* if(i==29){
+                    System.out.println();
+                }*/
+            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime.replaceAll("\\D+","")))<=0  && log.t.attributesEquals(tuple)){
+                queryOutputEvents.add(new ExistEvent(stime,log.time,node,tuple));
+                nappearQuery(log.time,ftime,node,tuple);
+                return;
+            }
+        }
+        //not found so nappearquery
+        nappearQuery(stime,ftime,node,tuple);
+
+    }
+
+    public void nreceiveQuery(String stime, String ftime,String node,Tuple tuple, int isexchangedderived){
+        queryOutputEvents.add(new NReceiveEvent(stime,ftime,node,tuple));
+        String timeT0=""+(new BigInteger(stime.replaceAll("\\D+",""))).subtract(new BigInteger("100000"));
+        ArrayList<String> probablesenders=probeSenders(node,tuple);
+        if(probablesenders!=null){
+            for(String sender: probablesenders){
+
+                String tuplePresenceTime=stime;
+                for(LogFormat log: logs){
+                    if(new BigInteger(ftime.replaceAll("\\D+","")).compareTo(new BigInteger(log.time.replaceAll("ns","")))>=0) break;
+                    if(log.derived==-1 && log.t.attributesEquals(tuple) && log.node.compareTo(sender)==0 && log.t.tupleDestination.compareTo(node)==0 && log.exchangeIsderived==isexchangedderived){
+
+                        tuplePresenceTime=log.getTime();
+                        break;
+                    }
+
+                }
+                if(tuplePresenceTime.compareTo(stime)!=0){
+                    queryOutputEvents.add(new NSendEvent(tuplePresenceTime,ftime,sender,tuple ));
+                    //since present so query the tuple in narrive
+                    narriveQuery(stime,ftime,sender,node,tuplePresenceTime,tuple,isexchangedderived);
+
+                }else {
+                    //else we just consider that it is not present
+                    queryOutputEvents.add(new NSendEvent(tuplePresenceTime, ftime, sender, tuple));
+
+                }
+
+            }
+
+
         }
 
 
     }
-
-    public void nderiveQuery(){
-
-    }
-
-
-    public void nsendQuery(){
-
-    }
-
-    public void nreceiveQuery(){
-
-    }
-    public void narriveQuery(){
+    public void narriveQuery(String stime, String ftime,String source, String destination,String sourceSendTime,Tuple tuple,int isexchnaged){
+        queryOutputEvents.add( new NArriveEvent(stime,ftime,source,destination,sourceSendTime,tuple));
+        for(LogFormat log:logs ){
+            String timeOfLog=log.getTime();
+               /* if(i==29){
+                    System.out.println();
+                }*/
+            if(log.derived==-1 && log.node.compareTo(source)==0  && log.time.compareTo(sourceSendTime)==0 && log.t.attributesEquals(tuple) && isexchnaged==log.exchangeIsderived && log.t.tupleDestination!=null && log.t.tupleDestination.compareTo(destination)==0){
+                queryOutputEvents.add(new SendEvent(sourceSendTime,source,log.t.tupleDestination,tuple));
+                queryOutputEvents.add(new DelayEvent(sourceSendTime,source,destination,tuple,""+new BigInteger(stime.replaceAll("\\D+","")).subtract(new BigInteger(sourceSendTime.replaceAll("\\D+","")))));
+                return;
+            }
+        }
 
     }
 
@@ -460,10 +571,53 @@ public class Query {
     }
 
 
+    public ArrayList<String> probeSenders(String node, Tuple tuple){
+
+        //node e kar kar sathe link ase ar
+        //tuple er moddhe sei link gula ase kina
+        ArrayList<String> probableSenders=getNodeAllLinksInLog(node);
+        ArrayList<String>tupleIPV4=getTupleIPV4(tuple);
+        if(tupleIPV4!=null)tupleIPV4.remove(node);
+
+        tupleIPV4.retainAll(probableSenders);
+        return tupleIPV4;
+    }
+
+
+    public ArrayList<String> getNodeAllLinksInLog(String node){
+        Set<String> connected_nodes= new HashSet<String>();
+
+        for (LogFormat log:logs){
+            if(log.t.type.compareTo("link")==0 &&
+                    log.node.compareTo(node)==0 &&
+                    log.t.attributes.get(0).tupleAttributeValue.compareTo(node)==0
+                    ){
+                connected_nodes.add( log.t.attributes.get(1).tupleAttributeValue);
+
+            }
+
+        }
+
+
+        return new ArrayList<String>(connected_nodes);
+    }
+
+    public ArrayList<String> getTupleIPV4(Tuple tuple){
+        Set<String> tuple_nodes= new HashSet<String>();
+        for(int i=0;i<tuple.attributes.size();i++){
+            if(tuple.attributes.get(i).islist){
+                tuple_nodes.addAll(tuple.attributes.get(i).tupleAttributelistValue);
+            }else if(tuple.attributes.get(i).tupleAttributeName.compareTo("ipv4")==0){
+                tuple_nodes.add(tuple.attributes.get(i).tupleAttributeValue);
+            }
+
+
+        }
 
 
 
-
+        return new ArrayList<String>(tuple_nodes);
+    }
 
 
 
