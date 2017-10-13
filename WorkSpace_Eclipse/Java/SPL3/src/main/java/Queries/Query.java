@@ -473,14 +473,36 @@ public class Query {
                 searchTuple.attributes.add(tuple.attributes.get(1));
                 nexistQuery(stime,ftime,node,searchTuple);
             }else{
-                Tuple searchTuple = new Tuple();
+                Tuple searchTuple = null;
                 //log e node e link jotogula ase segula bestpath e ase kina
+                HashMap<String,Integer> linknodesAndCost= getLinksList(node,ftime);
 
-                //thankle se onuzayi bestpath ber kora jabe
-                searchTuple.type="bestPath";
-                searchTuple.attributes.add(tuple.attributes.get(0));
-                searchTuple.attributes.add(tuple.attributes.get(1));
-                nexistQuery(stime,ftime,node,searchTuple);
+                ArrayList<String> tuplerelatedLinks=new ArrayList<String>(linknodesAndCost.keySet());
+                tuplerelatedLinks.retainAll(tuple.attributes.get(3).tupleAttributelistValue);
+
+
+                for (String link: tuplerelatedLinks){
+                    int c=Integer.parseInt(tuple.attributes.get(2).tupleAttributeValue) -linknodesAndCost.get(link);
+                    searchTuple=getRule2BestPath(link,c,ftime,tuple);
+                    if(searchTuple!=null)break;
+                }
+                if(searchTuple!=null)nexistQuery(stime,ftime,node,searchTuple);
+                else{
+                    for (String link: tuplerelatedLinks){
+                        int c=Integer.parseInt(tuple.attributes.get(2).tupleAttributeValue) -linknodesAndCost.get(link);
+
+                        searchTuple.type="bestPath";
+                        searchTuple.attributes=tuple.attributes;
+                        searchTuple.attributes.get(0).tupleAttributeValue=link;
+                        searchTuple.attributes.get(2).tupleAttributeValue=c+"";
+                        searchTuple.attributes.get(3).tupleAttributelistValue.remove(link);
+                        nexistQuery(stime,ftime,node,searchTuple);
+
+                    }
+
+                }
+
+
             }
 
         }
@@ -618,6 +640,53 @@ public class Query {
 
         return new ArrayList<String>(tuple_nodes);
     }
+
+
+    public  HashMap<String,Integer> getLinksList(String node, String ftime){
+        HashMap<String,Integer> link_nodes= new  HashMap<String,Integer>();
+        for (LogFormat log:logs){
+            if( new BigInteger(log.getTime()).compareTo(new BigInteger(ftime))<=0){
+                break;
+            }
+
+            //if links are present
+            if(log.t.type.compareTo("link")==0 &&
+                    log.node.compareTo(node)==0 &&
+                    log.derived==1)link_nodes.put(log.t.attributes.get(1).tupleAttributeValue,Integer.parseInt(log.t.attributes.get(2).tupleAttributeValue));
+
+            //if links are cut
+            if(log.t.type.compareTo("link")==0 &&
+                    log.node.compareTo(node)==0 &&
+                    log.derived==0)link_nodes.remove(log.t.attributes.get(1).tupleAttributeValue);
+
+            }
+
+            return  link_nodes;
+        }
+
+
+    public Tuple getRule2BestPath(String linknode, int cost,String ftime,Tuple pathTuple){
+        for (LogFormat log:logs){
+            if( new BigInteger(log.getTime()).compareTo(new BigInteger(ftime))<=0){
+                break;
+            }
+
+            //if links are present
+            if(log.t.type.compareTo("bestPath")==0 &&
+                    log.derived==1&&
+                    log.t.attributes.get(0).tupleAttributeValue.compareTo(linknode)==0 &&
+                    log.t.attributes.get(1).tupleAttributeValue.compareTo(pathTuple.attributes.get(1).tupleAttributeValue)==0 &&
+                    Integer.parseInt(log.t.attributes.get(2).tupleAttributeValue)==cost){
+                    return log.t;
+            }
+
+
+
+        }
+
+        return  null;
+    }
+
 
 
 

@@ -7,8 +7,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GraphPanel extends ScrollPane{
-
-    public GraphPanel(){
+    private JPanel contentPane;
+    public GraphPanel( JPanel contentPane){
+        this.contentPane=contentPane;
 
         mxGraph graph = new mxGraph();
         Object parent = graph.getDefaultParent();

@@ -127,7 +127,6 @@ public class GraphGenerator extends JFrame implements ActionListener {
         panel.add(button_rapidnet_log_file);
         panel.add(button_rapidnet_NDlog_file);
         panel.add(button_generate_rapidnet_graph);
-
         return panel;
     }
 
@@ -142,7 +141,6 @@ public class GraphGenerator extends JFrame implements ActionListener {
             {
                 GraphGenerator gui= new GraphGenerator();
                 gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
                 gui.setVisible(true);
                 gui.setTitle("Initial");
             }

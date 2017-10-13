@@ -2,24 +2,74 @@ package GraphTest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 public class Graph {
     private JPanel contentPane;
     private InitialPanel initialPanel;
-    private GraphPanel panel2;
+    private GraphPanel graphpanel;
+    private LogPanel logpanel;
+    private NodeLogPanel nodelogpanel;
+    private SearchPanel searchPanel;
+    private OptionPanel optionPanel;
+
+    //Menu Items
+
+
+
+    //
+
+
     public void displayGraph(){
         JFrame frame = new JFrame("Card Layout Example");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x=e.getX();
+                int y=e.getY();
+                System.out.println("x="+x+" ,y="+y);
+            }
 
+            @Override
+            public void mousePressed(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent e) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+
+            }
+        });
 
         JPanel contentPane = new JPanel();
         contentPane.setBorder(
                 BorderFactory.createEmptyBorder(10, 15, 15, 15));
         contentPane.setLayout(new CardLayout());
         initialPanel = new InitialPanel(contentPane);
-        panel2 = new GraphPanel();
-        contentPane.add(initialPanel, "Panel 1");
-        contentPane.add(new GraphPanel(), "Panel 2");
+        graphpanel = new GraphPanel(contentPane);
+        logpanel=new LogPanel(contentPane);
+        nodelogpanel= new NodeLogPanel(contentPane);
+        searchPanel=new SearchPanel(contentPane);
+        optionPanel= new OptionPanel(contentPane);
+        contentPane.add(initialPanel, "initialPanel");
+        contentPane.add(graphpanel, "graphpanel");
+        contentPane.add(logpanel, "logpanel");
+        contentPane.add(nodelogpanel, "nodelogpanel");
+        contentPane.add(searchPanel, "searchPanel");
+        contentPane.add(optionPanel, "optionPanel");
+
         frame.setContentPane(contentPane);
         frame.pack();
         frame.setLocationByPlatform(true);
