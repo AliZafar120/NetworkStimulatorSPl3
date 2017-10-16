@@ -1,9 +1,12 @@
 package GraphTest;
 
+import FinalRapidnetOutputAnalyis.ApplicationLogParser;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class InitialPanel extends JPanel implements ActionListener{
 
@@ -12,7 +15,7 @@ public class InitialPanel extends JPanel implements ActionListener{
     private JButton button_next;
     private JButton button_select;
     JFileChooser fileChooser = new JFileChooser();
-    StringBuilder fileString = new StringBuilder();
+    String fileString = "";
     private JPanel contentPane;
 
     public InitialPanel(JPanel panel) {
@@ -77,9 +80,11 @@ public class InitialPanel extends JPanel implements ActionListener{
                 java.io.File file = fileChooser.getSelectedFile();
                 if(file.isFile()){
                     label_selected_file_folder.setText("File "+file.getName()+" Selected");
+                    fileString=file.getAbsolutePath();
                 }
                 if(file.isDirectory()){
                     label_selected_file_folder.setText("Folder "+file.getName()+" Selected");
+                    fileString=file.getAbsolutePath();
                 }
 
                   update(getGraphics());
@@ -91,6 +96,17 @@ public class InitialPanel extends JPanel implements ActionListener{
 
             CardLayout cardLayout = (CardLayout) contentPane.getLayout();
             cardLayout.show(contentPane,"optionPanel");
+            //for system log
+            if(fileString.compareTo("")!=0 &&(new File(fileString)).isFile()){
+                ApplicationLogParser parse= new ApplicationLogParser();
+                parse.setLogFilePath(fileString);
+                parse.setLogFilebuffer();
+
+                /*formattedlogs= parse.getAllFormattedLog( parse.parseRapidnetLog());
+                        contentPane.ge*/
+            }
+            //for pcapfiles
+
 
         }
 

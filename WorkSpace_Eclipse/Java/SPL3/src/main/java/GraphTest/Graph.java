@@ -13,6 +13,7 @@ public class Graph {
     private NodeLogPanel nodelogpanel;
     private SearchPanel searchPanel;
     private OptionPanel optionPanel;
+    private ProgressPanel progressPanel;
 
     //Menu Items
 
@@ -63,6 +64,7 @@ public class Graph {
         nodelogpanel= new NodeLogPanel(contentPane);
         searchPanel=new SearchPanel(contentPane);
         optionPanel= new OptionPanel(contentPane);
+        progressPanel= new ProgressPanel(contentPane);
         contentPane.add(initialPanel, "initialPanel");
         contentPane.add(graphpanel, "graphpanel");
         contentPane.add(logpanel, "logpanel");

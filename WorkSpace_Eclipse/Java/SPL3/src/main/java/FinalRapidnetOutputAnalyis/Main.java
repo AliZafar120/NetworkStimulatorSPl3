@@ -31,8 +31,12 @@ public class Main {
 
        ApplicationLogParser parse= new ApplicationLogParser();
 
+        //file for link failure
+       //parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/Log2.txt");
+        parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/offpathchange.txt");
 
-       parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/Log2.txt");
+
+
         parse.setLogFilebuffer();
         ArrayList<String> stringlogs=parse.parseRapidnetLog();
         formattedlogs= parse.getAllFormattedLog(stringlogs);
@@ -40,13 +44,17 @@ public class Main {
         System.out.println(formattedlogs.get(0).t.equals(formattedlogs.get(0).t));
         System.out.println(formattedlogs.get(0).t.attributesEquals(formattedlogs.get(0).t));
 
-        Tuple qtuple=formattedlogs.get(24).t;//31
+        //tuple for link failure
+        //Tuple qtuple=formattedlogs.get(24).t;//31
 
         Query query= new Query();
         query.setLogs(formattedlogs);
 
 
-        query.existQuery("0","10000000000","10.1.1.1",qtuple);
+        //for querying non existant best
+        //query.nexistQuery("6000000000","10000000000","10.1.1.1",qtuple);
+
+
         System.out.println(query.queryOutputEvents);
         //System.out.println("102".compareTo("101")>0);
         //*************************************Currently working on this

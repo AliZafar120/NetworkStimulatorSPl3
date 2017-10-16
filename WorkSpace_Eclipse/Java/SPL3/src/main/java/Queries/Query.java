@@ -413,7 +413,7 @@ public class Query {
         for(LogFormat log:logs ){
             String timeOfLog=log.getTime();
 
-            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime.replaceAll("\\D+","")))<=0  && log.t.attributesEquals(tuple)){
+            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))<=0 && log.t.attributesEquals(tuple)){
                 queryOutputEvents.add(new NAppearEvent(log.time,ftime,node,tuple));
                 disappearQuery(log.time,log.t,node,log.rule,log.derivationCounter);
               return;
@@ -450,7 +450,7 @@ public class Query {
             return true;
         }
         if(tuple.type.compareTo("path")==0  && tuple.attributes.get(0).tupleAttributeValue.compareTo(node)==0){
-            if(tuple.attributes.get(2).tupleAttributelistValue.size()!=2) return false;
+            if(tuple.attributes.get(3).tupleAttributelistValue.size()!=2) return false;
             return true;
         }
         if(tuple.type.compareTo("bestPath")==0  && tuple.attributes.get(0).tupleAttributeValue.compareTo(node)==0){
