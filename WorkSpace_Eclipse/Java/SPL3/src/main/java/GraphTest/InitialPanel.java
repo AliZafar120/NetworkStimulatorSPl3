@@ -1,12 +1,14 @@
 package GraphTest;
 
 import FinalRapidnetOutputAnalyis.ApplicationLogParser;
+import FinalRapidnetOutputAnalyis.LogFormat;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.ArrayList;
 
 public class InitialPanel extends JPanel implements ActionListener{
 
@@ -15,8 +17,10 @@ public class InitialPanel extends JPanel implements ActionListener{
     private JButton button_next;
     private JButton button_select;
     JFileChooser fileChooser = new JFileChooser();
-    String fileString = "";
+    static String fileString = null;
     private JPanel contentPane;
+    private static ArrayList<String> rapidnetLogs= new ArrayList<String>();
+    private static InitialPanel instance=null;
 
     public InitialPanel(JPanel panel) {
 
@@ -94,13 +98,14 @@ public class InitialPanel extends JPanel implements ActionListener{
 
         if(actionEvent.getSource() == button_next) {
 
-            CardLayout cardLayout = (CardLayout) contentPane.getLayout();
-            cardLayout.show(contentPane,"optionPanel");
             //for system log
-            if(fileString.compareTo("")!=0 &&(new File(fileString)).isFile()){
+            if(fileString!=null &&fileString.compareTo("")!=0 &&(new File(fileString)).isFile()){
                 ApplicationLogParser parse= new ApplicationLogParser();
                 parse.setLogFilePath(fileString);
                 parse.setLogFilebuffer();
+                rapidnetLogs=parse.parseRapidnetLog();
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                cardLayout.show(contentPane,"optionPanel");
 
                 /*formattedlogs= parse.getAllFormattedLog( parse.parseRapidnetLog());
                         contentPane.ge*/
@@ -111,5 +116,23 @@ public class InitialPanel extends JPanel implements ActionListener{
         }
 
 
+    }
+
+    public static InitialPanel getInstance(JPanel panel) {
+        if (instance == null) {
+            instance = new InitialPanel(panel);
+        }
+        return instance;
+    }
+
+
+    public static ArrayList<String> getLogs(){
+
+        return  rapidnetLogs;
+    }
+
+    public static String getFilePath(){
+
+        return  fileString;
     }
 }

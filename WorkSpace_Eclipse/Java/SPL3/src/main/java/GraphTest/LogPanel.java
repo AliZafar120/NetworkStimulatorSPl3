@@ -19,13 +19,13 @@ public class LogPanel extends ScrollPane {
 
         setPreferredSize (new Dimension(500, 500));
 
-        ArrayList<String>a= new ArrayList<String>();
+      /*  ArrayList<String>a= new ArrayList<String>();
         a.add("ABC");
         a.add("CDF");
         a.add("EFG");
         a.add("AIJ");
 
-        getLogs(a);
+        getLogs(a);*/
     }
 
     public void getLogs( ArrayList<String> logs){

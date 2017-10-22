@@ -7,13 +7,13 @@ import java.awt.event.MouseListener;
 
 public class Graph {
     private JPanel contentPane;
-    private InitialPanel initialPanel;
-    private GraphPanel graphpanel;
-    private LogPanel logpanel;
-    private NodeLogPanel nodelogpanel;
-    private SearchPanel searchPanel;
-    private OptionPanel optionPanel;
-    private ProgressPanel progressPanel;
+    public static InitialPanel initialPanel;
+    public static GraphPanel graphpanel;
+    public static LogPanel logpanel;
+    public static NodeLogPanel nodelogpanel;
+    public static SearchPanel searchPanel;
+    public static OptionPanel optionPanel;
+    public ProgressPanel progressPanel;
 
     //Menu Items
 
@@ -23,7 +23,7 @@ public class Graph {
 
 
     public void displayGraph(){
-        JFrame frame = new JFrame("Card Layout Example");
+        JFrame frame = new JFrame("Provenance");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.addMouseListener(new MouseListener() {
             @Override
@@ -58,7 +58,7 @@ public class Graph {
         contentPane.setBorder(
                 BorderFactory.createEmptyBorder(10, 15, 15, 15));
         contentPane.setLayout(new CardLayout());
-        initialPanel = new InitialPanel(contentPane);
+        initialPanel = InitialPanel.getInstance(contentPane);
         graphpanel = new GraphPanel(contentPane);
         logpanel=new LogPanel(contentPane);
         nodelogpanel= new NodeLogPanel(contentPane);
