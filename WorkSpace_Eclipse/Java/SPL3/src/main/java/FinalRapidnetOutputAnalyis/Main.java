@@ -1,15 +1,11 @@
 package FinalRapidnetOutputAnalyis;
 
 
-import FinalRapidnetOutputAnalyis.Rules.Rule;
-import FinalRapidnetOutputAnalyis.Tuples.Attribute.TupleAttribute;
-import FinalRapidnetOutputAnalyis.Tuples.Tuple;
+import FinalRapidnetOutputAnalyis.Parser.ApplicationLogParser;
 import Queries.Query;
-import com.sun.org.apache.xpath.internal.SourceTree;
 
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main {
     private static long start;

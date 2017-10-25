@@ -3,8 +3,8 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class NAppearEvent extends Event{
-    String stime;
-    String ftime;
+    public String stime;
+    public String ftime;
     public NAppearEvent() {
         this.eventName="NAppear";
 

@@ -1,19 +1,23 @@
 package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
+import java.util.ArrayList;
+
 public class Event {
-		String node;
-		String eventName;
-		String time;
-		Tuple tuple;
+	public String node;
+	public String eventName;
+		public String time;
+	public Tuple tuple;
 		int derived;
-		int derivationCounter;
-		String rule;
+	public	int derivationCounter;
+	public	String rule;
+	public	ArrayList<Event> childs;
 	public Event() {
 		node="";
 		eventName="";
 		time="";
 		tuple= new Tuple();
+		childs= new ArrayList<Event>();
 	}
 	public Event(String eventName) {
 		super();

@@ -3,8 +3,8 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class NInsertEvent extends Event{
-    String stime;
-    String ftime;
+    public String stime;
+    public String ftime;
     public NInsertEvent() {
 
         this.eventName="NInserted";

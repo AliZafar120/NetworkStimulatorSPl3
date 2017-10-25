@@ -3,8 +3,8 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class ExistEvent extends Event{
-    String startTime;
-    String endTime;
+    public String startTime;
+    public String endTime;
 
     public ExistEvent(String startTime, String endTime, String node,Tuple tuple) {
         this.startTime = startTime;

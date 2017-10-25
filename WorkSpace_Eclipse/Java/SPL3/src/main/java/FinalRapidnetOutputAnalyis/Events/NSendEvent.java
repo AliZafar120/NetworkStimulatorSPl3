@@ -3,9 +3,9 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class NSendEvent extends Event{
-    String stime;
-    String ftime;
-
+    public String stime;
+    public String ftime;
+    public int isexchangederived;
     public NSendEvent(String stime, String ftime,String node,Tuple tuple) {
         super();
         this.eventName = "NSend";
@@ -15,6 +15,15 @@ public class NSendEvent extends Event{
         this.tuple = tuple;
 
     }
+    public NSendEvent(String stime, String ftime,String node,Tuple tuple,int isexchangederived) {
+        super();
+        this.eventName = "NSend";
+        this.node = node;
+        this.stime=stime;
+        this.ftime=ftime;
+        this.tuple = tuple;
+        this.isexchangederived=isexchangederived;
 
+    }
 
 }

@@ -1,7 +1,6 @@
 package GraphTest;
 
-import FinalRapidnetOutputAnalyis.ApplicationLogParser;
-import FinalRapidnetOutputAnalyis.LogFormat;
+import FinalRapidnetOutputAnalyis.Parser.ApplicationLogParser;
 
 import javax.swing.*;
 import java.awt.*;

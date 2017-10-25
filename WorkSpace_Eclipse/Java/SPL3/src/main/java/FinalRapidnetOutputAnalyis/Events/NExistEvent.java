@@ -3,8 +3,8 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class NExistEvent extends Event{
-    String stime;
-    String ftime;
+    public String stime;
+    public String ftime;
 
     public NExistEvent(String startTime, String endTime, String node,Tuple tuple) {
         this.stime = startTime;

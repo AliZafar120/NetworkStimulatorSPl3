@@ -3,11 +3,12 @@ package FinalRapidnetOutputAnalyis.Events;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 public class NArriveEvent extends Event{
-    String stime;
-    String ftime;
-    String tuplePresenceTime;
-    String source;
-    String destination;
+    public String stime;
+    public String ftime;
+    public String tuplePresenceTime;
+    public String source;
+    public String destination;
+    public int isexchangederived;
 
     public NArriveEvent(String stime,String ftime, String source,String destination,String tupleprecenceTime,Tuple tuple) {
         super();
