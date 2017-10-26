@@ -32,7 +32,17 @@ public class TupleQuery {
     }
 
 
-    public void searchTuple(String queryType){
+    public void searchTuple(Tuple tuple, String querytype,String node, String stime,String ftime){
+        if(querytype.compareTo("exist")==0){
+            origin = new ExistEvent(stime,ftime,node,tuple);
+            current=origin;
+            getProvenanceGraph(current);
+
+        }else{
+            origin = new NExistEvent(stime,ftime,node,tuple);
+            current=origin;
+            getProvenanceGraph(current);
+        }
 
     }
 
@@ -325,6 +335,7 @@ public class TupleQuery {
 
                 String timeOfLog=log.getTime();
                 if(log.derived==1 && log.node.compareTo(Node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime))<=0 && log.t.attributesEquals(t)){
+                    ((ExistEvent)current).startTime=log.time;
                     S.add(new AppearEvent(log.time,Node,log.t, log.rule, log.derivationCounter));
                     break;
                 }
@@ -337,6 +348,7 @@ public class TupleQuery {
                     System.out.println();
                 }*/
                 if(log.derived==0 && log.node.compareTo(Node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime))<=0  && log.t.attributesEquals(t)){
+                    ((ExistEvent)current).endTime=log.time;
                     S.add(new DissapearEvent(log.time,Node,log.t,log.rule,log.derivationCounter));
                       break;
                 }
@@ -485,7 +497,6 @@ public class TupleQuery {
 
     public ArrayList<Event> nexistQuery(String stime, String ftime, String node, Tuple tuple ){
         ArrayList<Event> S= new ArrayList<Event>();
-        S.add(new NExistEvent(stime,ftime,node,tuple));
         for(LogFormat log:logs ){
             String timeOfLog=log.getTime();
 
@@ -493,13 +504,12 @@ public class TupleQuery {
                 queryOutputEvents.add(new NAppearEvent(log.time,ftime,node,tuple));
                 S.add(new NAppearEvent(stime,ftime,node,tuple));
                 S.add(new DissapearEvent(log.time,node,log.t,log.rule,log.derivationCounter));
-                S.addAll(disappearQuery(log.time,log.t,node,log.rule,log.derivationCounter));
                 return S;
             }
         }
 
         //since not dissappeared so never arrived so query nappear
-        S.addAll(nappearQuery(stime,ftime,node,tuple));
+        S.add(new NAppearEvent(stime,ftime,node,tuple));
         return S;
 
 
