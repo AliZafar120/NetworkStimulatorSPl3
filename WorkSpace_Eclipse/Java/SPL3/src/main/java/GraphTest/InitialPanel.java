@@ -1,5 +1,6 @@
 package GraphTest;
 
+import FinalRapidnetOutputAnalyis.LogFormat;
 import FinalRapidnetOutputAnalyis.Parser.ApplicationLogParser;
 
 import javax.swing.*;
@@ -18,7 +19,7 @@ public class InitialPanel extends JPanel implements ActionListener{
     JFileChooser fileChooser = new JFileChooser();
     static String fileString = null;
     private JPanel contentPane;
-    private static ArrayList<String> rapidnetLogs= new ArrayList<String>();
+    private static ArrayList<LogFormat> rapidnetLogs= new ArrayList<LogFormat>();
     private static InitialPanel instance=null;
 
     public InitialPanel(JPanel panel) {
@@ -102,7 +103,7 @@ public class InitialPanel extends JPanel implements ActionListener{
                 ApplicationLogParser parse= new ApplicationLogParser();
                 parse.setLogFilePath(fileString);
                 parse.setLogFilebuffer();
-                rapidnetLogs=parse.parseRapidnetLog();
+                rapidnetLogs=parse.getAllFormattedLog(parse.parseRapidnetLog());
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                 cardLayout.show(contentPane,"optionPanel");
 
@@ -125,7 +126,8 @@ public class InitialPanel extends JPanel implements ActionListener{
     }
 
 
-    public static ArrayList<String> getLogs(){
+
+    public static ArrayList<LogFormat> getLogFormat(){
 
         return  rapidnetLogs;
     }

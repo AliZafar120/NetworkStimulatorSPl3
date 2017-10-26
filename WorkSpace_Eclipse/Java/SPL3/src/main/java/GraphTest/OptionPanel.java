@@ -47,7 +47,7 @@ public class OptionPanel extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == button_logPanel) {
-            Graph.logpanel.getLogs( InitialPanel.getInstance(contentPane).getLogs());
+            Graph.logpanel.setLogs( Graph.initialPanel.getLogFormat());
             CardLayout cardLayout = (CardLayout) contentPane.getLayout();
             cardLayout.show(contentPane,"logpanel");
 

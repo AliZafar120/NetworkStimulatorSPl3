@@ -14,7 +14,7 @@ public class TupleQuery {
     public ArrayList<Event> queryOutputEvents;
     ArrayList <LogFormat> logs;
     Event current = new Event();
-    Event origin ;
+    public Event origin ;
     public TupleQuery(){
         queryOutputEvents= new ArrayList<Event>();
         logs= new ArrayList<LogFormat>();

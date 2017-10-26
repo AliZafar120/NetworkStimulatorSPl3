@@ -102,7 +102,7 @@ public class Tuple {
 
 	@Override
 	public String toString() {
-		String output = "Tuple : "+this.type +" TupleOrigin :"+this.tupleOrigin;
+		String output = "Tuple : "+this.type ;
 		for(TupleAttribute attr: attributes){
 			if(!attr.islist) {
 				output +=" Attributes : "+attr.tupleAttributeName+"("+attr.tupleAttributeValue+")";

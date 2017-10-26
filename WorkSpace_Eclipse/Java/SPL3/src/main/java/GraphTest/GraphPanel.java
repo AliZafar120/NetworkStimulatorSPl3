@@ -1,29 +1,58 @@
 package GraphTest;
 
+import FinalRapidnetOutputAnalyis.Events.Event;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class GraphPanel extends ScrollPane{
     private JPanel contentPane;
+    public Event originevent= new Event();
+    public Event currentEvent = new Event();
+
+
     public GraphPanel( JPanel contentPane){
         this.contentPane=contentPane;
+        this.originevent.eventName="The Parent Event";
+        this.originevent.childs.add(new Event("This is the first child"));
+        this.originevent.childs.add(new Event("This is the Second child"));
+        this.originevent.childs.add(new Event("This is the Third child"));
+
+        //drawGraph();
+    }
+
+    public void setOriginEvent(Event originevent) {
+        this.originevent=originevent;
+
+    }
+
+    public void drawGraph(){
 
         mxGraph graph = new mxGraph();
         Object parent = graph.getDefaultParent();
-
         graph.getModel().beginUpdate();
         try
         {
-            Object v1 = graph.insertVertex(parent, null, "Hello", 20, 20, 10,
-                    10);
-            //x,y,width,height
 
-            Object v2 = graph.insertVertex(parent, null, "World!", 240, 150,
-                    80, 30);
-            graph.insertEdge(parent, null, "Edge", v1, v2);
+            setLocation(graph,null,originevent,null,0,0,0,0,parent);
+
+
+/*
+
+                Object v1 = graph.insertVertex(parent, null, "Hello", 20, 20, 10,
+                        10);
+                //x,y,width,height
+
+                Object v2 = graph.insertVertex(parent, null, "World!", 240, 150,
+                        80, 30);
+                System.out.println(graph.getModel().getGeometry(v1).getX());
+                graph.insertEdge(parent, null, "Edge", v1, v2);*/
+
         }
         finally
         {
@@ -34,4 +63,34 @@ public class GraphPanel extends ScrollPane{
         this.add(graphComponent);
     }
 
+    public void setLocation(mxGraph graph,Event parent,Event current,Object parentobject,double parent_x, double parent_y, int parentchilds,int childno,Object defaultparent){
+
+            if(parent==null){
+                Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                int centerX = screenSize.width/2;
+                String eventname=current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
+                Object v1 = graph.insertVertex(defaultparent, null, eventname, centerX-100,0,200, 200 );
+                if(current.childs!=null) {
+                    int i=0;
+                    for (Event child : current.childs) {
+                        setLocation(graph, current, child, v1, graph.getModel().getGeometry(v1).getX()+graph.getModel().getGeometry(v1).getWidth()/2, graph.getModel().getGeometry(v1).getY(), current.childs.size(),i, defaultparent);
+                        i++;
+                    }
+                }
+
+            }
+            else{
+                String eventname=current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
+                Object v2= graph.insertVertex(defaultparent, null, eventname, parent_x-parentchilds*250/2+childno*250,parent_y+300, 200, 200);
+                graph.insertEdge(defaultparent, null, "", parentobject, v2);
+                if(current.childs!=null) {
+                    int i=0;
+                    for (Event child : current.childs) {
+                        setLocation(graph, current, child, v2, graph.getModel().getGeometry(v2).getX()+graph.getModel().getGeometry(v2).getWidth()/2, graph.getModel().getGeometry(v2).getY(), current.childs.size(), i,defaultparent);
+                    }
+                }
+
+            }
+
+    }
 }

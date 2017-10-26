@@ -1,6 +1,7 @@
 package GraphTest;
 
 import FinalRapidnetOutputAnalyis.LogFormat;
+import Queries.TupleQuery;
 import javafx.scene.layout.GridPane;
 
 import javax.swing.*;
@@ -28,7 +29,7 @@ public class LogPanel extends ScrollPane {
         getLogs(a);*/
     }
 
-    public void getLogs( ArrayList<String> logs){
+    public void setLogs(final ArrayList<LogFormat> logs){
         JPanel apanel=new JPanel();
         apanel.setLayout(new GridLayout(this.getWidth(),30));
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
@@ -36,21 +37,21 @@ public class LogPanel extends ScrollPane {
         x=dim.width-45;
         y=0;
 
-        for(final String log:logs){
+        for(final LogFormat log:logs){
             JPanel panel= new JPanel();
             panel.setSize(dim.width,30);
-            final JButton button= new JButton(log);
+            final JButton button= new JButton(log.t.toString());
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                    // button.setBackground(Color.BLUE);
-                    if(chosen!=null) {
-                        button.setBackground(Color.WHITE);
-                        chosen=null;
-                    }else{
-                        chosen=log;
-                        button.setBackground(Color.BLUE);
-                    }
+                    TupleQuery query1= new TupleQuery();
+                    query1.setLogs(logs);
+                    query1.searchTuple(log.t,"exist",log.node,"0","10000000000");
+                    Graph.graphpanel.setOriginEvent(query1.origin);
+                    Graph.graphpanel.drawGraph();
+                    CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+                    cardLayout.show(contentPane,"graphpanel");
                 }
             });
             button.setSize(this.getWidth()-100,30);
