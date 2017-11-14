@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="pcap4j-packettest-1.7.2-tests">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/pcap4j-packettest-1.7.2-tests.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

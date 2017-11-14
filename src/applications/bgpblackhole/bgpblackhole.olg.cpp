@@ -51,4 +51,4 @@ r4 packet(@Next,Src):-
 // When a node receive a ePing event from its neighbor, it sent back a ePong message
 //r5  rpacket(@Src):-
 //    packet(@Src,Next).
-//'applications/mytest',
+//'applications/bgpblackhole',

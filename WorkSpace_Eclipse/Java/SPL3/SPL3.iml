@@ -29,5 +29,12 @@
     <orderEntry type="library" name="Maven: org.antlr:antlr4-runtime:4.5.1-1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm:5.1" level="project" />
     <orderEntry type="library" name="Maven: org.ow2.asm:asm-commons:5.1" level="project" />
+    <orderEntry type="library" name="pcap4j-1.7.2-javadoc" level="project" />
+    <orderEntry type="library" name="pcap4j-core-1.7.2" level="project" />
+    <orderEntry type="library" name="pcap4j-packetfactory-propertiesbased-1.7.2" level="project" />
+    <orderEntry type="library" name="pcap4j-packetfactory-static-1.7.2" level="project" />
+    <orderEntry type="library" name="pcap4j-packettest-1.7.2-tests" level="project" />
+    <orderEntry type="library" name="pcap4j-sample-1.7.2" level="project" />
+    <orderEntry type="library" name="pcap4j-1.7.2-javadoc (2)" level="project" />
   </component>
 </module>

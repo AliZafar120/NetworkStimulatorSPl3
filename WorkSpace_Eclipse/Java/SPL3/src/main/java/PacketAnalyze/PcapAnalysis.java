@@ -1,11 +1,15 @@
 package PacketAnalyze;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 //import java.util.concurrent.ForkJoinPool.ManagedBlocker;
 
 import org.jnetpcap.Pcap;
+import org.jnetpcap.PcapIf;
 import org.jnetpcap.nio.JMemory;
 import org.jnetpcap.packet.JFlow;  
 import org.jnetpcap.packet.JFlowKey;  
@@ -27,8 +31,10 @@ import org.jnetpcap.protocol.tcpip.Http;
 import org.jnetpcap.protocol.tcpip.Tcp;  
 import org.jnetpcap.protocol.tcpip.Udp;
 
+import static org.jnetpcap.packet.format.FormatUtils.asString;
+
 public class PcapAnalysis {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 
 		final String FILENAME = "/home/ali/Workspace/Java/SPL3/test-0-0.pcap";  
 	    final StringBuilder errbuf = new StringBuilder();
@@ -37,7 +43,9 @@ public class PcapAnalysis {
 	    if (pcap == null) {  
 	        System.err.println(errbuf); // Error is stored in errbuf if any  
 	        return;  
-	    }	
+	    }
+		List<PcapIf> alldevs = new ArrayList<PcapIf>();
+		Pcap.findAllDevs(alldevs, errbuf);
 	    
 	    pcap.loop(pcap.LOOP_INFINITE, new JPacketHandler<StringBuilder>() {
 
@@ -75,6 +83,7 @@ public class PcapAnalysis {
 				  byte[] dIP = new byte[4];  
 				  sIP=packet.getHeader(ip).source();
 				  dIP=packet.getHeader(ip).destination();
+
 				  
 				  String sourceIP = org.jnetpcap.packet.format.FormatUtils.ip(sIP);  
 				  String destinationIP = org.jnetpcap.packet.format.FormatUtils.ip(dIP)  ;
@@ -92,7 +101,7 @@ public class PcapAnalysis {
 
 				  //	  String strPayloadContent  =org.jnetpcap.packet.format.FormatUtils.hexdump(packet.getHeader(udp).getPayload()); // offset, length
 				 // String strPayloadContent  =new String( org.jnetpcap.packet.format.FormatUtils.asString(packet.getHeader(udp).getPayload())); // offset, length
-				  String strPayloadContent  =new String( org.jnetpcap.packet.format.FormatUtils.asString(packet.getHeader(udp).getPayload())); // offset, length
+				  String strPayloadContent  =new String( asString(packet.getHeader(udp).getPayload())); // offset, length
 			
 			
 				  System.out.println("Payload : "+strPayloadContent);
@@ -140,9 +149,12 @@ public class PcapAnalysis {
 			}  
 	    	
 	    	
-	    }, errbuf); 
-	    
-	}  
+	    }, errbuf);
+
+
+
+
+}
 	
 	public static String convert(byte[] data) {
 	    StringBuilder sb = new StringBuilder(data.length);

@@ -1,0 +1,7 @@
+materialize(link,infinity,infinity,keys(1,2)).
+materialize(path,infinity,infinity,keys(4:list)).
+materialize(flowtable,infinity,infinity,keys(1,2)).
+materialize(req,1,infinity,keys(1,2)).
+
+/* Rules */
+
