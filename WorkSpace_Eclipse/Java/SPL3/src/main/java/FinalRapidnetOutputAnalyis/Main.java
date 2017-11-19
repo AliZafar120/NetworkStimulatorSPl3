@@ -29,7 +29,7 @@ public class Main {
        ApplicationLogParser parse= new ApplicationLogParser();
 
         //file for link failure
-       parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/Log2.txt");
+       parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/blackhole.txt");
         //parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/offpathchange.txt");
 
 
@@ -49,7 +49,7 @@ public class Main {
         TupleQuery query1= new TupleQuery();
         query1.setLogs(formattedlogs);
         startStopwatch();
-        query1.searchTuple(formattedlogs.get(24).t,"nexist","10.1.1.1","6000000000","10000000000");
+        query1.searchTuple(formattedlogs.get(123).t,"nexist","10.1.1.5","6000000000","10000000000");
         System.out.println(elapsedTime());
         System.out.println("ok");
         //for querying non existant best
@@ -57,7 +57,7 @@ public class Main {
 
 
         //System.out.println(query.queryOutputEvents);
-        //System.out.println("102".compareTo("101")>0);
+        //System.out.println("102".compareTo(FinalRapidnetOutputAnalyis/Main.java:53"101")>0);
         //*************************************Currently working on this
 
 

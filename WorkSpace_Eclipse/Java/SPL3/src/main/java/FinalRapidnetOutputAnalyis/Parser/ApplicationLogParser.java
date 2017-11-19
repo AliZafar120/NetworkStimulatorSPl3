@@ -55,7 +55,7 @@ public class ApplicationLogParser {
             while ((line = bufferedLogFile.readLine()) != null) {
                 // process the line.
                 //System.out.println(line);
-                if(line.contains("Pathvector")||line.contains("Application") ||line.contains("cxx") ||line.contains("Waf") || line.contains("'build'") || line.contains("Port set") || line.contains("triggered")){
+                if(line.contains("Pathvector")||line.contains("Application") ||line.contains("cxx") ||line.contains("Waf") || line.contains("'build'") || line.contains("Port set") || line.contains("triggered") ||line.contains("ecaperiodic")){
                     continue;
                 }
                 else{
@@ -155,7 +155,7 @@ public class ApplicationLogParser {
         for(String logline:logs){
             LogFormat format=getLogFormat(logline);
 
-            if(format.rule!=null && format.rule.compareTo("r2")==0 && format.t.tupleDestination!=null){
+            if(format.rule!=null && (format.rule.compareTo("r2")==0||format.rule.compareTo("r4")==0) && format.t.tupleDestination!=null){
                 if(format.exchangeIsderived==0) {
                     LogFormat tempformat = new LogFormat(format.t, 0, format.node, format.time, format.rule, format.derivationCounter);
                     formattedLogs.add(tempformat);//addding appear for rule2
@@ -197,6 +197,9 @@ public class ApplicationLogParser {
         }
         else if(t.type=="bestPath"){
             return "r3";
+        }
+        else if(t.type=="packet"){
+            return "r4";
         }
         else {
             return  null;

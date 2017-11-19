@@ -28,6 +28,7 @@ public class BestRouteRules {
         ruleParser.allTupleTypes.add("link");
         ruleParser.allTupleTypes.add("path");
         ruleParser.allTupleTypes.add("bestPath");
+        ruleParser.allTupleTypes.add("packet");
         return  ruleParser.allTupleTypes;
     }
 
@@ -37,8 +38,8 @@ public class BestRouteRules {
         BestPathRule1 r2= new BestPathRule1("r2");
         BestPathRule1 r3= new BestPathRule1("r3");
         rules.put("r1",r1);
-        rules.put("r2",r1);
-        rules.put("r1",r1);
+        rules.put("r2",r2);
+        rules.put("r3",r3);
         return  rules;
     }
 

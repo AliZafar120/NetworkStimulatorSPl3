@@ -145,7 +145,7 @@ public class TupleQuery {
 
 
         if(event.getEventName().compareTo("NReceive")==0){
-            ArrayList<Event>outputs=nreceiveQuery(((NReceiveEvent)event).stime,((NSendEvent)event).ftime,((NSendEvent)event).node,((NSendEvent)event).tuple,((NSendEvent)event).isexchangederived);
+            ArrayList<Event>outputs=nreceiveQuery(((NReceiveEvent)event).stime,((NReceiveEvent)event).ftime,((NReceiveEvent)event).node,((NReceiveEvent)event).tuple,1);
             for (Event outevent:outputs){
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
@@ -276,6 +276,22 @@ public class TupleQuery {
             }
         }
 
+        else if(rule.compareTo("r4")==0){
+            for(LogFormat log: logs){
+                if(log.t.type.compareTo("bestPath")==0
+                                &&log.derived==1
+                                &&log.node.compareTo(Node)==0
+                                && log.t.attributes.get(0).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue)==0
+                                && log.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue)==0
+                                ){
+                            S.add(new AppearEvent(log.time,Node,log.t,log.rule,log.derivationCounter));
+
+                    return S;
+                }
+
+            }
+        }
+
         return S;
 
     }
@@ -334,7 +350,8 @@ public class TupleQuery {
             for(LogFormat log: logs) {
 
                 String timeOfLog=log.getTime();
-                if(log.derived==1 && log.node.compareTo(Node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime))<=0 && log.t.attributesEquals(t)){
+
+                if(log.derived==1 && log.node.compareTo(Node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime.replaceAll("\\D+","")))<=0 && log.t.attributesEquals(t)){
                     ((ExistEvent)current).startTime=log.time;
                     S.add(new AppearEvent(log.time,Node,log.t, log.rule, log.derivationCounter));
                     break;
@@ -522,6 +539,10 @@ public class TupleQuery {
             S.add(new NInsertEvent(stime,ftime,node,tuple));
           return S;
         }
+
+        if(tuple.type.compareTo("packet")==0 && tuple.attributes.get(1).tupleAttributeValue.compareTo(node)==0){
+            return S;
+        }
         // how to identify if it will be localtuple?
 
         if(isNotDerivedLocalTuple(node,tuple)){
@@ -606,6 +627,13 @@ public class TupleQuery {
             searchTuple.attributes=tuple.attributes;
             S.add(new NExistEvent(stime,ftime,node,searchTuple));
         }
+        else if (tuple.type.compareTo("packet")==0){
+            Tuple searchTuple = new Tuple();
+            searchTuple.type="bestPath";
+            searchTuple.attributes=tuple.attributes;
+            S.add(new NExistEvent(stime,ftime,node,searchTuple));
+
+        }
 
 
         return S;
@@ -621,8 +649,8 @@ public class TupleQuery {
                /* if(i==29){
                     System.out.println();
                 }*/
-            if(log.derived==0 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))>=0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime.replaceAll("\\D+","")))<=0  && log.t.attributesEquals(tuple)){
-                S.add(new ExistEvent(stime,log.time,node,tuple));
+            if(log.derived==1 && log.node.compareTo(node)==0  && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+","")))<=0  && log.t.attributesEquals(tuple)){
+                S.add(new ExistEvent("0ns",log.time,node,tuple));
                 S.add(new NAppearEvent(log.time,ftime,node,tuple));
                 return S;
             }
@@ -700,7 +728,7 @@ public class TupleQuery {
         ArrayList<String>tupleIPV4=getTupleIPV4(tuple);
         if(tupleIPV4!=null)tupleIPV4.remove(node);
 
-        tupleIPV4.retainAll(probableSenders);
+        tupleIPV4.addAll(probableSenders);
         return tupleIPV4;
     }
 
