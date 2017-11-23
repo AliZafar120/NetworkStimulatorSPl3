@@ -4,7 +4,7 @@ import FinalRapidnetOutputAnalyis.Tuples.Attribute.TupleAttribute;
 
 import java.util.ArrayList;
 
-public class Tuple {
+public class Tuple implements Cloneable{
 	public String type;
 	public String tupleOrigin;
 	public String tupleDestination;
@@ -116,4 +116,18 @@ public class Tuple {
 		}
 		return output;
 	}
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public boolean hasArrayAttribute(){
+        for(TupleAttribute attr: attributes){
+            if(attr.islist)return true;
+        }
+        return false;
+    }
+
+
 }

@@ -165,7 +165,7 @@ public class ApplicationLogParser {
 
                 }
             }
-
+            if(format.t.type==null)continue;
             formattedLogs.add(format);
 
         }
@@ -200,6 +200,12 @@ public class ApplicationLogParser {
         }
         else if(t.type=="packet"){
             return "r4";
+        }
+        else if(t.type=="advertise"){
+            return "r5";
+        }
+        else if(t.type=="importfilter"){
+            return "r6";
         }
         else {
             return  null;

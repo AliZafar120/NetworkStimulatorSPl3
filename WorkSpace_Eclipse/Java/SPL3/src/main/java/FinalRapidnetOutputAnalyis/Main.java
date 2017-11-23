@@ -2,9 +2,10 @@ package FinalRapidnetOutputAnalyis;
 
 
 import FinalRapidnetOutputAnalyis.Parser.ApplicationLogParser;
+import FinalRapidnetOutputAnalyis.Tuples.Attribute.TupleAttribute;
+import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 import Queries.Query;
 import Queries.TupleQuery;
-
 
 import java.util.ArrayList;
 
@@ -30,6 +31,9 @@ public class Main {
 
         //file for link failure
        parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/blackhole.txt");
+
+       // parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/bogon.txt");
+
         //parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/offpathchange.txt");
 
 
@@ -47,7 +51,17 @@ public class Main {
         //Query query= new Query();
         //query.setLogs(formattedlogs);
         TupleQuery query1= new TupleQuery();
+        Tuple tofind = new Tuple();
+        tofind.type="packet";
+        TupleAttribute at1= new TupleAttribute();
+        TupleAttribute at2= new TupleAttribute();
+        at1.tupleAttributeValue="10.1.1.3";
+
+        at2.tupleAttributeValue="10.1.1.5";
+        tofind.attributes.add(at2);
+        tofind.attributes.add(at1);
         query1.setLogs(formattedlogs);
+        query1.findTupleWithPrimaryKeys(tofind,new ArrayList<Integer>(){{add(1);add(2);}});
         startStopwatch();
         query1.searchTuple(formattedlogs.get(123).t,"nexist","10.1.1.5","6000000000","10000000000");
         System.out.println(elapsedTime());

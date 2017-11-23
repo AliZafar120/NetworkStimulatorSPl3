@@ -54,8 +54,11 @@ public class OptionPanel extends JPanel implements ActionListener {
         }
 
         if (actionEvent.getSource() == button_queryTuple) {
-           //Query option
+           //Query option searchPanel
             //after changing class queries
+            Graph.logpanel.setLogs( Graph.initialPanel.getLogFormat());
+            CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+            cardLayout.show(contentPane,"searchPanel");
 
         }
 
