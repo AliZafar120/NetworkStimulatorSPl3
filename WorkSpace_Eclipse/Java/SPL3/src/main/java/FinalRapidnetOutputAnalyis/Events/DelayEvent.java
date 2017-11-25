@@ -21,4 +21,9 @@ public class DelayEvent extends Event{
         this.delayTime=""+delayTime;
     }
 
+    public String toString() {
+        return this.eventName+" : ("+this.sourceNode+"->"+this.destinationNode+", ["+this.delayTime+"], "
+                +")";
+    }
+
 }

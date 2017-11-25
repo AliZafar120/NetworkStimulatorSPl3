@@ -18,4 +18,8 @@ public class DeriveEvent  extends  Event{
         this.rule=rule;
 
     }
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.time+"], "
+                +")";
+    }
 }

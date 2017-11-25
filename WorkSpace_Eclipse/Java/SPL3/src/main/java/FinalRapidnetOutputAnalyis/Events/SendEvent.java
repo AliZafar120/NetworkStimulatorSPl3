@@ -28,4 +28,8 @@ public class SendEvent extends  Event{
         this.destination=destination;
         this.isderive=isderive;
     }
+    public String toString() {
+        return this.eventName+" : ("+this.node+"->"+this.destination+", ["+this.time+"], "
+                +")";
+    }
 }

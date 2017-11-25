@@ -29,4 +29,9 @@ public class ReceiveEvent extends Event{
         this.isderve=isderve;
     }
 
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.time+"], "
+                +")";
+    }
+
 }

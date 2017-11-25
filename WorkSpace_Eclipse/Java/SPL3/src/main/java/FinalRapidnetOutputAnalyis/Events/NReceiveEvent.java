@@ -25,4 +25,9 @@ public class NReceiveEvent extends Event{
         this.tuple = t;
         this.isderive=isederive;
     }
+
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.stime+","+this.ftime+"], "
+                +")";
+    }
 }

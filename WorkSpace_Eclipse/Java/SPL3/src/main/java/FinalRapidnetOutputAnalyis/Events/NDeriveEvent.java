@@ -17,5 +17,9 @@ public class NDeriveEvent extends Event{
         this.tuple = t;
 
     }
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.stime+","+this.ftime+"], "
+                +")";
+    }
 
 }

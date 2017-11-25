@@ -13,4 +13,9 @@ public class ExistEvent extends Event{
         this.tuple=tuple;
         this.node=node;
     }
+
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.startTime+","+this.endTime+"], "
+                +")";
+    }
 }

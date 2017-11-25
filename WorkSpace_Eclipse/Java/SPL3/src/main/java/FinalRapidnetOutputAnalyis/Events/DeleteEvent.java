@@ -15,4 +15,9 @@ public class DeleteEvent extends Event{
         this.tuple = t;
 
     }
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.time+"], "
+                +")";
+    }
+
 }

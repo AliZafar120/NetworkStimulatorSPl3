@@ -8,6 +8,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class SearchPanel extends ScrollPane implements ActionListener{
@@ -19,18 +20,30 @@ public class SearchPanel extends ScrollPane implements ActionListener{
     private JTextField textfield_tuple_name;
     private JButton button_search;
     private HashMap<Integer,JTextField> attrTextFields;
-    private HashMap<Integer,ArrayList<JTextField>>arrayAttr;
     private JLabel label_selected_file_folder;
+    private JButton button_AddArraylist=null;
+    JTextField numberofAttr;
+    JLabel attrLable;
+    private JPanel panel_container;
+    private JPanel panel_search;
+    private JPanel panel_tuple;
+    JComboBox queryType;
+    int heightPosition=0;
+    private JButton button_search_tuple;
 
-    private JPanel panel_Search;
+    GridBagConstraints main_gbc;
 
     public SearchPanel(JPanel panel) {
 
         contentPane = panel;
-        panel_Search= new JPanel();
-        GridBagLayout layout = new GridBagLayout();
+        panel_search= new JPanel();
+        panel_container= new JPanel();
+        panel_container.setLayout(new GridBagLayout());
 
-        panel_Search.setLayout(layout);
+        main_gbc= new GridBagConstraints();
+
+        GridBagLayout layout = new GridBagLayout();
+        panel_search.setLayout(layout);
         GridBagConstraints gbc = new GridBagConstraints();
 
 
@@ -43,28 +56,37 @@ public class SearchPanel extends ScrollPane implements ActionListener{
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
-        gbc.gridy = 0;
-        panel_Search.add(label_tuple_name,gbc);
+        gbc.gridy = heightPosition;
+        panel_search.add(label_tuple_name,gbc);
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = heightPosition++;
         gbc.insets = new Insets(0,10,0,0);
-        panel_Search.add(textfield_tuple_name,gbc);
+        panel_search.add(textfield_tuple_name,gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
-        gbc.gridy = 1;
+        gbc.gridy = heightPosition++;
         gbc.gridwidth = 2;
         gbc.insets = new Insets(20,0,0,0);
-        panel_Search.add(button_search,gbc);
+        panel_search.add(button_search,gbc);
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = heightPosition++;
         gbc.gridwidth = 2;
 
         gbc.insets = new Insets(20,0,0,0);
 
-        panel_Search.add(label_search_result,gbc);
-        add(panel_Search);
+        panel_search.add(label_search_result,gbc);
+
+        main_gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+        main_gbc.fill = GridBagConstraints.BOTH;
+        main_gbc.gridx = 0;
+        main_gbc.gridy = 0;
+        main_gbc.weightx = 1.0;
+        main_gbc.weighty = 0.3;
+
+        panel_container.add(panel_search,main_gbc);
+        add(panel_container);
     }
 
 
@@ -80,84 +102,123 @@ public class SearchPanel extends ScrollPane implements ActionListener{
         TupleQuery query= new TupleQuery();
         query.setLogs(Graph.initialPanel.getLogFormat());
         if(event.getSource()==button_search){
+            if(panel_tuple!=null)panel_container.remove(panel_tuple);
             tupleStructure= query.getTupleStructure(textfield_tuple_name.getText());
+
             if(tupleStructure==null){
                 searchResultText("No such type of Tuples are found. Please Retry.");
+                panel_container.revalidate();
             }
             else {
                 attrTextFields= new HashMap<Integer, JTextField>();
-                if(tupleStructure.hasArrayAttribute()){
-                    arrayAttr= new HashMap<Integer, ArrayList<JTextField>>();
-                }
                 setLayoutForTupleInformation();
             }
         }
+
+       if(event.getSource()==button_search_tuple){
+            String queryOption=queryType.getSelectedItem().toString();
+            for(int i=0;i< tupleStructure.attributes.size();i++){
+
+                if(tupleStructure.attributes.get(i).islist){
+                    tupleStructure.attributes.get(i).tupleAttributelistValue= new ArrayList<String>(Arrays.asList(attrTextFields.get(i).getText().toString().replaceAll("\\s","").split(",")));
+                }
+                else{
+                    tupleStructure.attributes.get(i).tupleAttributeValue=attrTextFields.get(i).getText().toString().replaceAll("\\s","");
+                }
+
+            }
+            //query.gett
+       }
+
     }
 
 
     public void setLayoutForTupleInformation(){
-        final JPanel tuplePanel= new JPanel();
+        panel_tuple= new JPanel();
         GridBagLayout layout = new GridBagLayout();
 
-        tuplePanel.setLayout(layout);
+        panel_tuple.setLayout(layout);
         final GridBagConstraints gbc = new GridBagConstraints();
-
-        int j=0;
-        for(int i=1;i<= tupleStructure.attributes.size();i++){
-
-            if(tupleStructure.attributes.get(i).islist)
-            {
-                ArrayList<JTextField> arraylistTextFields= new ArrayList<JTextField>();
-                JLabel attrLable = new JLabel("Attribute " + i + ": " + tupleStructure.attributes.get(i).tupleAttributeName);
-                gbc.fill = GridBagConstraints.HORIZONTAL;
-                gbc.gridx = 0;
-                gbc.gridy = j;
-                tuplePanel.add(attrLable, gbc);
-                JTextField attrtextfield= new JTextField();
-                gbc.fill = GridBagConstraints.HORIZONTAL;
-                gbc.gridx = 1;
-                gbc.gridy = j;
-                tuplePanel.add(attrtextfield, gbc);
-                arraylistTextFields.add(attrtextfield);
-                j++;
-                JButton button_AddArraylist = new JButton("Add");
-                button_AddArraylist.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        JTextField attrtextfield= new JTextField();
-                        gbc.fill = GridBagConstraints.HORIZONTAL;
-                        gbc.gridx = 1;
-                        //gbc.gridy = j;
-                        tuplePanel.add(attrtextfield, gbc);
-                        //j++;
-                    }
-                });
-                gbc.fill = GridBagConstraints.HORIZONTAL;
-                gbc.gridx = 2;
-                gbc.gridy = j;
-                tuplePanel.add(button_AddArraylist, gbc);
+        int height=heightPosition;
+        for(int i=0;i< tupleStructure.attributes.size();i++){
 
 
+                if(tupleStructure.attributes.get(i).islist) {
+                    JLabel attrLable = new JLabel("Attribute " + (i+1) + ": " + tupleStructure.attributes.get(i).tupleAttributeName+ "(*Array, enter values in comma separated format*)");
+                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                    gbc.gridx = 0;
+                    gbc.gridy = height++;
+                    panel_tuple.add(attrLable, gbc);
 
+                    gbc.gridx = 0;
+                    gbc.gridy = height++;
+                    gbc.gridwidth=2;
+                    JTextField attrfield = new JTextField();
+                    attrTextFields.put(i, attrfield);
+                    panel_tuple.add(attrfield, gbc);
+                    gbc.gridwidth=0;
+                }
+                else{
+                    JLabel attrLable = new JLabel("Attribute " + (i+1) + ": " + tupleStructure.attributes.get(i).tupleAttributeName);
+                    gbc.fill = GridBagConstraints.HORIZONTAL;
+                    gbc.gridx = 0;
+                    gbc.gridy = height++;
+                    panel_tuple.add(attrLable, gbc);
 
-            }else {
-                JLabel attrLable = new JLabel("Attribute " + i + ": " + tupleStructure.attributes.get(i).tupleAttributeName);
-                gbc.fill = GridBagConstraints.HORIZONTAL;
-                gbc.gridx = 0;
-                gbc.gridy = j;
-                tuplePanel.add(attrLable, gbc);
-                gbc.gridx = 1;
-                gbc.gridy = j;
-                JTextField attrfield= new JTextField();
-                attrTextFields.put(i,attrfield);
-                tuplePanel.add(attrfield);
-            }
-            j++;
+                    gbc.gridx = 0;
+                    gbc.gridy = height++;
+                    gbc.gridwidth=2;
+                    JTextField attrfield = new JTextField();
+                    attrTextFields.put(i, attrfield);
+                    panel_tuple.add(attrfield, gbc);
+                    gbc.gridwidth=1;
+                }
+
 
         }
 
-        add(tuplePanel);
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.gridwidth=1;
+        queryType= new JComboBox(new String[]{"Exit", "NExist"});
+        queryType.setSelectedIndex(0);
+        panel_tuple.add(queryType, gbc);
 
+        button_search_tuple= new JButton("Search tuple");
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.gridwidth=2;
+        gbc.insets = new Insets(20,0,0,0);
+        button_search_tuple.addActionListener(this);
+        panel_tuple.add(button_search_tuple, gbc);
+
+
+
+        main_gbc.weighty = 0.7;
+        main_gbc.gridy = 1;
+        panel_container.add(panel_tuple,main_gbc);
+        add(panel_container);
     }
 
+   /* public void setArrayItems(){
+        String input=numberofAttr.getText();
+        int numberofAttributes=0;
+        if (input.contains("[a-zA-Z]+") == false) {
+            numberofAttributes = Integer.parseInt(input);
+        }else return;
+
+        for(int i=1;i<=numberofAttributes;i++){
+
+            JTextField attrtextfield= new JTextField();
+            gbc.fill = GridBagConstraints.HORIZONTAL;
+            gbc.gridx = 1;
+            //gbc.gridy = j;
+            tuplePanel.add(attrtextfield, gbc);
+            //j++;
+
+        }
+
+
+    }
+*/
 }

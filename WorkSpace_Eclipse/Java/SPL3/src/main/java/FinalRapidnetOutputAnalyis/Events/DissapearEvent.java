@@ -17,4 +17,9 @@ public class DissapearEvent extends Event{
         this.rule=rule;
         this.derivationCounter=derivationCounter;
     }
+
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.time+"], "
+                +")";
+    }
 }

@@ -1,5 +1,6 @@
 package GraphTest;
 
+import FinalRapidnetOutputAnalyis.Events.*;
 import FinalRapidnetOutputAnalyis.Events.Event;
 import com.mxgraph.swing.mxGraphComponent;
 import com.mxgraph.view.mxGraph;
@@ -68,7 +69,8 @@ public class GraphPanel extends ScrollPane{
             if(parent==null){
                 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 int centerX = screenSize.width/2;
-                String eventname=current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
+                String eventname=getEventDetails(currentEvent);
+                        //current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
                 Object v1 = graph.insertVertex(defaultparent, null, eventname, centerX-100,0,200, 200 );
                 if(current.childs!=null) {
                     int i=0;
@@ -80,7 +82,8 @@ public class GraphPanel extends ScrollPane{
 
             }
             else{
-                String eventname=current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
+                String eventname=getEventDetails(current);
+                //+" "+current.getTime()+" "+currentEvent.node
                 Object v2= graph.insertVertex(defaultparent, null, eventname, parent_x-parentchilds*250/2+childno*250,parent_y+300, 200, 200);
                 graph.insertEdge(defaultparent, null, "", parentobject, v2);
                 if(current.childs!=null) {
@@ -93,4 +96,69 @@ public class GraphPanel extends ScrollPane{
             }
 
     }
+
+    public String getEventDetails(Event event){
+        if(event.eventName.compareToIgnoreCase("Exist")==0){
+            return ((ExistEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Appear")==0){
+            return ((AppearEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Delay")==0){
+            return ((DelayEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Delete")==0){
+            return ((DeleteEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Derive")==0){
+            return ((DeriveEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Dissapear")==0){
+            return ((DissapearEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Inserted")==0){
+            return ((InsertEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NAppear")==0){
+            return ((NAppearEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NArrive")==0){
+            return ((NArriveEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NDerive")==0){
+            return ((NDeriveEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NExist")==0){
+            return ((NExistEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NInserted")==0){
+            return ((NInsertEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NReceive")==0){
+            return ((NReceiveEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("NSend")==0){
+            return ((NSendEvent)event).toString();
+        }
+
+
+        else if(event.eventName.compareToIgnoreCase("Received")==0){
+            return ((ReceiveEvent)event).toString();
+        }
+
+
+        else if(event.eventName.compareToIgnoreCase("Send")==0){
+            return ((SendEvent)event).toString();
+        }
+
+        else if(event.eventName.compareToIgnoreCase("Underive")==0){
+            return ((UnderiveEvent)event).toString();
+        }
+
+
+
+        return "";
+    }
+
+
 }

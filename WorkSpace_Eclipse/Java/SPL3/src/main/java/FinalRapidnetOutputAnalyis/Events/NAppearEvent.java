@@ -29,4 +29,9 @@ public class NAppearEvent extends Event{
         this.tuple = t;
         //this.derivationCounter=derivationCounter;
     }
+
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.stime+","+this.ftime+"], "
+                +")";
+    }
 }

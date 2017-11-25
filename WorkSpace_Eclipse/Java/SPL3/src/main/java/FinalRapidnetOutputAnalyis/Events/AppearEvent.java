@@ -26,5 +26,10 @@ public class AppearEvent extends Event{
         this.derivationCounter=derivationCounter;
     }
 
+    public String toString() {
+        return this.eventName+" : ("+this.node+", ["+this.time+"], "
+                +")";
+    }
+
 
 }
