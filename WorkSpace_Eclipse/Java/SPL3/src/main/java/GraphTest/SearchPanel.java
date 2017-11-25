@@ -2,6 +2,7 @@ package GraphTest;
 
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 import Queries.TupleQuery;
+import com.sun.org.apache.xpath.internal.SourceTree;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,6 +31,12 @@ public class SearchPanel extends ScrollPane implements ActionListener{
     JComboBox queryType;
     int heightPosition=0;
     private JButton button_search_tuple;
+
+    private JTextField textfield_node_name;
+
+    private JTextField textfield_start_time;
+
+    private JTextField textfield_end_time;
 
     GridBagConstraints main_gbc;
 
@@ -127,7 +134,15 @@ public class SearchPanel extends ScrollPane implements ActionListener{
                 }
 
             }
-            //query.gett
+           query.searchTuple(tupleStructure,queryOption,textfield_node_name.getText().toString().replaceAll("\\s",""),textfield_start_time.getText().toString().replaceAll("\\s","")+"000000000",textfield_end_time.getText().toString().replaceAll("\\s","")+"000000000");
+
+           Graph.graphpanel.setOriginEvent(query.origin);
+           Graph.graphpanel.drawGraph();
+           CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+           cardLayout.show(contentPane,"graphpanel");
+
+
+           //query.gett
        }
 
     }
@@ -177,12 +192,71 @@ public class SearchPanel extends ScrollPane implements ActionListener{
 
         }
 
+        JLabel lable_qtype = new JLabel("Query Type");
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.insets = new Insets(20,0,0,0);
+        panel_tuple.add(lable_qtype, gbc);
+
         gbc.gridx = 0;
         gbc.gridy = height++;
         gbc.gridwidth=1;
+        gbc.insets = new Insets(0,0,0,0);
         queryType= new JComboBox(new String[]{"Exit", "NExist"});
         queryType.setSelectedIndex(0);
         panel_tuple.add(queryType, gbc);
+
+
+        JLabel node_lable = new JLabel("Query at Node");
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.insets = new Insets(0,0,0,0);
+        panel_tuple.add(node_lable, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.gridwidth=2;
+        textfield_node_name = new JTextField();
+        gbc.insets = new Insets(10,0,0,0);
+        panel_tuple.add(textfield_node_name, gbc);
+        gbc.gridwidth=1;
+
+
+        JLabel lable_stime = new JLabel("Start Time");
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.insets = new Insets(0,0,0,0);
+        panel_tuple.add(lable_stime, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.gridwidth=2;
+        textfield_start_time = new JTextField();
+        gbc.insets = new Insets(10,0,0,0);
+        panel_tuple.add(textfield_start_time, gbc);
+        gbc.gridwidth=1;
+
+
+
+        JLabel lable_ftime = new JLabel("Time end");
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.insets = new Insets(0,0,0,0);
+        panel_tuple.add(lable_ftime, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = height++;
+        gbc.gridwidth=2;
+        textfield_end_time = new JTextField();
+        gbc.insets = new Insets(10,0,0,0);
+        panel_tuple.add(textfield_end_time, gbc);
+        gbc.gridwidth=1;
+
+
 
         button_search_tuple= new JButton("Search tuple");
         gbc.gridx = 0;
