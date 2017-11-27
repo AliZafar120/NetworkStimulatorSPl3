@@ -16,6 +16,6 @@ public class ExistEvent extends Event{
 
     public String toString() {
         return this.eventName+" : ("+this.node+", ["+this.startTime+","+this.endTime+"], "
-                +")";
+                +this.tuple.toString()+this.tuple.toString()+")";
     }
 }

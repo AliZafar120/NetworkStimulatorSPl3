@@ -18,6 +18,6 @@ public class UnderiveEvent extends Event{
 
     public String toString() {
         return this.eventName+" : ("+this.node+", ["+this.time+"], "
-                +")";
+                +this.tuple.toString()+")";
     }
 }

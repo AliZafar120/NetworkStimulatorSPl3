@@ -138,6 +138,7 @@ public class SearchPanel extends ScrollPane implements ActionListener{
 
            Graph.graphpanel.setOriginEvent(query.origin);
            Graph.graphpanel.drawGraph();
+           Graph.graphpanel.from="search";
            CardLayout cardLayout = (CardLayout) contentPane.getLayout();
            cardLayout.show(contentPane,"graphpanel");
 

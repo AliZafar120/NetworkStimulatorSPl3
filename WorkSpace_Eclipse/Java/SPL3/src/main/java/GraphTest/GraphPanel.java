@@ -7,6 +7,8 @@ import com.mxgraph.view.mxGraph;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -15,15 +17,33 @@ public class GraphPanel extends ScrollPane{
     private JPanel contentPane;
     public Event originevent= new Event();
     public Event currentEvent = new Event();
+    public JButton button_back;
+    String from="";
 
-
-    public GraphPanel( JPanel contentPane){
+    public GraphPanel(final JPanel contentPane){
         this.contentPane=contentPane;
+        button_back= new JButton("Back");
+        JPanel panel_option= new JPanel();
+        button_back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CardLayout cardLayout = (CardLayout) contentPane.getLayout();
+
+                if(from.compareTo("log")==0) cardLayout.show(contentPane,"logpanel");
+                else cardLayout.show(contentPane,"searchPanel");
+            }
+        });
+
+
+        panel_option.add(button_back);
+        add(panel_option);
+
+        /*
         this.originevent.eventName="The Parent Event";
         this.originevent.childs.add(new Event("This is the first child"));
         this.originevent.childs.add(new Event("This is the Second child"));
         this.originevent.childs.add(new Event("This is the Third child"));
-
+*/
         //drawGraph();
     }
 
@@ -69,7 +89,7 @@ public class GraphPanel extends ScrollPane{
             if(parent==null){
                 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 int centerX = screenSize.width/2;
-                String eventname=getEventDetails(currentEvent);
+                String eventname=getEventDetails(current);
                         //current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
                 Object v1 = graph.insertVertex(defaultparent, null, eventname, centerX-100,0,200, 200 );
                 if(current.childs!=null) {
@@ -85,12 +105,14 @@ public class GraphPanel extends ScrollPane{
                 String eventname=getEventDetails(current);
                 //+" "+current.getTime()+" "+currentEvent.node
                 Object v2= graph.insertVertex(defaultparent, null, eventname, parent_x-parentchilds*250/2+childno*250,parent_y+300, 200, 200);
-                graph.insertEdge(defaultparent, null, "", parentobject, v2);
+                graph.insertEdge(defaultparent, null, "",v2, parentobject);
                 if(current.childs!=null) {
                     int i=0;
                     for (Event child : current.childs) {
                         setLocation(graph, current, child, v2, graph.getModel().getGeometry(v2).getX()+graph.getModel().getGeometry(v2).getWidth()/2, graph.getModel().getGeometry(v2).getY(), current.childs.size(), i,defaultparent);
+                        i++;
                     }
+
                 }
 
             }

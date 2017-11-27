@@ -23,7 +23,7 @@ public class DelayEvent extends Event{
 
     public String toString() {
         return this.eventName+" : ("+this.sourceNode+"->"+this.destinationNode+", ["+this.delayTime+"], "
-                +")";
+                +this.tuple.toString()+")";
     }
 
 }

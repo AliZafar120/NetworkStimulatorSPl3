@@ -30,6 +30,6 @@ public class SendEvent extends  Event{
     }
     public String toString() {
         return this.eventName+" : ("+this.node+"->"+this.destination+", ["+this.time+"], "
-                +")";
+                +this.tuple.toString()+")";
     }
 }

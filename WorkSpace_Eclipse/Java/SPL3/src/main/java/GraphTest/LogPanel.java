@@ -48,6 +48,7 @@ public class LogPanel extends ScrollPane {
                     TupleQuery query1= new TupleQuery();
                     query1.setLogs(logs);
                     query1.searchTuple(log.t,"exist",log.node,"0","10000000000");
+                    Graph.graphpanel.from="log";
                     Graph.graphpanel.setOriginEvent(query1.origin);
                     Graph.graphpanel.drawGraph();
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
