@@ -218,15 +218,15 @@ public class TupleQuery {
             boolean isanybestpath = false;
             LogFormat bestpath = null;
             for (LogFormat bestPathlogs : logs) {
-                if (new BigInteger(bestPathlogs.getTime()).compareTo(new BigInteger(time.replaceAll("ns", ""))) >= 0)
-                    break;
+
                 if (bestPathlogs.t.type.compareTo("bestPath") == 0 &&
                         bestPathlogs.derived == 1 &&
-                        bestPathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue) == 0
+                        bestPathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue) == 0
                         && bestPathlogs.node.compareTo(Node) == 0
                         ) {
                     isanybestpath = true;
                     bestpath = bestPathlogs;
+                    break;
                 }
 
             }
@@ -238,7 +238,7 @@ public class TupleQuery {
                             &&
                             linklogs.derived == 1 &&
                             linklogs.t.attributes.get(0).tupleAttributeValue.compareTo(Node) == 0 &&
-                            linklogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue) == 0
+                            linklogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue) == 0
                             && Integer.parseInt(linklogs.t.attributes.get(2).tupleAttributeValue) + Integer.parseInt(bestpath.t.attributes.get(2).tupleAttributeValue) == Integer.parseInt(tuple.attributes.get(2).tupleAttributeValue)
                             ) {
                         S.add(new AppearEvent(time, Node, linklogs.t, linklogs.rule, linklogs.derivationCounter));
