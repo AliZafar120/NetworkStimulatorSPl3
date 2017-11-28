@@ -51,21 +51,13 @@ UpdateLinks1 ()
   insertlink (5, 6, 5);
   insertlink (6, 7, 5);
   insertlink (7, 9, 5);
-  //insertlink (3, 4, 2);
-//  insertlink (4, 5, 6);
+
 }
 
 void
 UpdateLinks2 ()
 {
 	insertlink (8, 9, 5);
-}
-
-void
-UpdateLinks3 ()
-{
-
- // insertlink (1, 5, 3);
 }
 
 int
@@ -80,10 +72,8 @@ main (int argc, char *argv[])
   apps.Stop (Seconds (10.0));
 
   schedule (0.0001, UpdateLinks1);
-  //schedule (2.0000, Print);
-  //schedule (4.0000, Print);
+
   schedule (4.0001, UpdateLinks2);
- // schedule (6.0000, Print);
 
   Simulator::Run ();
   Simulator::Destroy ();

@@ -46,15 +46,24 @@ void
 UpdateLinks1 ()
 {
 
-	 insertlink (1, 2, 5);
+	 	  insertlink (1, 2, 5);
 		  insertlink (2, 3, 3);
-		  insertblackholelink(3,"10.1.1.4",3);
+		  insertlink(3,4,3);
+		  insertlink(4,5,3);
+		  insertlink(5,6,3);
+		  insertlink(6,7,3);
+		  insertlink(7,8,3);
+		  insertlink(8,9,3);
+		  insertlink(9,10,3);
+/*s*/
 
-		  insertblackholelink(3,"10.1.1.5",3);
 
-		  insertblackholelink(3,"10.1.1.6",3);
 
-		  insertblackholelink(3,"10.1.1.7",3);
+
+		  insertblackholelink(27,"10.1.2.1",3);
+		  insertblackholelink(27,"10.1.2.2",3);
+		  insertblackholelink(27,"10.1.2.3",3);
+		  insertblackholelink(27,"10.1.2.4",3);
 
 
 /*
@@ -82,7 +91,7 @@ UpdateLinks1 ()
 ApplicationContainer InitApp(){
 	Ptr<RapidNetApplicationHelper> appHelper= Create<BgpblackholeHelper> ();
 	  NodeContainer csmaNodes;
-	  csmaNodes.Create (4);
+	  csmaNodes.Create (28);
 
 	  CsmaHelper csma;
 
