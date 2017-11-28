@@ -12,7 +12,8 @@ public class TupleQuery {
     ArrayList<LogFormat> logs;
     Event current = new Event();
     public Event origin;
-
+    long startTime ;
+    long endTime;
     public TupleQuery() {
         queryOutputEvents = new ArrayList<Event>();
         logs = new ArrayList<LogFormat>();
@@ -864,5 +865,15 @@ public class TupleQuery {
                 }
         }
         return  null;
+    }
+
+
+    public void startTimer(){
+        startTime = System.nanoTime();
+    }
+
+    public String getPassedTime(){
+         endTime = System.nanoTime();
+        return (endTime - startTime)+"";
     }
 }

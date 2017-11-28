@@ -134,9 +134,13 @@ public class SearchPanel extends ScrollPane implements ActionListener{
                 }
 
             }
+           query.startTimer();
            query.searchTuple(tupleStructure,queryOption,textfield_node_name.getText().toString().replaceAll("\\s",""),textfield_start_time.getText().toString().replaceAll("\\s","")+"000000000",textfield_end_time.getText().toString().replaceAll("\\s","")+"000000000");
+           System.out.println(query.getPassedTime());
 
+           Graph.graphpanel.vertices_in_response=0;
            Graph.graphpanel.setOriginEvent(query.origin);
+           System.out.println(Graph.graphpanel.getVerticesInResponse());
            Graph.graphpanel.drawGraph();
            Graph.graphpanel.from="search";
            CardLayout cardLayout = (CardLayout) contentPane.getLayout();

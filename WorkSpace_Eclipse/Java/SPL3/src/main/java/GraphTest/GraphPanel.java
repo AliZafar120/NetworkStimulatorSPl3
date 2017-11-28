@@ -19,7 +19,7 @@ public class GraphPanel extends ScrollPane{
     public Event currentEvent = new Event();
     public JButton button_back;
     String from="";
-
+    int vertices_in_response=0;
     public GraphPanel(final JPanel contentPane){
         this.contentPane=contentPane;
         button_back= new JButton("Back");
@@ -90,6 +90,7 @@ public class GraphPanel extends ScrollPane{
                 Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
                 int centerX = screenSize.width/2;
                 String eventname=getEventDetails(current);
+                vertices_in_response++;
                         //current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
                 Object v1 = graph.insertVertex(defaultparent, null, eventname, centerX-100,0,200, 200 );
                 if(current.childs!=null) {
@@ -103,6 +104,7 @@ public class GraphPanel extends ScrollPane{
             }
             else{
                 String eventname=getEventDetails(current);
+                vertices_in_response++;
                 //+" "+current.getTime()+" "+currentEvent.node
                 Object v2= graph.insertVertex(defaultparent, null, eventname, parent_x-parentchilds*250/2+childno*250,parent_y+300, 200, 200);
                 graph.insertEdge(defaultparent, null, "",v2, parentobject);
@@ -180,6 +182,10 @@ public class GraphPanel extends ScrollPane{
 
 
         return "";
+    }
+
+    public String getVerticesInResponse(){
+        return vertices_in_response+"";
     }
 
 

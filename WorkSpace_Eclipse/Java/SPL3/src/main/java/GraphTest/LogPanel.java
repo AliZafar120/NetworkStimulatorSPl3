@@ -47,9 +47,17 @@ public class LogPanel extends ScrollPane {
                    // button.setBackground(Color.BLUE);
                     TupleQuery query1= new TupleQuery();
                     query1.setLogs(logs);
+                    query1.startTimer();
                     query1.searchTuple(log.t,"exist",log.node,"0","10000000000");
+                    System.out.println(query1.getPassedTime());
                     Graph.graphpanel.from="log";
+
+
+                    Graph.graphpanel.vertices_in_response=0;
+
                     Graph.graphpanel.setOriginEvent(query1.origin);
+
+                    System.out.println(Graph.graphpanel.getVerticesInResponse());
                     Graph.graphpanel.drawGraph();
                     CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                     cardLayout.show(contentPane,"graphpanel");
