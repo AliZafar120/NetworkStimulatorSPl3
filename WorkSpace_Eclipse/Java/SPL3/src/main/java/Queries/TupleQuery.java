@@ -3,6 +3,7 @@ package Queries;
 import FinalRapidnetOutputAnalyis.Events.*;
 import FinalRapidnetOutputAnalyis.LogFormat;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
+import sun.rmi.runtime.Log;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -14,10 +15,12 @@ public class TupleQuery {
     public Event origin;
     long startTime ;
     long endTime;
+    int vertices_in_response;
     public TupleQuery() {
         queryOutputEvents = new ArrayList<Event>();
         logs = new ArrayList<LogFormat>();
         Event origin = new Event();
+        vertices_in_response=0;
     }
 
     public void setLogs(ArrayList<LogFormat> logs) {
@@ -47,6 +50,7 @@ public class TupleQuery {
 
 
     public void getProvenanceGraph(Event event) {
+        vertices_in_response++;
         current = event;
         if (event.getEventName().compareTo("Exist") == 0) {
             ArrayList<Event> outputs = existQuery(((ExistEvent) event).startTime, ((ExistEvent) event).endTime, event.node, event.tuple);
@@ -217,22 +221,23 @@ public class TupleQuery {
 
         } else if (rule.compareTo("r2") == 0) {
             boolean isanybestpath = false;
-            LogFormat bestpath = null;
+            ArrayList<LogFormat>bestPaths= new ArrayList<LogFormat>();
+
             for (LogFormat bestPathlogs : logs) {
 
-                if (bestPathlogs.t.type.compareTo("bestPath") == 0 &&
-                        bestPathlogs.derived == 1 &&
+                if (bestPathlogs.t.type.compareTo("bestPath") == 0
+                        && bestPathlogs.derived == 1 &&
                         bestPathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue) == 0
                         && bestPathlogs.node.compareTo(Node) == 0
                         ) {
                     isanybestpath = true;
-                    bestpath = bestPathlogs;
-                    break;
+                    bestPaths.add( bestPathlogs);
+
                 }
 
             }
             if (isanybestpath) {
-
+                for(LogFormat bestpath: bestPaths){
                 for (LogFormat linklogs : logs) {
                     if (linklogs.t.type.compareTo("link") == 0 &&
                             linklogs.node.compareTo(Node) == 0
@@ -247,6 +252,7 @@ public class TupleQuery {
                         //existQuery(0,Long.parseLong(time),Node,linklogs.t);
                         return S;
                     }
+                }
                 }
             }
 
@@ -366,6 +372,7 @@ public class TupleQuery {
     public ArrayList<Event> existQuery(String stime, String ftime, String Node, Tuple t) {
         ArrayList<Event> S = new ArrayList<Event>();
         queryOutputEvents = new ArrayList<Event>();
+        int i=0;
         //querying for particular tuple
         for (LogFormat log : logs) {
 
@@ -384,7 +391,10 @@ public class TupleQuery {
                /* if(i==29){
                     System.out.println();
                 }*/
-            if (log.derived == 0 && log.node.compareTo(Node) == 0 && new BigInteger(timeOfLog).compareTo(new BigInteger(stime)) >= 0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime)) <= 0 && log.t.attributesEquals(t)) {
+            //if(i==393){
+               // System.out.println();
+           // }
+            if (log.derived == 0 && log.node.compareTo(Node) == 0 && new BigInteger(timeOfLog).compareTo(new BigInteger(stime.replaceAll("\\D+",""))) >= 0 && new BigInteger(timeOfLog).compareTo(new BigInteger(ftime.replaceAll("\\D+",""))) <= 0 && log.t.attributesEquals(t)) {
                 ((ExistEvent) current).endTime = log.time;
                 S.add(new DissapearEvent(log.time, Node, log.t, log.rule, log.derivationCounter));
                 break;
@@ -482,9 +492,39 @@ public class TupleQuery {
                     return S;
                 }
             }
+
             for (LogFormat bestPathlogs : logs) {
-                if (new BigInteger(bestPathlogs.getTime()).compareTo(new BigInteger(time.replaceAll("ns", ""))) >= 0)
+
+                if (bestPathlogs.t.type.compareTo("bestPath") == 0 &&
+                        bestPathlogs.derived == 0 &&
+                        bestPathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(1).tupleAttributeValue) == 0
+                        && bestPathlogs.node.compareTo(Node) == 0
+                        ) {
+                    isanybestpath = true;
+                    bestpath = bestPathlogs;
                     break;
+                }
+
+            }
+            if (isanybestpath) {
+
+                for (LogFormat pathlogs : logs) {
+                    if (pathlogs.t.type.compareTo("path") == 0 &&
+                            pathlogs.node.compareTo(Node) == 0
+                            &&
+                            pathlogs.derived == 1 &&
+                            pathlogs.t.attributes.get(0).tupleAttributeValue.compareTo(Node) == 0 &&
+                            pathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(bestpath.t.attributes.get(1).tupleAttributeValue) == 0
+                            && Integer.parseInt(pathlogs.t.attributes.get(2).tupleAttributeValue) < Integer.parseInt(bestpath.t.attributes.get(2).tupleAttributeValue)
+                            ) {
+                        S.add(new AppearEvent(time, Node, pathlogs.t, pathlogs.rule, pathlogs.derivationCounter));
+                        //existQuery(0,Long.parseLong(time),Node,linklogs.t);
+                        return S;
+                    }
+                }
+            }
+/*
+            for (LogFormat bestPathlogs : logs) {
                 if (bestPathlogs.t.type.compareTo("bestPath") == 0 &&
                         bestPathlogs.derived == 0 &&
                         bestPathlogs.t.attributes.get(1).tupleAttributeValue.compareTo(tuple.attributes.get(0).tupleAttributeValue) == 0
@@ -499,7 +539,7 @@ public class TupleQuery {
                 S.add(new DissapearEvent(time, Node, bestpath.t, bestpath.rule, bestpath.derivationCounter));
                 return S;
 
-            }
+            }*/
 
 
         } else if (rule.compareTo("r3") == 0) {
@@ -869,11 +909,14 @@ public class TupleQuery {
 
 
     public void startTimer(){
-        startTime = System.nanoTime();
+        startTime = System.currentTimeMillis();
     }
 
     public String getPassedTime(){
-         endTime = System.nanoTime();
+         endTime = System.currentTimeMillis();
         return (endTime - startTime)+"";
+    }
+    public int getVerticesInResponse(){
+        return vertices_in_response;
     }
 }

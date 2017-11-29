@@ -150,12 +150,16 @@ public class ApplicationLogParser {
     }
 
 
-    public ArrayList<LogFormat> getAllFormattedLog(ArrayList<String> logs){
+    public ArrayList<LogFormat> getAllFormattedLog(ArrayList<String> logs) throws CloneNotSupportedException {
         ArrayList<LogFormat> formattedLogs= new ArrayList<LogFormat>();
         for(String logline:logs){
             LogFormat format=getLogFormat(logline);
+            if(format.rule!=null && (format.rule.compareTo("r4")==0)){
+                LogFormat tempformat = new LogFormat(format.t, 1, format.node, format.time, format.rule, format.derivationCounter);
+                formattedLogs.add(tempformat);
+            }
 
-            if(format.rule!=null && (format.rule.compareTo("r2")==0||format.rule.compareTo("r4")==0) && format.t.tupleDestination!=null){
+            if(format.rule!=null && (format.rule.compareTo("r2")==0) && format.t.tupleDestination!=null){
                 if(format.exchangeIsderived==0) {
                     LogFormat tempformat = new LogFormat(format.t, 0, format.node, format.time, format.rule, format.derivationCounter);
                     formattedLogs.add(tempformat);//addding appear for rule2

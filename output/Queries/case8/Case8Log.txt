@@ -1,8 +1,8 @@
 Waf: Entering directory `/home/ali/Education/rapidnet_v1.0/build'
-[  1/380] cxx: scratch/bgplinkfailure.cc -> build/debug/scratch/bgplinkfailure_15.o
-[380/380] cxx_link: build/debug/scratch/bgplinkfailure_15.o -> build/debug/scratch/bgplinkfailure
+[  1/381] cxx: scratch/bgplinkfailure.cc -> build/debug/scratch/bgplinkfailure_15.o
+[381/381] cxx_link: build/debug/scratch/bgplinkfailure_15.o -> build/debug/scratch/bgplinkfailure
 Waf: Leaving directory `/home/ali/Education/rapidnet_v1.0/build'
-'build' finished successfully (1.554s)
+'build' finished successfully (3.290s)
 [0ns] 0.0.0.0: Port set to 11111
 [0ns] 0.0.0.0: Port set to 11111
 [0ns] 0.0.0.0: Port set to 11111
@@ -13,23 +13,23 @@ Waf: Leaving directory `/home/ali/Education/rapidnet_v1.0/build'
 [0ns] 0.0.0.0: Port set to 11111
 [0ns] 0.0.0.0: Port set to 11111
 Application Started at 0ns
-[0ns] 10.1.1.1: Pathvector Application Started
+[0ns] 10.1.1.1: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.2: Pathvector Application Started
+[0ns] 10.1.1.2: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.3: Pathvector Application Started
+[0ns] 10.1.1.3: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.4: Pathvector Application Started
+[0ns] 10.1.1.4: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.5: Pathvector Application Started
+[0ns] 10.1.1.5: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.6: Pathvector Application Started
+[0ns] 10.1.1.6: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.7: Pathvector Application Started
+[0ns] 10.1.1.7: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.8: Pathvector Application Started
+[0ns] 10.1.1.8: Bgpofflink Application Started
 Application Started at 0ns
-[0ns] 10.1.1.9: Pathvector Application Started
+[0ns] 10.1.1.9: Bgpofflink Application Started
 [100000ns] 10.1.1.1: Inserted link[link_attr1(ipv4:10.1.1.1) link_attr2(ipv4:10.1.1.2) link_attr3(int32:5) rn-action(str:rn-insert) ]
 [100000ns] 10.1.1.2: Inserted link[link_attr1(ipv4:10.1.1.2) link_attr2(ipv4:10.1.1.1) link_attr3(int32:5) rn-action(str:rn-insert) ]
 [100000ns] 10.1.1.1: Inserted link[link_attr1(ipv4:10.1.1.1) link_attr2(ipv4:10.1.1.3) link_attr3(int32:5) rn-action(str:rn-insert) ]
@@ -614,14 +614,26 @@ Application Started at 0ns
 [196665ns] 10.1.1.9: R3eca triggered
 [196665ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
 [196665ns] 10.1.1.9: R2Local2Eca1Ins triggered
+[4000100000ns] 10.1.1.5: Deleting link[link_attr1(ipv4:10.1.1.5) link_attr2(ipv4:10.1.1.6) link_attr3(int32:5) ]
+[4000100000ns] 10.1.1.6: Deleting link[link_attr1(ipv4:10.1.1.6) link_attr2(ipv4:10.1.1.5) link_attr3(int32:5) ]
 [4000100000ns] 10.1.1.8: Inserted link[link_attr1(ipv4:10.1.1.8) link_attr2(ipv4:10.1.1.9) link_attr3(int32:5) rn-action(str:rn-insert) ]
 [4000100000ns] 10.1.1.9: Inserted link[link_attr1(ipv4:10.1.1.9) link_attr2(ipv4:10.1.1.8) link_attr3(int32:5) rn-action(str:rn-insert) ]
+[4000100000ns] 10.1.1.5: R1Eca0Del triggered
+[4000100000ns] 10.1.1.5: Deleting path[path_attr1(ipv4:10.1.1.5) path_attr2(ipv4:10.1.1.6) path_attr3(int32:5) path_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6)) ]
+[4000100000ns] 10.1.1.5: R2Local1Eca0Del triggered
+[4000100000ns] 10.1.1.6: R1Eca0Del triggered
+[4000100000ns] 10.1.1.6: Deleting path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.5) path_attr3(int32:5) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5)) ]
+[4000100000ns] 10.1.1.6: R2Local1Eca0Del triggered
 [4000100000ns] 10.1.1.8: R1Eca0Ins triggered
 [4000100000ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.9) path_attr3(int32:5) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
 [4000100000ns] 10.1.1.8: R2Local1Eca0Ins triggered
 [4000100000ns] 10.1.1.9: R1Eca0Ins triggered
 [4000100000ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.8) path_attr3(int32:5) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
 [4000100000ns] 10.1.1.9: R2Local1Eca0Ins triggered
+[4000100000ns] 10.1.1.5: R3eca2 triggered
+[4000100000ns] 10.1.1.5: Sending r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.5) r2linkZDelete_attr2(ipv4:10.1.1.6) r2linkZDelete_attr3(int32:5) ] to 10.1.1.6
+[4000100000ns] 10.1.1.6: R3eca2 triggered
+[4000100000ns] 10.1.1.6: Sending r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.6) r2linkZDelete_attr2(ipv4:10.1.1.5) r2linkZDelete_attr3(int32:5) ] to 10.1.1.5
 [4000100000ns] 10.1.1.8: R3eca triggered
 [4000100000ns] 10.1.1.8: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
 [4000100000ns] 10.1.1.8: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:5) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
@@ -636,403 +648,381 @@ Application Started at 0ns
 [4000100000ns] 10.1.1.9: R2Local2Eca1Ins triggered
 [4000100000ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.3
 [4000100000ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] to 10.1.1.7
-[4000100725ns] 10.1.1.3: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.8
-[4000100725ns] 10.1.1.3: R2Local2Eca0RemoteIns triggered
-[4000100725ns] 10.1.1.3: Inserted path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.9) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000100725ns] 10.1.1.3: R3eca triggered
-[4000100725ns] 10.1.1.3: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000100725ns] 10.1.1.3: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000100725ns] 10.1.1.3: R2Local2Eca1Del triggered
-[4000100725ns] 10.1.1.3: R2Local2Eca1Ins triggered
-[4000100725ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.1
-[4000100725ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.8
-[4000100725ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.1
-[4000100725ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.4
-[4000101276ns] 10.1.1.1: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.3
-[4000101276ns] 10.1.1.1: R2Local2Eca0RemoteDel triggered
-[4000101276ns] 10.1.1.1: Deleting path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.9) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
-[4000101276ns] 10.1.1.1: R3eca2 triggered
-[4000101849ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.3
-[4000101849ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[4000101849ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.9) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
-[4000101849ns] 10.1.1.8: R3eca2 triggered
-[4000102500ns] 10.1.1.1: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.3
-[4000102500ns] 10.1.1.1: R2Local2Eca0RemoteIns triggered
-[4000102500ns] 10.1.1.1: Inserted path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.9) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000102500ns] 10.1.1.1: R3eca triggered
-[4000102500ns] 10.1.1.1: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000102500ns] 10.1.1.1: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000102500ns] 10.1.1.1: R2Local2Eca1Del triggered
-[4000102500ns] 10.1.1.1: R2Local2Eca1Ins triggered
-[4000102500ns] 10.1.1.1: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.2
-[4000102500ns] 10.1.1.1: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.2
-[4000103062ns] 10.1.1.2: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.1
-[4000103062ns] 10.1.1.2: R2Local2Eca0RemoteDel triggered
-[4000103062ns] 10.1.1.2: Deleting path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.9) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
-[4000103062ns] 10.1.1.2: R3eca2 triggered
-[4000103724ns] 10.1.1.2: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.1
-[4000103724ns] 10.1.1.2: R2Local2Eca0RemoteIns triggered
-[4000103724ns] 10.1.1.2: Inserted path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.9) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000103724ns] 10.1.1.2: R3eca triggered
-[4000103724ns] 10.1.1.2: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:35) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000103724ns] 10.1.1.2: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000103724ns] 10.1.1.2: R2Local2Eca1Del triggered
-[4000103724ns] 10.1.1.2: R2Local2Eca1Ins triggered
-[4000104725ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] from 10.1.1.9
-[4000104725ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
-[4000104725ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.8) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000104725ns] 10.1.1.7: R3eca triggered
-[4000104725ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000104725ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000104725ns] 10.1.1.7: R2Local2Eca1Del triggered
-[4000104725ns] 10.1.1.7: R2Local2Eca1Ins triggered
-[4000104725ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] to 10.1.1.9
-[4000104725ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] to 10.1.1.6
-[4000105276ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] from 10.1.1.7
-[4000105276ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[4000105276ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.8) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ]
-[4000105276ns] 10.1.1.9: R3eca2 triggered
-[4000105927ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] from 10.1.1.7
-[4000105927ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
-[4000105927ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.8) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000105927ns] 10.1.1.6: R3eca triggered
-[4000105927ns] 10.1.1.6: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.6) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000105927ns] 10.1.1.6: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.6) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000105927ns] 10.1.1.6: R2Local2Eca1Del triggered
-[4000105927ns] 10.1.1.6: R2Local2Eca1Ins triggered
-[4000105927ns] 10.1.1.6: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.7) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] to 10.1.1.7
-[4000105927ns] 10.1.1.6: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.5) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] to 10.1.1.5
-[4000106467ns] 10.1.1.7: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.7) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] from 10.1.1.6
-[4000106467ns] 10.1.1.7: R2Local2Eca0RemoteDel triggered
-[4000106467ns] 10.1.1.7: Deleting path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.8) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ]
-[4000106467ns] 10.1.1.7: R3eca2 triggered
-[4000107129ns] 10.1.1.5: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.5) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] from 10.1.1.6
-[4000107129ns] 10.1.1.5: R2Local2Eca0RemoteIns triggered
-[4000107129ns] 10.1.1.5: Inserted path[path_attr1(ipv4:10.1.1.5) path_attr2(ipv4:10.1.1.8) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
-[4000107129ns] 10.1.1.5: R3eca triggered
-[4000111151ns] 10.1.1.4: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.3
-[4000111151ns] 10.1.1.4: R2Local2Eca0RemoteIns triggered
-[4000111151ns] 10.1.1.4: Inserted path[path_attr1(ipv4:10.1.1.4) path_attr2(ipv4:10.1.1.9) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000111151ns] 10.1.1.4: R3eca triggered
-[4000111151ns] 10.1.1.4: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.4) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000111151ns] 10.1.1.4: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.4) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000111151ns] 10.1.1.4: R2Local2Eca1Del triggered
-[4000111151ns] 10.1.1.4: R2Local2Eca1Ins triggered
-[4000111151ns] 10.1.1.4: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.3) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.3
-[4000111151ns] 10.1.1.4: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.5) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.5
-[4000111691ns] 10.1.1.3: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.3) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.4
-[4000111691ns] 10.1.1.3: R2Local2Eca0RemoteDel triggered
-[4000111691ns] 10.1.1.3: Deleting path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.9) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
-[4000111691ns] 10.1.1.3: R3eca2 triggered
-[4000112353ns] 10.1.1.5: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.5) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.4
-[4000112353ns] 10.1.1.5: R2Local2Eca0RemoteIns triggered
-[4000112353ns] 10.1.1.5: Inserted path[path_attr1(ipv4:10.1.1.5) path_attr2(ipv4:10.1.1.9) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
-[4000112353ns] 10.1.1.5: R3eca triggered
-[4000113717ns] 10.1.1.9: Received r2Local1r2linkZsend[r2Local1r2linkZsend_attr1(ipv4:10.1.1.8) r2Local1r2linkZsend_attr2(ipv4:10.1.1.9) r2Local1r2linkZsend_attr3(int32:5) ] from 10.1.1.8
-[4000113717ns] 10.1.1.9: R2Local1Eca0RemoteIns triggered
-[4000113717ns] 10.1.1.9: Inserted r2linkZ[r2linkZ_attr1(ipv4:10.1.1.8) r2linkZ_attr2(ipv4:10.1.1.9) r2linkZ_attr3(int32:5) rn-action(str:rn-insert) ]
-[4000113717ns] 10.1.1.9: R2Local2Eca0Ins triggered
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:35) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.8
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:40) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.8
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.8
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] to 10.1.1.8
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ] to 10.1.1.8
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] to 10.1.1.8
-[4000113717ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.8
-[4000114695ns] 10.1.1.8: Received r2Local1r2linkZsend[r2Local1r2linkZsend_attr1(ipv4:10.1.1.9) r2Local1r2linkZsend_attr2(ipv4:10.1.1.8) r2Local1r2linkZsend_attr3(int32:5) ] from 10.1.1.9
-[4000114695ns] 10.1.1.8: R2Local1Eca0RemoteIns triggered
-[4000114695ns] 10.1.1.8: Inserted r2linkZ[r2linkZ_attr1(ipv4:10.1.1.9) r2linkZ_attr2(ipv4:10.1.1.8) r2linkZ_attr3(int32:5) rn-action(str:rn-insert) ]
-[4000114695ns] 10.1.1.8: R2Local2Eca0Ins triggered
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.9
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.9
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.9
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] to 10.1.1.9
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ] to 10.1.1.9
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] to 10.1.1.9
-[4000114695ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.9
-[4000115324ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.8
-[4000115324ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000115324ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.1) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000115324ns] 10.1.1.9: R3eca triggered
-[4000115324ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000115324ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000115324ns] 10.1.1.9: R2Local2Eca1Del triggered
-[4000115324ns] 10.1.1.9: R2Local2Eca1Ins triggered
-[4000115324ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.8
-[4000115324ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.7
-[4000115986ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.8
-[4000115986ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000115986ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.2) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000115986ns] 10.1.1.9: R3eca triggered
-[4000115986ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:35) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000115986ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000115986ns] 10.1.1.9: R2Local2Eca1Del triggered
-[4000115986ns] 10.1.1.9: R2Local2Eca1Ins triggered
-[4000115986ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:40) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.8
-[4000115986ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.7
-[4000116626ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.8
-[4000116626ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000116626ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.3) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000116626ns] 10.1.1.9: R3eca triggered
-[4000116626ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000116626ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000116626ns] 10.1.1.9: R2Local2Eca1Del triggered
-[4000116626ns] 10.1.1.9: R2Local2Eca1Ins triggered
-[4000116626ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.8
-[4000116626ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.7
-[4000117277ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] from 10.1.1.8
-[4000117277ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000117277ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.4) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
-[4000117277ns] 10.1.1.9: R3eca triggered
-[4000117277ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.4) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
-[4000117277ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.4) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
-[4000117277ns] 10.1.1.9: R2Local2Eca1Del triggered
-[4000117277ns] 10.1.1.9: R2Local2Eca1Ins triggered
-[4000117277ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] to 10.1.1.8
-[4000117277ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] to 10.1.1.7
-[4000117939ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ] from 10.1.1.8
-[4000117939ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000117939ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.5) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) rn-action(str:rn-insert) ]
-[4000117939ns] 10.1.1.9: R3eca triggered
-[4000118612ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] from 10.1.1.8
-[4000118612ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000118612ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.6) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
-[4000118612ns] 10.1.1.9: R3eca triggered
-[4000119297ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.8
-[4000119297ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
-[4000119297ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.7) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000119297ns] 10.1.1.9: R3eca triggered
-[4000126391ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:35) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.9
-[4000126391ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000126391ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.1) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000126391ns] 10.1.1.8: R3eca triggered
-[4000127098ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:40) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.9
-[4000127098ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000127098ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.2) path_attr3(int32:40) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000127098ns] 10.1.1.8: R3eca triggered
-[4000127783ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.9
-[4000127783ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000127783ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.3) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000127783ns] 10.1.1.8: R3eca triggered
-[4000128456ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] from 10.1.1.9
-[4000128456ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000128456ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.4) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
-[4000128456ns] 10.1.1.8: R3eca triggered
-[4000129118ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ] from 10.1.1.9
-[4000129118ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000129118ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.5) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) rn-action(str:rn-insert) ]
-[4000129118ns] 10.1.1.8: R3eca triggered
-[4000129769ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] from 10.1.1.9
-[4000129769ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000129769ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.6) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
-[4000129769ns] 10.1.1.8: R3eca triggered
-[4000129769ns] 10.1.1.8: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.6) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
-[4000129769ns] 10.1.1.8: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.6) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
-[4000129769ns] 10.1.1.8: R2Local2Eca1Del triggered
-[4000129769ns] 10.1.1.8: R2Local2Eca1Ins triggered
-[4000129769ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.6) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] to 10.1.1.9
-[4000129769ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] to 10.1.1.3
-[4000130309ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.6) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] from 10.1.1.8
-[4000130309ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[4000130309ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.6) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ]
-[4000130309ns] 10.1.1.9: R3eca2 triggered
-[4000130971ns] 10.1.1.3: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] from 10.1.1.8
-[4000130971ns] 10.1.1.3: R2Local2Eca0RemoteIns triggered
-[4000130971ns] 10.1.1.3: Inserted path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.6) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
-[4000130971ns] 10.1.1.3: R3eca triggered
-[4000132409ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.9
-[4000132409ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
-[4000132409ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.7) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000132409ns] 10.1.1.8: R3eca triggered
-[4000132409ns] 10.1.1.8: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000132409ns] 10.1.1.8: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000132409ns] 10.1.1.8: R2Local2Eca1Del triggered
-[4000132409ns] 10.1.1.8: R2Local2Eca1Ins triggered
-[4000132409ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.9
-[4000132409ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.3
-[4000132960ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.8
-[4000132960ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[4000132960ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.7) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
-[4000132960ns] 10.1.1.9: R3eca2 triggered
-[4000133611ns] 10.1.1.3: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.8
-[4000133611ns] 10.1.1.3: R2Local2Eca0RemoteIns triggered
-[4000133611ns] 10.1.1.3: Inserted path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.7) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000133611ns] 10.1.1.3: R3eca triggered
-[4000133611ns] 10.1.1.3: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000133611ns] 10.1.1.3: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000133611ns] 10.1.1.3: R2Local2Eca1Del triggered
-[4000133611ns] 10.1.1.3: R2Local2Eca1Ins triggered
-[4000133611ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.1
-[4000133611ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.8
-[4000133611ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.1
-[4000133611ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.4
-[4000134151ns] 10.1.1.1: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.3
-[4000134151ns] 10.1.1.1: R2Local2Eca0RemoteDel triggered
-[4000134151ns] 10.1.1.1: Deleting path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.7) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
-[4000134151ns] 10.1.1.1: R3eca2 triggered
-[4000134713ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.3
-[4000134713ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[4000134713ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.7) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
-[4000134713ns] 10.1.1.8: R3eca2 triggered
-[4000135375ns] 10.1.1.1: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.3
-[4000135375ns] 10.1.1.1: R2Local2Eca0RemoteIns triggered
-[4000135375ns] 10.1.1.1: Inserted path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.7) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000135375ns] 10.1.1.1: R3eca triggered
-[4000135375ns] 10.1.1.1: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000135375ns] 10.1.1.1: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000135375ns] 10.1.1.1: R2Local2Eca1Del triggered
-[4000135375ns] 10.1.1.1: R2Local2Eca1Ins triggered
-[4000135375ns] 10.1.1.1: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.2
-[4000135375ns] 10.1.1.1: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.2
-[4000135926ns] 10.1.1.2: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.1
-[4000135926ns] 10.1.1.2: R2Local2Eca0RemoteDel triggered
-[4000135926ns] 10.1.1.2: Deleting path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.7) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
-[4000135926ns] 10.1.1.2: R3eca2 triggered
-[4000136599ns] 10.1.1.2: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.1
-[4000136599ns] 10.1.1.2: R2Local2Eca0RemoteIns triggered
-[4000136599ns] 10.1.1.2: Inserted path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.7) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000136599ns] 10.1.1.2: R3eca triggered
-[4000136599ns] 10.1.1.2: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000136599ns] 10.1.1.2: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000136599ns] 10.1.1.2: R2Local2Eca1Del triggered
-[4000136599ns] 10.1.1.2: R2Local2Eca1Ins triggered
-[4000139037ns] 10.1.1.4: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.3
-[4000139037ns] 10.1.1.4: R2Local2Eca0RemoteIns triggered
-[4000139037ns] 10.1.1.4: Inserted path[path_attr1(ipv4:10.1.1.4) path_attr2(ipv4:10.1.1.7) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
-[4000139037ns] 10.1.1.4: R3eca triggered
-[4000139993ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.9
-[4000139993ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[4000139993ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.1) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ]
-[4000139993ns] 10.1.1.8: R3eca2 triggered
-[4000140655ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.9
-[4000140655ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
-[4000140655ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.1) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000140655ns] 10.1.1.7: R3eca triggered
-[4000140655ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000140655ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000140655ns] 10.1.1.7: R2Local2Eca1Del triggered
-[4000140655ns] 10.1.1.7: R2Local2Eca1Ins triggered
-[4000140655ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.9
-[4000140655ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.6
-[4000141206ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.7
-[4000141206ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[4000141206ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.1) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ]
-[4000141206ns] 10.1.1.9: R3eca2 triggered
-[4000141879ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.7
-[4000141879ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
-[4000141879ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.1) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
-[4000141879ns] 10.1.1.6: R3eca triggered
-[4000143250ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:40) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.9
-[4000143250ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[4000143250ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.2) path_attr3(int32:40) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ]
-[4000143250ns] 10.1.1.8: R3eca2 triggered
-[4000143923ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.9
-[4000143923ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
-[4000143923ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.2) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000143923ns] 10.1.1.7: R3eca triggered
-[4000143923ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000143923ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000143923ns] 10.1.1.7: R2Local2Eca1Del triggered
-[4000143923ns] 10.1.1.7: R2Local2Eca1Ins triggered
-[4000143923ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.9
-[4000143923ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.6
-[4000144485ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.7
-[4000144485ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[4000144485ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.2) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ]
-[4000144485ns] 10.1.1.9: R3eca2 triggered
-[4000145170ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.7
-[4000145170ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
-[4000145170ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.2) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
-[4000145170ns] 10.1.1.6: R3eca triggered
-[4000146496ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.9
-[4000146496ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[4000146496ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.3) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ]
-[4000146496ns] 10.1.1.8: R3eca2 triggered
-[4000147147ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.9
-[4000147147ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
-[4000147147ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.3) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000147147ns] 10.1.1.7: R3eca triggered
-[4000147147ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000147147ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000147147ns] 10.1.1.7: R2Local2Eca1Del triggered
-[4000147147ns] 10.1.1.7: R2Local2Eca1Ins triggered
-[4000147147ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.9
-[4000147147ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.6
-[4000147687ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.7
-[4000147687ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[4000147687ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.3) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ]
-[4000147687ns] 10.1.1.9: R3eca2 triggered
-[4000148349ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.7
-[4000148349ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
-[4000148349ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.3) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
-[4000148349ns] 10.1.1.6: R3eca triggered
-[4000150709ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] from 10.1.1.9
-[4000150709ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[4000150709ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.4) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ]
-[4000150709ns] 10.1.1.8: R3eca2 triggered
-[4000151371ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] from 10.1.1.9
-[4000151371ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
-[4000151371ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.4) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
-[4000151371ns] 10.1.1.7: R3eca triggered
-[9000100000ns] 10.1.1.8: Deleting link[link_attr1(ipv4:10.1.1.8) link_attr2(ipv4:10.1.1.9) link_attr3(int32:5) ]
-[9000100000ns] 10.1.1.9: Deleting link[link_attr1(ipv4:10.1.1.9) link_attr2(ipv4:10.1.1.8) link_attr3(int32:5) ]
-[9000100000ns] 10.1.1.8: R1Eca0Del triggered
-[9000100000ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.9) path_attr3(int32:5) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9)) ]
-[9000100000ns] 10.1.1.8: R2Local1Eca0Del triggered
-[9000100000ns] 10.1.1.9: R1Eca0Del triggered
-[9000100000ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.8) path_attr3(int32:5) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8)) ]
-[9000100000ns] 10.1.1.9: R2Local1Eca0Del triggered
-[9000100000ns] 10.1.1.8: R3eca2 triggered
-[9000100000ns] 10.1.1.8: Sending r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.8) r2linkZDelete_attr2(ipv4:10.1.1.9) r2linkZDelete_attr3(int32:5) ] to 10.1.1.9
-[9000100000ns] 10.1.1.9: R3eca2 triggered
-[9000100000ns] 10.1.1.9: Sending r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.9) r2linkZDelete_attr2(ipv4:10.1.1.8) r2linkZDelete_attr3(int32:5) ] to 10.1.1.8
-[9000100435ns] 10.1.1.9: Received r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.8) r2linkZDelete_attr2(ipv4:10.1.1.9) r2linkZDelete_attr3(int32:5) ] from 10.1.1.8
-[9000100435ns] 10.1.1.9: R2Local1Eca0RemoteDel triggered
-[9000100435ns] 10.1.1.9: Deleting r2linkZ[r2linkZ_attr1(ipv4:10.1.1.8) r2linkZ_attr2(ipv4:10.1.1.9) r2linkZ_attr3(int32:5) ]
-[9000100435ns] 10.1.1.9: R2Local2Eca0Del triggered
-[9000100435ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.5) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ] to 10.1.1.8
-[9000100435ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.6) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] to 10.1.1.8
-[9000100435ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.8
-[9000101435ns] 10.1.1.8: Received r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.9) r2linkZDelete_attr2(ipv4:10.1.1.8) r2linkZDelete_attr3(int32:5) ] from 10.1.1.9
-[9000101435ns] 10.1.1.8: R2Local1Eca0RemoteDel triggered
-[9000101435ns] 10.1.1.8: Deleting r2linkZ[r2linkZ_attr1(ipv4:10.1.1.9) r2linkZ_attr2(ipv4:10.1.1.8) r2linkZ_attr3(int32:5) ]
-[9000101435ns] 10.1.1.8: R2Local2Eca0Del triggered
-[9000101435ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.9
-[9000101435ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.9
-[9000101435ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.9
-[9000101435ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] to 10.1.1.9
-[9000101435ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.5) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ] to 10.1.1.9
-[9000101952ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.8
-[9000101952ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[9000101952ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.1) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ]
-[9000101952ns] 10.1.1.9: R3eca2 triggered
-[9000102502ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.8
-[9000102502ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[9000102502ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.2) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ]
-[9000102502ns] 10.1.1.9: R3eca2 triggered
-[9000103030ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.8
-[9000103030ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[9000103030ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.3) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ]
-[9000103030ns] 10.1.1.9: R3eca2 triggered
-[9000103569ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] from 10.1.1.8
-[9000103569ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[9000103569ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.4) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ]
-[9000103569ns] 10.1.1.9: R3eca2 triggered
-[9000104119ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.5) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ] from 10.1.1.8
-[9000104119ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
-[9000104119ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.5) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ]
-[9000104119ns] 10.1.1.9: R3eca2 triggered
-[9000104985ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.5) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ] from 10.1.1.9
-[9000104985ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[9000104985ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.5) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ]
-[9000104985ns] 10.1.1.8: R3eca2 triggered
-[9000105524ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.6) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] from 10.1.1.9
-[9000105524ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[9000105524ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.6) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ]
-[9000105524ns] 10.1.1.8: R3eca2 triggered
-[9000106052ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.9
-[9000106052ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
-[9000106052ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.7) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ]
-[9000106052ns] 10.1.1.8: R3eca2 triggered
+[4000100435ns] 10.1.1.6: Received r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.5) r2linkZDelete_attr2(ipv4:10.1.1.6) r2linkZDelete_attr3(int32:5) ] from 10.1.1.5
+[4000100435ns] 10.1.1.6: R2Local1Eca0RemoteDel triggered
+[4000100435ns] 10.1.1.6: Deleting r2linkZ[r2linkZ_attr1(ipv4:10.1.1.5) r2linkZ_attr2(ipv4:10.1.1.6) r2linkZ_attr3(int32:5) ]
+[4000100435ns] 10.1.1.6: R2Local2Eca0Del triggered
+[4000100435ns] 10.1.1.6: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.5) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.5
+[4000100435ns] 10.1.1.6: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.5) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.5
+[4000101435ns] 10.1.1.5: Received r2linkZDelete[r2linkZDelete_attr1(ipv4:10.1.1.6) r2linkZDelete_attr2(ipv4:10.1.1.5) r2linkZDelete_attr3(int32:5) ] from 10.1.1.6
+[4000101435ns] 10.1.1.5: R2Local1Eca0RemoteDel triggered
+[4000101435ns] 10.1.1.5: Deleting r2linkZ[r2linkZ_attr1(ipv4:10.1.1.6) r2linkZ_attr2(ipv4:10.1.1.5) r2linkZ_attr3(int32:5) ]
+[4000101435ns] 10.1.1.5: R2Local2Eca0Del triggered
+[4000101435ns] 10.1.1.5: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.6
+[4000101435ns] 10.1.1.5: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.6
+[4000101435ns] 10.1.1.5: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.6
+[4000101435ns] 10.1.1.5: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] to 10.1.1.6
+[4000101435ns] 10.1.1.5: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] to 10.1.1.6
+[4000101963ns] 10.1.1.6: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.5
+[4000101963ns] 10.1.1.6: R2Local2Eca0RemoteDel triggered
+[4000101963ns] 10.1.1.6: Deleting path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.1) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ]
+[4000101963ns] 10.1.1.6: R3eca2 triggered
+[4000102525ns] 10.1.1.6: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.5
+[4000102525ns] 10.1.1.6: R2Local2Eca0RemoteDel triggered
+[4000102525ns] 10.1.1.6: Deleting path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.2) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ]
+[4000102525ns] 10.1.1.6: R3eca2 triggered
+[4000103064ns] 10.1.1.6: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.5
+[4000103064ns] 10.1.1.6: R2Local2Eca0RemoteDel triggered
+[4000103064ns] 10.1.1.6: Deleting path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.3) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ]
+[4000103064ns] 10.1.1.6: R3eca2 triggered
+[4000103592ns] 10.1.1.6: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] from 10.1.1.5
+[4000103592ns] 10.1.1.6: R2Local2Eca0RemoteDel triggered
+[4000103592ns] 10.1.1.6: Deleting path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.4) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ]
+[4000103592ns] 10.1.1.6: R3eca2 triggered
+[4000104142ns] 10.1.1.6: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.6) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:20) pathDelete_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] from 10.1.1.5
+[4000104142ns] 10.1.1.6: R2Local2Eca0RemoteDel triggered
+[4000104142ns] 10.1.1.6: Deleting path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.8) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ]
+[4000104142ns] 10.1.1.6: R3eca2 triggered
+[4000106725ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] from 10.1.1.9
+[4000106725ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
+[4000106725ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.8) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
+[4000106725ns] 10.1.1.7: R3eca triggered
+[4000106725ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
+[4000106725ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
+[4000106725ns] 10.1.1.7: R2Local2Eca1Del triggered
+[4000106725ns] 10.1.1.7: R2Local2Eca1Ins triggered
+[4000106725ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] to 10.1.1.9
+[4000106725ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] to 10.1.1.6
+[4000107276ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] from 10.1.1.7
+[4000107276ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
+[4000107276ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.8) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ]
+[4000107276ns] 10.1.1.9: R3eca2 triggered
+[4000107927ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.8) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) ] from 10.1.1.7
+[4000107927ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
+[4000107927ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.8) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
+[4000107927ns] 10.1.1.6: R3eca triggered
+[4000107927ns] 10.1.1.6: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.6) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
+[4000107927ns] 10.1.1.6: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.6) bestPath_attr2(ipv4:10.1.1.8) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8)) rn-action(str:rn-insert) ]
+[4000107927ns] 10.1.1.6: R2Local2Eca1Del triggered
+[4000107927ns] 10.1.1.6: R2Local2Eca1Ins triggered
+[4000107927ns] 10.1.1.6: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.7) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] to 10.1.1.7
+[4000109725ns] 10.1.1.3: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.8
+[4000109725ns] 10.1.1.3: R2Local2Eca0RemoteIns triggered
+[4000109725ns] 10.1.1.3: Inserted path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.9) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000109725ns] 10.1.1.3: R3eca triggered
+[4000109725ns] 10.1.1.3: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000109725ns] 10.1.1.3: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000109725ns] 10.1.1.3: R2Local2Eca1Del triggered
+[4000109725ns] 10.1.1.3: R2Local2Eca1Ins triggered
+[4000109725ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.1
+[4000109725ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.8
+[4000109725ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.1
+[4000109725ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.4
+[4000110276ns] 10.1.1.1: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.3
+[4000110276ns] 10.1.1.1: R2Local2Eca0RemoteDel triggered
+[4000110276ns] 10.1.1.1: Deleting path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.9) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
+[4000110276ns] 10.1.1.1: R3eca2 triggered
+[4000110849ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.3
+[4000110849ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
+[4000110849ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.9) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
+[4000110849ns] 10.1.1.8: R3eca2 triggered
+[4000111500ns] 10.1.1.1: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.3
+[4000111500ns] 10.1.1.1: R2Local2Eca0RemoteIns triggered
+[4000111500ns] 10.1.1.1: Inserted path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.9) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000111500ns] 10.1.1.1: R3eca triggered
+[4000111500ns] 10.1.1.1: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000111500ns] 10.1.1.1: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000111500ns] 10.1.1.1: R2Local2Eca1Del triggered
+[4000111500ns] 10.1.1.1: R2Local2Eca1Ins triggered
+[4000111500ns] 10.1.1.1: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.2
+[4000111500ns] 10.1.1.1: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.2
+[4000112062ns] 10.1.1.2: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.1
+[4000112062ns] 10.1.1.2: R2Local2Eca0RemoteDel triggered
+[4000112062ns] 10.1.1.2: Deleting path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.9) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
+[4000112062ns] 10.1.1.2: R3eca2 triggered
+[4000112724ns] 10.1.1.2: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.1
+[4000112724ns] 10.1.1.2: R2Local2Eca0RemoteIns triggered
+[4000112724ns] 10.1.1.2: Inserted path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.9) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000112724ns] 10.1.1.2: R3eca triggered
+[4000112724ns] 10.1.1.2: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:35) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000112724ns] 10.1.1.2: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000112724ns] 10.1.1.2: R2Local2Eca1Del triggered
+[4000112724ns] 10.1.1.2: R2Local2Eca1Ins triggered
+[4000114151ns] 10.1.1.4: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.3
+[4000114151ns] 10.1.1.4: R2Local2Eca0RemoteIns triggered
+[4000114151ns] 10.1.1.4: Inserted path[path_attr1(ipv4:10.1.1.4) path_attr2(ipv4:10.1.1.9) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000114151ns] 10.1.1.4: R3eca triggered
+[4000114151ns] 10.1.1.4: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.4) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000114151ns] 10.1.1.4: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.4) bestPath_attr2(ipv4:10.1.1.9) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000114151ns] 10.1.1.4: R2Local2Eca1Del triggered
+[4000114151ns] 10.1.1.4: R2Local2Eca1Ins triggered
+[4000114151ns] 10.1.1.4: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.3) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] to 10.1.1.3
+[4000114151ns] 10.1.1.4: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.5) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] to 10.1.1.5
+[4000114691ns] 10.1.1.3: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.3) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.4
+[4000114691ns] 10.1.1.3: R2Local2Eca0RemoteDel triggered
+[4000114691ns] 10.1.1.3: Deleting path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.9) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
+[4000114691ns] 10.1.1.3: R3eca2 triggered
+[4000115353ns] 10.1.1.5: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.5) r2Local2pathsend_attr2(ipv4:10.1.1.9) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) ] from 10.1.1.4
+[4000115353ns] 10.1.1.5: R2Local2Eca0RemoteIns triggered
+[4000115353ns] 10.1.1.5: Inserted path[path_attr1(ipv4:10.1.1.5) path_attr2(ipv4:10.1.1.9) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9)) rn-action(str:rn-insert) ]
+[4000115353ns] 10.1.1.5: R3eca triggered
+[4000116379ns] 10.1.1.9: Received r2Local1r2linkZsend[r2Local1r2linkZsend_attr1(ipv4:10.1.1.8) r2Local1r2linkZsend_attr2(ipv4:10.1.1.9) r2Local1r2linkZsend_attr3(int32:5) ] from 10.1.1.8
+[4000116379ns] 10.1.1.9: R2Local1Eca0RemoteIns triggered
+[4000116379ns] 10.1.1.9: Inserted r2linkZ[r2linkZ_attr1(ipv4:10.1.1.8) r2linkZ_attr2(ipv4:10.1.1.9) r2linkZ_attr3(int32:5) rn-action(str:rn-insert) ]
+[4000116379ns] 10.1.1.9: R2Local2Eca0Ins triggered
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:35) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.8
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:40) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.8
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.8
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] to 10.1.1.8
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ] to 10.1.1.8
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] to 10.1.1.8
+[4000116379ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.8
+[4000117357ns] 10.1.1.8: Received r2Local1r2linkZsend[r2Local1r2linkZsend_attr1(ipv4:10.1.1.9) r2Local1r2linkZsend_attr2(ipv4:10.1.1.8) r2Local1r2linkZsend_attr3(int32:5) ] from 10.1.1.9
+[4000117357ns] 10.1.1.8: R2Local1Eca0RemoteIns triggered
+[4000117357ns] 10.1.1.8: Inserted r2linkZ[r2linkZ_attr1(ipv4:10.1.1.9) r2linkZ_attr2(ipv4:10.1.1.8) r2linkZ_attr3(int32:5) rn-action(str:rn-insert) ]
+[4000117357ns] 10.1.1.8: R2Local2Eca0Ins triggered
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.9
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.9
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.9
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] to 10.1.1.9
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ] to 10.1.1.9
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] to 10.1.1.9
+[4000117357ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.9
+[4000117986ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.8
+[4000117986ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000117986ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.1) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000117986ns] 10.1.1.9: R3eca triggered
+[4000117986ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000117986ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000117986ns] 10.1.1.9: R2Local2Eca1Del triggered
+[4000117986ns] 10.1.1.9: R2Local2Eca1Ins triggered
+[4000117986ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.8
+[4000117986ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.7
+[4000118648ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.8
+[4000118648ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000118648ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.2) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000118648ns] 10.1.1.9: R3eca triggered
+[4000118648ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:35) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000118648ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000118648ns] 10.1.1.9: R2Local2Eca1Del triggered
+[4000118648ns] 10.1.1.9: R2Local2Eca1Ins triggered
+[4000118648ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:40) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.8
+[4000118648ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.7
+[4000119288ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.8
+[4000119288ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000119288ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.3) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000119288ns] 10.1.1.9: R3eca triggered
+[4000119288ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000119288ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000119288ns] 10.1.1.9: R2Local2Eca1Del triggered
+[4000119288ns] 10.1.1.9: R2Local2Eca1Ins triggered
+[4000119288ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.8
+[4000119288ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.7
+[4000119939ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] from 10.1.1.8
+[4000119939ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000119939ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.4) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
+[4000119939ns] 10.1.1.9: R3eca triggered
+[4000119939ns] 10.1.1.9: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.4) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
+[4000119939ns] 10.1.1.9: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.9) bestPath_attr2(ipv4:10.1.1.4) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
+[4000119939ns] 10.1.1.9: R2Local2Eca1Del triggered
+[4000119939ns] 10.1.1.9: R2Local2Eca1Ins triggered
+[4000119939ns] 10.1.1.9: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] to 10.1.1.8
+[4000119939ns] 10.1.1.9: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] to 10.1.1.7
+[4000120601ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) ] from 10.1.1.8
+[4000120601ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000120601ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.5) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5)) rn-action(str:rn-insert) ]
+[4000120601ns] 10.1.1.9: R3eca triggered
+[4000121274ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] from 10.1.1.8
+[4000121274ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000121274ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.6) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
+[4000121274ns] 10.1.1.9: R3eca triggered
+[4000121959ns] 10.1.1.9: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.9) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.8
+[4000121959ns] 10.1.1.9: R2Local2Eca0RemoteIns triggered
+[4000121959ns] 10.1.1.9: Inserted path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.7) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000121959ns] 10.1.1.9: R3eca triggered
+[4000123053ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:35) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.9
+[4000123053ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000123053ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.1) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000123053ns] 10.1.1.8: R3eca triggered
+[4000123760ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:40) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.9
+[4000123760ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000123760ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.2) path_attr3(int32:40) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000123760ns] 10.1.1.8: R3eca triggered
+[4000124445ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.9
+[4000124445ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000124445ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.3) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000124445ns] 10.1.1.8: R3eca triggered
+[4000125118ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] from 10.1.1.9
+[4000125118ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000125118ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.4) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
+[4000125118ns] 10.1.1.8: R3eca triggered
+[4000125780ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.5) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) ] from 10.1.1.9
+[4000125780ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000125780ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.5) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5)) rn-action(str:rn-insert) ]
+[4000125780ns] 10.1.1.8: R3eca triggered
+[4000126431ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] from 10.1.1.9
+[4000126431ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000126431ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.6) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
+[4000126431ns] 10.1.1.8: R3eca triggered
+[4000126431ns] 10.1.1.8: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.6) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
+[4000126431ns] 10.1.1.8: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.6) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
+[4000126431ns] 10.1.1.8: R2Local2Eca1Del triggered
+[4000126431ns] 10.1.1.8: R2Local2Eca1Ins triggered
+[4000126431ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.6) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] to 10.1.1.9
+[4000126431ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] to 10.1.1.3
+[4000126971ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.6) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ] from 10.1.1.8
+[4000126971ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
+[4000126971ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.6) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6)) ]
+[4000126971ns] 10.1.1.9: R3eca2 triggered
+[4000127633ns] 10.1.1.3: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.6) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) ] from 10.1.1.8
+[4000127633ns] 10.1.1.3: R2Local2Eca0RemoteIns triggered
+[4000127633ns] 10.1.1.3: Inserted path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.6) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6)) rn-action(str:rn-insert) ]
+[4000127633ns] 10.1.1.3: R3eca triggered
+[4000129071ns] 10.1.1.8: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.8) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:10) r2Local2pathsend_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.9
+[4000129071ns] 10.1.1.8: R2Local2Eca0RemoteIns triggered
+[4000129071ns] 10.1.1.8: Inserted path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.7) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000129071ns] 10.1.1.8: R3eca triggered
+[4000129071ns] 10.1.1.8: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000129071ns] 10.1.1.8: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.8) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:10) bestPath_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000129071ns] 10.1.1.8: R2Local2Eca1Del triggered
+[4000129071ns] 10.1.1.8: R2Local2Eca1Ins triggered
+[4000129071ns] 10.1.1.8: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.9
+[4000129071ns] 10.1.1.8: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.3
+[4000129622ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.8
+[4000129622ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
+[4000129622ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.7) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
+[4000129622ns] 10.1.1.9: R3eca2 triggered
+[4000130273ns] 10.1.1.3: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.3) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.8
+[4000130273ns] 10.1.1.3: R2Local2Eca0RemoteIns triggered
+[4000130273ns] 10.1.1.3: Inserted path[path_attr1(ipv4:10.1.1.3) path_attr2(ipv4:10.1.1.7) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000130273ns] 10.1.1.3: R3eca triggered
+[4000130273ns] 10.1.1.3: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000130273ns] 10.1.1.3: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.3) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000130273ns] 10.1.1.3: R2Local2Eca1Del triggered
+[4000130273ns] 10.1.1.3: R2Local2Eca1Ins triggered
+[4000130273ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.1
+[4000130273ns] 10.1.1.3: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.8
+[4000130273ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.1
+[4000130273ns] 10.1.1.3: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.4
+[4000130813ns] 10.1.1.1: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.1) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.3
+[4000130813ns] 10.1.1.1: R2Local2Eca0RemoteDel triggered
+[4000130813ns] 10.1.1.1: Deleting path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.7) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
+[4000130813ns] 10.1.1.1: R3eca2 triggered
+[4000131375ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.3
+[4000131375ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
+[4000131375ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.7) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
+[4000131375ns] 10.1.1.8: R3eca2 triggered
+[4000132037ns] 10.1.1.1: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.1) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.3
+[4000132037ns] 10.1.1.1: R2Local2Eca0RemoteIns triggered
+[4000132037ns] 10.1.1.1: Inserted path[path_attr1(ipv4:10.1.1.1) path_attr2(ipv4:10.1.1.7) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000132037ns] 10.1.1.1: R3eca triggered
+[4000132037ns] 10.1.1.1: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000132037ns] 10.1.1.1: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.1) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000132037ns] 10.1.1.1: R2Local2Eca1Del triggered
+[4000132037ns] 10.1.1.1: R2Local2Eca1Ins triggered
+[4000132037ns] 10.1.1.1: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] to 10.1.1.2
+[4000132037ns] 10.1.1.1: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] to 10.1.1.2
+[4000132588ns] 10.1.1.2: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.2) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.1
+[4000132588ns] 10.1.1.2: R2Local2Eca0RemoteDel triggered
+[4000132588ns] 10.1.1.2: Deleting path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.7) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
+[4000132588ns] 10.1.1.2: R3eca2 triggered
+[4000133261ns] 10.1.1.2: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.2) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.1
+[4000133261ns] 10.1.1.2: R2Local2Eca0RemoteIns triggered
+[4000133261ns] 10.1.1.2: Inserted path[path_attr1(ipv4:10.1.1.2) path_attr2(ipv4:10.1.1.7) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000133261ns] 10.1.1.2: R3eca triggered
+[4000133261ns] 10.1.1.2: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.4,ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000133261ns] 10.1.1.2: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.2) bestPath_attr2(ipv4:10.1.1.7) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.2,ipv4:10.1.1.1,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000133261ns] 10.1.1.2: R2Local2Eca1Del triggered
+[4000133261ns] 10.1.1.2: R2Local2Eca1Ins triggered
+[4000134699ns] 10.1.1.4: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.4) r2Local2pathsend_attr2(ipv4:10.1.1.7) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) ] from 10.1.1.3
+[4000134699ns] 10.1.1.4: R2Local2Eca0RemoteIns triggered
+[4000134699ns] 10.1.1.4: Inserted path[path_attr1(ipv4:10.1.1.4) path_attr2(ipv4:10.1.1.7) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7)) rn-action(str:rn-insert) ]
+[4000134699ns] 10.1.1.4: R3eca triggered
+[4000135963ns] 10.1.1.5: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.5) pathDelete_attr2(ipv4:10.1.1.7) pathDelete_attr3(int32:10) pathDelete_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ] from 10.1.1.6
+[4000135963ns] 10.1.1.5: R2Local2Eca0RemoteDel triggered
+[4000135963ns] 10.1.1.5: Deleting path[path_attr1(ipv4:10.1.1.5) path_attr2(ipv4:10.1.1.7) path_attr3(int32:10) path_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7)) ]
+[4000135963ns] 10.1.1.5: R3eca2 triggered
+[4000136502ns] 10.1.1.5: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.5) pathDelete_attr2(ipv4:10.1.1.9) pathDelete_attr3(int32:15) pathDelete_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ] from 10.1.1.6
+[4000136502ns] 10.1.1.5: R2Local2Eca0RemoteDel triggered
+[4000136502ns] 10.1.1.5: Deleting path[path_attr1(ipv4:10.1.1.5) path_attr2(ipv4:10.1.1.9) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.5,ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9)) ]
+[4000136502ns] 10.1.1.5: R3eca2 triggered
+[4000137064ns] 10.1.1.7: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.7) pathDelete_attr2(ipv4:10.1.1.8) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ] from 10.1.1.6
+[4000137064ns] 10.1.1.7: R2Local2Eca0RemoteDel triggered
+[4000137064ns] 10.1.1.7: Deleting path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.8) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.8)) ]
+[4000137064ns] 10.1.1.7: R3eca2 triggered
+[4000145655ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.9
+[4000145655ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
+[4000145655ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.1) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ]
+[4000145655ns] 10.1.1.8: R3eca2 triggered
+[4000146317ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.9
+[4000146317ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
+[4000146317ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.1) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000146317ns] 10.1.1.7: R3eca triggered
+[4000146317ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000146317ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.1) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000146317ns] 10.1.1.7: R2Local2Eca1Del triggered
+[4000146317ns] 10.1.1.7: R2Local2Eca1Ins triggered
+[4000146317ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.9
+[4000146317ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] to 10.1.1.6
+[4000146868ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.1) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.7
+[4000146868ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
+[4000146868ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.1) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1)) ]
+[4000146868ns] 10.1.1.9: R3eca2 triggered
+[4000147541ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.1) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) ] from 10.1.1.7
+[4000147541ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
+[4000147541ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.1) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1)) rn-action(str:rn-insert) ]
+[4000147541ns] 10.1.1.6: R3eca triggered
+[4000148912ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:40) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.9
+[4000148912ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
+[4000148912ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.2) path_attr3(int32:40) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ]
+[4000148912ns] 10.1.1.8: R3eca2 triggered
+[4000149585ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:25) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.9
+[4000149585ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
+[4000149585ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.2) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000149585ns] 10.1.1.7: R3eca triggered
+[4000149585ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:30) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000149585ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.2) bestPath_attr3(int32:25) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000149585ns] 10.1.1.7: R2Local2Eca1Del triggered
+[4000149585ns] 10.1.1.7: R2Local2Eca1Ins triggered
+[4000149585ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.9
+[4000149585ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] to 10.1.1.6
+[4000150147ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.2) pathDelete_attr3(int32:35) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.7
+[4000150147ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
+[4000150147ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.2) path_attr3(int32:35) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ]
+[4000150147ns] 10.1.1.9: R3eca2 triggered
+[4000150832ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.2) r2Local2pathsend_attr3(int32:30) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) ] from 10.1.1.7
+[4000150832ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
+[4000150832ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.2) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.1,ipv4:10.1.1.2)) rn-action(str:rn-insert) ]
+[4000150832ns] 10.1.1.6: R3eca triggered
+[4000153158ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:30) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.9
+[4000153158ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
+[4000153158ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.3) path_attr3(int32:30) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ]
+[4000153158ns] 10.1.1.8: R3eca2 triggered
+[4000153809ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:15) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.9
+[4000153809ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
+[4000153809ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.3) path_attr3(int32:15) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000153809ns] 10.1.1.7: R3eca triggered
+[4000153809ns] 10.1.1.7: Deleting bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:20) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000153809ns] 10.1.1.7: Inserted bestPath[bestPath_attr1(ipv4:10.1.1.7) bestPath_attr2(ipv4:10.1.1.3) bestPath_attr3(int32:15) bestPath_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000153809ns] 10.1.1.7: R2Local2Eca1Del triggered
+[4000153809ns] 10.1.1.7: R2Local2Eca1Ins triggered
+[4000153809ns] 10.1.1.7: Sending pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] to 10.1.1.9
+[4000153809ns] 10.1.1.7: Sending r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] to 10.1.1.6
+[4000154349ns] 10.1.1.9: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.9) pathDelete_attr2(ipv4:10.1.1.3) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ] from 10.1.1.7
+[4000154349ns] 10.1.1.9: R2Local2Eca0RemoteDel triggered
+[4000154349ns] 10.1.1.9: Deleting path[path_attr1(ipv4:10.1.1.9) path_attr2(ipv4:10.1.1.3) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4,ipv4:10.1.1.3)) ]
+[4000154349ns] 10.1.1.9: R3eca2 triggered
+[4000155011ns] 10.1.1.6: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.6) r2Local2pathsend_attr2(ipv4:10.1.1.3) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) ] from 10.1.1.7
+[4000155011ns] 10.1.1.6: R2Local2Eca0RemoteIns triggered
+[4000155011ns] 10.1.1.6: Inserted path[path_attr1(ipv4:10.1.1.6) path_attr2(ipv4:10.1.1.3) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.6,ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3)) rn-action(str:rn-insert) ]
+[4000155011ns] 10.1.1.6: R3eca triggered
+[4000157371ns] 10.1.1.8: Received pathDelete[pathDelete_attr1(ipv4:10.1.1.8) pathDelete_attr2(ipv4:10.1.1.4) pathDelete_attr3(int32:25) pathDelete_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ] from 10.1.1.9
+[4000157371ns] 10.1.1.8: R2Local2Eca0RemoteDel triggered
+[4000157371ns] 10.1.1.8: Deleting path[path_attr1(ipv4:10.1.1.8) path_attr2(ipv4:10.1.1.4) path_attr3(int32:25) path_attr4(list:(ipv4:10.1.1.8,ipv4:10.1.1.9,ipv4:10.1.1.7,ipv4:10.1.1.6,ipv4:10.1.1.5,ipv4:10.1.1.4)) ]
+[4000157371ns] 10.1.1.8: R3eca2 triggered
+[4000158033ns] 10.1.1.7: Received r2Local2pathsend[r2Local2pathsend_attr1(ipv4:10.1.1.7) r2Local2pathsend_attr2(ipv4:10.1.1.4) r2Local2pathsend_attr3(int32:20) r2Local2pathsend_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) ] from 10.1.1.9
+[4000158033ns] 10.1.1.7: R2Local2Eca0RemoteIns triggered
+[4000158033ns] 10.1.1.7: Inserted path[path_attr1(ipv4:10.1.1.7) path_attr2(ipv4:10.1.1.4) path_attr3(int32:20) path_attr4(list:(ipv4:10.1.1.7,ipv4:10.1.1.9,ipv4:10.1.1.8,ipv4:10.1.1.3,ipv4:10.1.1.4)) rn-action(str:rn-insert) ]
+[4000158033ns] 10.1.1.7: R3eca triggered
 Application Stopped at 15000000000ns
-[15000000000ns] 10.1.1.1: Pathvector Application Stopped
+[15000000000ns] 10.1.1.1: Bgpofflink Application Stopped

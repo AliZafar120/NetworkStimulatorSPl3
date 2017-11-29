@@ -30,25 +30,31 @@
 /* wchar_t uses ISO/IEC 10646 (2nd ed., published 2011-03-15) /
    Unicode 6.0.  */
 /* We do not support C11 <threads.h>.  */
+materialize(neighbour,infinity,infinity,keys(1,2)).
 materialize(link,infinity,infinity,keys(1,2)).
 materialize(path,infinity,infinity,keys(4:list)).
 materialize(bestPath,infinity,infinity,keys(2)).
-/* Rules */
+materialize(importfilter,infinity,infinity,keys(1,2)).
+r0 advertise(@Next,Src,C,T) :- periodic(@Src,E,4), neighbour(@Src,Next,C), T:=f_now().
+r5 delete neighbour(@X,Y,C):-link(@X,Y,C,T), importfilter(@X,Y).
+//advertise(@X,Y,C,T), f_now()-T<3,neighbour(@X,Y,C)
+r6 link(@X,Y,C,T):- advertise(@X,Y,C,T), f_now()-T<3,neighbour(@X,Y,C).
 r1 path(@X,Y,C,P) :- link(@X,Y,C),
         P1:=f_append(X),
         P2:=f_append(Y),
         P:=f_concat(P1,P2).
 r2 path(@X,Y,C,P) :- link(@X,Z,C1),
-       bestPath(@Z,Y,C2,P2),
+     bestPath(@Z,Y,C2,P2),
        C:=C1+C2,
        f_member(P2,X)==0,
        P1:=f_append(X),
        P:=f_concat(P1,P2).
-r3 bestPath(@X,Y,a_MIN<C>, P) :- path(@X,Y,C,P).
-r4 packet(@Next,Src):-
-    periodic(@Src,E,5),
-   bestPath(@Src,Next,C,P).
+r3 bestPath(@X,Y,a_MIN<C>,P) :- path(@X,Y,C,P).
+//r1 delete link(@X,Y,C) :- importfilter(@X,Y,C).
+//r5 rcv(@X,Y):-advertise(@X,Y,T), f_now()-T<5.
+// advertise(@X,Y,T), f_now()-T<5
 // When a node receive a ePing event from its neighbor, it sent back a ePong message
 //r5  rpacket(@Src):-
 //    packet(@Src,Next).
 //'applications/bgpblackhole',
+//r1 delete link(@X,Y,C) :- importfilter(@X,Y,C).

@@ -103,7 +103,11 @@ public class InitialPanel extends JPanel implements ActionListener{
                 ApplicationLogParser parse= new ApplicationLogParser();
                 parse.setLogFilePath(fileString);
                 parse.setLogFilebuffer();
-                rapidnetLogs=parse.getAllFormattedLog(parse.parseRapidnetLog());
+                try {
+                    rapidnetLogs=parse.getAllFormattedLog(parse.parseRapidnetLog());
+                } catch (CloneNotSupportedException e) {
+                    e.printStackTrace();
+                }
                 CardLayout cardLayout = (CardLayout) contentPane.getLayout();
                 cardLayout.show(contentPane,"optionPanel");
 

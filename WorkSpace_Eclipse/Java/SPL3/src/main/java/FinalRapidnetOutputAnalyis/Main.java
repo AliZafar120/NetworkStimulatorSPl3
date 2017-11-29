@@ -11,77 +11,54 @@ import java.util.ArrayList;
 
 public class Main {
     private static long start;
-    public static void main(String[] args) {
-       /* RuleParser ruleParser= new RuleParser("/home/ali/Education/rapidnet_v1.0/src/applications/pathvector/pathvector.olg");
-        ruleParser.setRuleBuffer();
-        ruleParser.parseRules();*/
-/*
-        Rule r1= new Rule(ruleParser.parsedRules.get(0));
-        System.out.println(r1.derivedTupleVars);
-        System.out.println(r1.derivedTuple);
-        System.out.println(r1.terms);*/
-       // if("a * b".matches("[+\\-*/]")) System.out.println("okj");
-
-
-        //*********************currently working on this
-
+    public static void main(String[] args) throws CloneNotSupportedException {
         ArrayList <LogFormat> formattedlogs = new ArrayList<LogFormat>();
 
        ApplicationLogParser parse= new ApplicationLogParser();
+        parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
+        //parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
 
-        //file for link failure
-       parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/blackhole.txt");
+        //file for off path change
 
-       // parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/bogon.txt");
+        //Q1,Q4,Q5//parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
 
-        //parse.setLogFilePath("/home/ali/Education/rapidnet_v1.0/WorkSpace_Eclipse/Java/SPL3/src/main/java/TextLogFiles/offpathchange.txt");
-
+       //Q2,Q6// parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
+        //Q3//parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
 
 
         parse.setLogFilebuffer();
         ArrayList<String> stringlogs=parse.parseRapidnetLog();
         formattedlogs= parse.getAllFormattedLog(stringlogs);
-        System.out.println(formattedlogs.size());
-        System.out.println(formattedlogs.get(0).t.equals(formattedlogs.get(0).t));
-        System.out.println(formattedlogs.get(0).t.attributesEquals(formattedlogs.get(0).t));
 
-        //tuple for link failure
-        //Tuple qtuple=formattedlogs.get(24).t;//31
-
-        //Query query= new Query();
-        //query.setLogs(formattedlogs);
         TupleQuery query1= new TupleQuery();
-        Tuple tofind = new Tuple();
-        tofind.type="packet";
-        TupleAttribute at1= new TupleAttribute();
-        TupleAttribute at2= new TupleAttribute();
-        at1.tupleAttributeValue="10.1.1.3";
-
-        at2.tupleAttributeValue="10.1.1.5";
-        tofind.attributes.add(at2);
-        tofind.attributes.add(at1);
         query1.setLogs(formattedlogs);
-        query1.findTupleWithPrimaryKeys(tofind,new ArrayList<Integer>(){{add(1);add(2);}});
-        startStopwatch();
-        query1.searchTuple(formattedlogs.get(123).t,"nexist","10.1.1.5","6000000000","10000000000");
-        System.out.println(elapsedTime());
-        System.out.println("ok");
-        //for querying non existant best
-        //query.nexistQuery("6000000000","10000000000","10.1.1.1",qtuple);
+
+        query1.startTimer();
+     /*   Tuple tuple= (Tuple) formattedlogs.get(0).t.clone();
+        tuple.attributes.get(1).tupleAttributeValue="10.1.1.11";
+*/
+        query1.startTimer();
+        query1.searchTuple(formattedlogs.get(418).t,"nexist","10.1.1.2","6000000000","10000000000");
+
+        System.out.println(query1.getPassedTime());
+
+        //Q2//query1.searchTuple(formattedlogs.get(708).t,"nexist","10.1.2.1","6000000000","10000000000");
+        //Q1//query1.searchTuple(formattedlogs.get(305).t,"nexist","10.1.1.1","6000000000","10000000000");
+        // Q3//query1.searchTuple(formattedlogs.get(26).t,"nexist","10.1.1.5","6000000000","10000000000");
+        //Q4//
+        /*  Tuple tuple= (Tuple) formattedlogs.get(0).t.clone();
+        tuple.attributes.get(1).tupleAttributeValue="10.1.1.11";
+
+        query1.startTimer();
+        query1.searchTuple(tuple,"nexist","10.1.1.1","0000000000","10000000000");
+        */
+        //Q5//  query1.searchTuple(formattedlogs.get(305).t,"exist","10.1.1.1","0000000000","10000000000");
+        //q6//  query1.searchTuple(formattedlogs.get(1033).t,"exist","10.1.1.10","0000000000","10000000000");
 
 
-        //System.out.println(query.queryOutputEvents);
-        //System.out.println("102".compareTo(FinalRapidnetOutputAnalyis/Main.java:53"101")>0);
-        //*************************************Currently working on this
+        System.out.println(query1.getVerticesInResponse());
 
 
-       // parse.setRuleBuffer();
-       // System.out.println(elapsedTime());
-
-        //**********using main for test
-
-
-        //**********using main for test
     }
 
     public static void startStopwatch() {

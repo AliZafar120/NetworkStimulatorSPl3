@@ -55,7 +55,27 @@ UpdateLinks1 ()
 		  insertlink(7,8,3);
 		  insertlink(8,9,3);
 		  insertlink(9,10,3);
-/*s*/
+/*
+		  insertlink(10,11,3);
+		  insertlink(11,12,3);
+		  insertlink(12,13,3);
+		  insertlink(13,14,3);
+		  insertlink(14,15,3)
+		  insertlink(15,16,3);
+		  insertlink(16,17,3);
+		  insertlink(17,18,3);
+		  insertlink(18,19,3);
+
+
+		  insertlink(19,20,3);
+		  insertlink(20,21,3);
+		  insertlink(21,22,3);
+		  insertlink(22,23,3);
+		  insertlink(23,24,3);
+		  insertlink(24,25,3)
+		  insertlink(25,26,3);
+		  insertlink(26,27,3);
+		  insertlink(27,28,3);*/
 
 
 

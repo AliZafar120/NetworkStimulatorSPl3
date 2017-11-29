@@ -1,0 +1,11 @@
+materialize(link,infinity,infinity,keys(1,2)).
+materialize(flowTable,infinity,infinity,keys(1,2,3,4)).
+
+
+r0 packetIn(@Src, Type):- packet(@S,D,Type).
+
+r1 flowTable(@X,Protocol,Move,Port):-packetIn(@Src, Type),Protocol:=Type, Type=="Any",Move:="Any",Port:="Nil".
+
+r3 packetIn("10.1.1.3",Protocol): flowTable(@X,Protocol,Move,Port):packetIn(@Src, Type),Protocol=="Any",Move=="Controller",Port=="Nil".
+
+r4 flowTable():- packetIn(@Src, Type),"10.1.1.3"
