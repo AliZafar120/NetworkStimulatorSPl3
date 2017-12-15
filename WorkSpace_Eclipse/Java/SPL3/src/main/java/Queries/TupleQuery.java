@@ -55,6 +55,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Exist") == 0) {
             ArrayList<Event> outputs = existQuery(((ExistEvent) event).startTime, ((ExistEvent) event).endTime, event.node, event.tuple);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -62,6 +63,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Appear") == 0) {
             ArrayList<Event> outputs = appearQuery(((AppearEvent) event).time, ((AppearEvent) event).tuple, ((AppearEvent) event).node, ((AppearEvent) event).rule, ((AppearEvent) event).derivationCounter);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -69,6 +71,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Derive") == 0) {
             ArrayList<Event> outputs = deriveQuery(((DeriveEvent) event).time, ((DeriveEvent) event).node, ((DeriveEvent) event).tuple, ((DeriveEvent) event).rule);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -76,6 +79,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Send") == 0) {
             ArrayList<Event> outputs = sendQuery(((SendEvent) event).node, ((SendEvent) event).destination, ((SendEvent) event).tuple, ((SendEvent) event).time, ((SendEvent) event).isderive);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -83,6 +87,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Received") == 0) {
             ArrayList<Event> outputs = receiveQuery(((ReceiveEvent) event).time, ((ReceiveEvent) event).node, ((ReceiveEvent) event).tuple, ((ReceiveEvent) event).isderve);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -91,6 +96,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Dissapear") == 0) {
             ArrayList<Event> outputs = disappearQuery(((DissapearEvent) event).time, ((DissapearEvent) event).tuple, ((DissapearEvent) event).node, ((DissapearEvent) event).rule, ((DissapearEvent) event).derivationCounter);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -99,6 +105,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Underive") == 0) {
             ArrayList<Event> outputs = underiveQuery(((UnderiveEvent) event).time, ((UnderiveEvent) event).node, ((UnderiveEvent) event).tuple, ((UnderiveEvent) event).rule);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -107,6 +114,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("Delete") == 0) {
             ArrayList<Event> outputs = deleteQuery(((DeleteEvent) event).time, ((DeleteEvent) event).tuple, ((DeleteEvent) event).node);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -116,6 +124,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NExist") == 0) {
             ArrayList<Event> outputs = nexistQuery(((NExistEvent) event).stime, ((NExistEvent) event).ftime, ((NExistEvent) event).node, ((NExistEvent) event).tuple);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -124,6 +133,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NAppear") == 0) {
             ArrayList<Event> outputs = nappearQuery(((NAppearEvent) event).stime, ((NAppearEvent) event).ftime, ((NAppearEvent) event).node, ((NAppearEvent) event).tuple);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -133,6 +143,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NDerive") == 0) {
             ArrayList<Event> outputs = nderiveQuery(((NDeriveEvent) event).stime, ((NDeriveEvent) event).ftime, ((NDeriveEvent) event).node, ((NDeriveEvent) event).tuple);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -141,6 +152,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NSend") == 0) {
             ArrayList<Event> outputs = nsendQuery(((NSendEvent) event).stime, ((NSendEvent) event).ftime, ((NSendEvent) event).node, ((NSendEvent) event).tuple, ((NSendEvent) event).isexchangederived);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -150,6 +162,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NReceive") == 0) {
             ArrayList<Event> outputs = nreceiveQuery(((NReceiveEvent) event).stime, ((NReceiveEvent) event).ftime, ((NReceiveEvent) event).node, ((NReceiveEvent) event).tuple, 1);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -159,6 +172,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NArrive") == 0) {
             ArrayList<Event> outputs = narriveQuery(((NArriveEvent) event).stime, ((NArriveEvent) event).ftime, ((NArriveEvent) event).source, ((NArriveEvent) event).destination, ((NArriveEvent) event).time, ((NArriveEvent) event).tuple, ((NArriveEvent) event).isexchangederived);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -168,6 +182,7 @@ public class TupleQuery {
         if (event.getEventName().compareTo("NInserted") == 0) {
             ArrayList<Event> outputs = ninsertQuery(((NInsertEvent) event).stime, ((NInsertEvent) event).ftime, ((NInsertEvent) event).node, ((NInsertEvent) event).tuple);
             for (Event outevent : outputs) {
+                outevent.parent=event;
                 event.childs.add(outevent);
                 getProvenanceGraph(outevent);
             }
@@ -917,6 +932,154 @@ public class TupleQuery {
         return (endTime - startTime)+"";
     }
     public int getVerticesInResponse(){
-        return vertices_in_response;
+        int i=0;
+        Queue<Event> events=  new LinkedList<Event>();
+        events.add(this.origin);
+        while (events.size()!=0){
+            Event currentevent=events.poll();
+            i++;
+            for(Event childevents:currentevent.childs){
+                events.add(childevents);
+            }
+        }
+        return i;
     }
+
+
+
+   public void getSuperVertices(){
+        Stack<Event> current_Vertices= new Stack<Event>();
+        current_Vertices.push(this.origin);
+        Event newOrigin= current_Vertices.peek();
+        int i=0;
+        String parentEventEndtime=null;
+        while (current_Vertices.size()!=0){
+            Event currentEvent= current_Vertices.pop();
+            if(currentEvent.eventName.compareTo("NExist")==0){
+                        if
+                        (   currentEvent.childs.size()>0 && currentEvent.childs.get(0).eventName.contains("NAppear")
+                                &&
+                            currentEvent.childs.get(0).childs.size()>0 && currentEvent.childs.get(0).childs.get(0).eventName.contains("NDerive")
+
+                        )
+                        {
+                        AbsenceEvent absenceEvent = new AbsenceEvent(((NExistEvent)currentEvent));
+                        if(currentEvent.childs.size()>=2){//Child of parent NExistEvent
+                            for(int k=1;k<currentEvent.childs.size();k++){
+                                currentEvent.childs.get(k).parent=absenceEvent;
+                                absenceEvent.childs.add(currentEvent.childs.get(k));
+                            }
+                        }
+                            //child of NDeriveEvent
+                        if(currentEvent.childs.get(0).childs.get(0).childs.size()>1){
+                        Event child=currentEvent.childs.get(0).childs.get(0).childs.get(0);
+                        child.parent=absenceEvent;
+                        absenceEvent.childs.add(0,child);
+
+                         }
+                        else { Event child=null;}
+
+                            if(currentEvent.parent!=null){
+                                absenceEvent.parent=currentEvent.parent;
+                                currentEvent.parent.childs.remove(currentEvent);
+                                currentEvent.parent.childs.add(absenceEvent);
+                            }
+                        currentEvent=absenceEvent;
+
+                }
+                parentEventEndtime=((AbsenceEvent)currentEvent).ftime;
+
+            }//complete of NExist
+
+            else if (currentEvent.eventName.compareTo("Exist")==0){
+                if
+                        (   currentEvent.childs.size()>0 && currentEvent.childs.get(0).eventName.contains("Appear")
+                        &&
+                        currentEvent.childs.get(0).childs.size()>0 &&currentEvent.childs.get(0).childs.get(0).eventName.contains("Derive")
+
+                        )
+                {
+                    ExistenceEvent existenceEvent = new ExistenceEvent(((ExistEvent)currentEvent));
+                    if(currentEvent.childs.size()>=2){//Child of parent NExistEvent
+                        for(int k=1;k<currentEvent.childs.size();k++){
+                            currentEvent.childs.get(k).parent=existenceEvent;
+                            existenceEvent.childs.add(currentEvent.childs.get(k));
+                        }
+                    }
+                    //child of NDeriveEvent
+                    if(currentEvent.childs.get(0).childs.get(0).childs.size()>1){
+                        Event child=currentEvent.childs.get(0).childs.get(0).childs.get(0);
+                        child.parent=existenceEvent;
+                        existenceEvent.childs.add(0,child);
+
+                    }
+                    else { Event child=null;}
+
+
+                    if(currentEvent.parent!=null){
+                        existenceEvent.parent=currentEvent.parent;
+                        currentEvent.parent.childs.remove(currentEvent);
+                        currentEvent.parent.childs.add(existenceEvent);
+                    }
+                    currentEvent=existenceEvent;
+
+
+                }
+
+
+                parentEventEndtime=((ExistenceEvent)currentEvent).endTime;
+            }//complete of Exist
+
+            else if (currentEvent.eventName.compareTo("Appear")==0  && parentEventEndtime!=null){
+                if
+                        (   currentEvent.childs.size()>0 && (currentEvent.childs.get(0).eventName.contains("Derive") || currentEvent.childs.get(0).eventName.contains("Insert") ||currentEvent.childs.get(0).eventName.contains("Received")))
+                {
+                    ExistenceEvent existenceEvent = new ExistenceEvent(((AppearEvent)currentEvent).getTime(),parentEventEndtime,((AppearEvent)currentEvent).node,((AppearEvent)currentEvent).tuple);
+                    if(currentEvent.childs.size()>0){//Child of parent NExistEvent
+                        for(int k=0;k<currentEvent.childs.size();k++){
+                            currentEvent.childs.get(k).parent=existenceEvent;
+                            existenceEvent.childs.add(currentEvent.childs.get(k));
+
+                        }
+                    }
+                    else { Event child=null;}
+
+
+                    if(currentEvent.parent!=null){
+                        existenceEvent.parent=currentEvent.parent;
+                        currentEvent.parent.childs.remove(currentEvent);
+                        currentEvent.parent.childs.add(existenceEvent);
+                    }
+                    currentEvent=existenceEvent;
+
+                }
+
+            }//complete of Exist
+
+            if(currentEvent.eventName.contains("Derive") ||currentEvent.eventName.contains("Send") || currentEvent.eventName.contains("Receive") || currentEvent.eventName.contains("Underive")||currentEvent.eventName.contains("Delay")){
+
+                for(Event childevents: currentEvent.childs){
+                    childevents.parent=currentEvent.parent;
+                    currentEvent.parent.childs.add(childevents);
+                }
+                currentEvent.parent.childs.remove(currentEvent);
+            }
+
+            //adding all childevents to the queue
+            for(Event childevents: currentEvent.childs){
+                current_Vertices.push(childevents);
+
+            }
+
+            //just pushing other events
+
+            if(i==0)newOrigin=currentEvent;
+            i++;
+        }
+        this.origin=newOrigin;
+        vertices_in_response=i;
+
+    }
+
+
 }

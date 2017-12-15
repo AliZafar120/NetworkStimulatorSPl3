@@ -12,6 +12,7 @@ public class Event {
 	public	int derivationCounter;
 	public	String rule;
 	public	ArrayList<Event> childs;
+	public	Event parent;
 	public Event() {
 		node="";
 		eventName="";

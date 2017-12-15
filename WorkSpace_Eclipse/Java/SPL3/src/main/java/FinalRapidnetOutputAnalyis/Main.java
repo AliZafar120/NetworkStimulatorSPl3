@@ -39,6 +39,7 @@ public class Main {
 */
         query1.startTimer();
         query1.searchTuple(formattedlogs.get(418).t,"nexist","10.1.1.2","6000000000","10000000000");
+        query1.getSuperVertices();
 
         System.out.println(query1.getPassedTime());
 
