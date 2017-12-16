@@ -50,7 +50,7 @@ insertlink (1, 3, 5);
 insertlink (3, 8, 5);
 insertlink (3, 4, 5);
 insertlink (4, 5, 5);
-insertlink (5, 6, 5);
+insertlink (5, 6, 55);
 insertlink (6, 7, 5);
 insertlink (7, 9, 5);
 

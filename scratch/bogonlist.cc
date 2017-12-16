@@ -1,3 +1,74 @@
+#include "ns3/core-module.h"
+#include "ns3/simulator-module.h"
+#include "ns3/node-module.h"
+#include "ns3/bgpofflink-module.h"
+#include "ns3/rapidnet-module.h"
+#include "ns3/values-module.h"
+
+#define link(src, next, cost) \
+  tuple (Bgpofflink::LINK, \
+    attr ("link_attr1", Ipv4Value, src), \
+    attr ("link_attr2", Ipv4Value, next), \
+    attr ("link_attr3", Int32Value, cost))
+
+#define insertlink(from, to, cost) \
+  app(from)->Insert (link (addr (from), addr (to), cost)); \
+  app(to)->Insert (link (addr (to), addr (from), cost));
+
+#define deletelink(from, to, cost) \
+  app(from)->Delete (link (addr (from), addr (to), cost)); \
+  app(to)->Delete (link (addr (to), addr (from), cost));
+
+#define importfilter(from, to, cost) \
+  app(from)->Delete (link (addr (from), addr (to), cost));
+
+using namespace std;
+using namespace ns3;
+using namespace ns3::rapidnet;
+using namespace ns3::rapidnet::bgpofflink;
+
+ApplicationContainer apps;
+
+void
+UpdateLinks1 ()
+{
+insertlink (1, 2, 5);
+insertlink (1, 3, 5);
+insertlink (3, 8, 5);
+insertlink (3, 4, 7);
+insertlink (4, 5, 7);
+insertlink (5, 6, 7);
+insertlink (6, 7, 3);
+insertlink (7, 9, 3);
+}
+
+void
+UpdateLinks2 ()
+{
+	importfilter (7, 9, 3);
+	insertlink (8, 9, 1);
+}
+
+int
+main (int argc, char *argv[])
+{
+  LogComponentEnable("Bgpofflink", LOG_LEVEL_INFO);
+  LogComponentEnable("RapidNetApplicationBase", LOG_LEVEL_INFO);
+
+  apps = InitRapidNetApps (9, Create<BgpofflinkHelper> ());
+
+  apps.Start (Seconds (0.0));
+  apps.Stop (Seconds (15.0));
+
+  schedule (0.0001, UpdateLinks1);
+  schedule (4.0001, UpdateLinks2);
+
+  Simulator::Run ();
+  Simulator::Destroy ();
+  return 0;
+}
+
+/*
 
 
 #include "ns3/core-module.h"
@@ -31,7 +102,7 @@
   app(from)->Insert (filter (addr (from), addr (to), cost));
 
 
-/*
+
 
 #define insertlink(from, to, cost) \
   app(from)->Insert (link (addr (from), addr (to), cost)); \
@@ -42,7 +113,7 @@
   app(from)->Delete (link (addr (from), addr (to), cost)); \
   app(to)->Delete (link (addr (to), addr (from), cost));
 
-*/
+
 
 
 
@@ -127,3 +198,4 @@ main (int argc, char *argv[])
   return 0;
 }
 
+*/
