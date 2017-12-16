@@ -17,7 +17,7 @@ public class ExistenceEvent extends Event{
     public ExistenceEvent(ExistEvent existevent) {
         this.startTime = existevent.startTime;
         this.endTime = existevent.endTime;
-        this.eventName="Absence";
+        this.eventName="Existence";
         this.tuple=existevent.tuple;
         this.node=existevent.node;
     }

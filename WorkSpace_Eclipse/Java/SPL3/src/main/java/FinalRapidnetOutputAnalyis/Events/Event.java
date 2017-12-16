@@ -3,7 +3,7 @@ import FinalRapidnetOutputAnalyis.Tuples.Tuple;
 
 import java.util.ArrayList;
 
-public class Event {
+public class Event implements Cloneable{
 	public String node;
 	public String eventName;
 		public String time;
@@ -53,6 +53,10 @@ public class Event {
 		this.derivationCounter=derivationCounter;
 	}
 
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 
 
 	public String getOccuredAtNode() {

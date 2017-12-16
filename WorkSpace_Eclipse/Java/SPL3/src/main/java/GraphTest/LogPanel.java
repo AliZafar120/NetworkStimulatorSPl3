@@ -49,6 +49,11 @@ public class LogPanel extends ScrollPane {
                     query1.setLogs(logs);
                     query1.startTimer();
                     query1.searchTuple(log.t,"exist",log.node,"0","10000000000");
+                   /* try {
+                        query1.getSuperVertices();
+                    } catch (CloneNotSupportedException e1) {
+                        e1.printStackTrace();
+                    }*/
                     System.out.println(query1.getPassedTime());
                     Graph.graphpanel.from="log";
 

@@ -92,7 +92,7 @@ public class GraphPanel extends ScrollPane{
                 String eventname=getEventDetails(current);
                 vertices_in_response++;
                         //current.getEventName()+" "+current.getTime()+" "+currentEvent.node;
-                Object v1 = graph.insertVertex(defaultparent, null, eventname, centerX-100,0,200, 200 );
+                Object v1 = graph.insertVertex(defaultparent, null, eventname, centerX-100,0,200, 200 , "whiteSpace=wrap");
                 if(current.childs!=null) {
                     int i=0;
                     for (Event child : current.childs) {
@@ -106,7 +106,7 @@ public class GraphPanel extends ScrollPane{
                 String eventname=getEventDetails(current);
                 vertices_in_response++;
                 //+" "+current.getTime()+" "+currentEvent.node
-                Object v2= graph.insertVertex(defaultparent, null, eventname, parent_x-parentchilds*250/2+childno*250,parent_y+300, 200, 200);
+                Object v2= graph.insertVertex(defaultparent, null, eventname, parent_x-parentchilds*250/2+childno*250,parent_y+300, 200, 200, "whiteSpace=wrap");
                 graph.insertEdge(defaultparent, null, "",v2, parentobject);
                 if(current.childs!=null) {
                     int i=0;
@@ -122,7 +122,14 @@ public class GraphPanel extends ScrollPane{
     }
 
     public String getEventDetails(Event event){
-        if(event.eventName.compareToIgnoreCase("Exist")==0){
+        if(event.eventName.compareToIgnoreCase("Existence")==0){
+            return ((ExistenceEvent)event).toString();
+        }
+
+        else if(event.eventName.compareToIgnoreCase("Absence")==0){
+            return ((AbsenceEvent)event).toString();
+        }
+        else if(event.eventName.compareToIgnoreCase("Exist")==0){
             return ((ExistEvent)event).toString();
         }
         else if(event.eventName.compareToIgnoreCase("Appear")==0){
