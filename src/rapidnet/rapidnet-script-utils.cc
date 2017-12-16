@@ -45,7 +45,9 @@ InitRapidNetApps (int numNodes, Ptr<RapidNetApplicationHelper> appHelper,
 
   NetDeviceContainer csmaDevices;
   csmaDevices = csma.Install (csmaNodes);
+//*******************
 
+  //******************
   InternetStackHelper stack;
   stack.Install (csmaNodes);
 

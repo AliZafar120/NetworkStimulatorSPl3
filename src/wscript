@@ -71,6 +71,9 @@ all_modules = (
     'l4-platform',
     'applications/pingpong-l4',
      'applications/mytest',
+     'applications/bgpblackhole',
+     'applications/bogonlist',
+     'applications/bgpofflink',
     )
 
 def set_options(opt):
