@@ -60,7 +60,8 @@ insertlink (7, 9, 5);
 void
 UpdateLinks2 ()
 {
-	deletelink(5, 6, 5);
+	deletelink(5, 6, 55);
+	deletelink(4, 5, 5);
 	insertlink (8, 9, 5);
 
 }

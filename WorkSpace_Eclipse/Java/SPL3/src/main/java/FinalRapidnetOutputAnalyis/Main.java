@@ -15,7 +15,9 @@ public class Main {
         ArrayList <LogFormat> formattedlogs = new ArrayList<LogFormat>();
 
        ApplicationLogParser parse= new ApplicationLogParser();
-        parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
+        //parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
+        parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+
         //parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
 
         //file for off path change
@@ -38,7 +40,9 @@ public class Main {
         tuple.attributes.get(1).tupleAttributeValue="10.1.1.11";
 */
         query1.startTimer();
-        query1.searchTuple(formattedlogs.get(418).t,"nexist","10.1.1.2","6000000000","10000000000");
+       /* query1.searchTuple(formattedlogs.get(418).t,"nexist","10.1.1.2","6000000000","10000000000");
+       */
+        query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
         query1.getSuperVertices();
 
         System.out.println(query1.getPassedTime());
