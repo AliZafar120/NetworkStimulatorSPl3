@@ -15,7 +15,7 @@ public class Main {
         ArrayList <LogFormat> formattedlogs = new ArrayList<LogFormat>();
 
        ApplicationLogParser parse= new ApplicationLogParser();
-        parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
+        parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
         //parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
 
         //file for off path change
