@@ -40,7 +40,7 @@ public class LogPanel extends ScrollPane {
         for(final LogFormat log:logs){
             JPanel panel= new JPanel();
             panel.setSize(dim.width,30);
-            final JButton button= new JButton(log.t.toString());
+            final JButton button= new JButton(log.toString());
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -54,6 +54,15 @@ public class LogPanel extends ScrollPane {
                     } catch (CloneNotSupportedException e1) {
                         e1.printStackTrace();
                     }*/
+
+                    if(Graph.isChoiceSuper) {
+                           try {
+                           query1.getSuperVertices();
+                            } catch (CloneNotSupportedException e1) {
+                           e1.printStackTrace();
+                           }
+                   }
+
                     System.out.println(query1.getPassedTime());
                     Graph.graphpanel.from="log";
 

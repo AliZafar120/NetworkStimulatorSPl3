@@ -23,4 +23,9 @@ public class LogFormat {
     public String getTime(){
         return this.time.replaceAll("\\D+","");
     }
+
+    @Override
+    public String toString() {
+        return this.node+" :("+this.derived+")"+",["+this.t.toString()+"]";
+    }
 }

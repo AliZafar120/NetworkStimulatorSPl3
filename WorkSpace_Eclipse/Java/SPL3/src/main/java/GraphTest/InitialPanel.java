@@ -19,7 +19,7 @@ public class InitialPanel extends JPanel implements ActionListener{
     JFileChooser fileChooser = new JFileChooser();
     static String fileString = null;
     private JPanel contentPane;
-    private static ArrayList<LogFormat> rapidnetLogs= new ArrayList<LogFormat>();
+    public static ArrayList<LogFormat> rapidnetLogs= new ArrayList<LogFormat>();
     private static InitialPanel instance=null;
 
     public InitialPanel(JPanel panel) {
