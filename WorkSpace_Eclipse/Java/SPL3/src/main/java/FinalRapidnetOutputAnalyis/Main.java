@@ -17,17 +17,17 @@ public class Main {
 
 
        /* Case 1 offpathchange
-       parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+       parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
 
-       query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
+       query1.searchTuple(formattedlogs.get(584).t,"nexist","10.1.1.2","6000000000","10000000000");
 
 
        */
 
-       /* Case 2
-       parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+       /* Case 2 blackhole
+       parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
 
-       query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
+        query1.searchTuple(formattedlogs.get(708).t,"nexist","10.1.2.1","6000000000","10000000000");
 
 
        */
@@ -39,8 +39,37 @@ public class Main {
 
 
        */
-       //parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
-        parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+
+       /*Case4 neverExisted
+  Tuple tuple= (Tuple) formattedlogs.get(0).t.clone();
+        tuple.attributes.get(1).tupleAttributeValue="10.1.1.11";
+
+        query1.startTimer();
+        query1.searchTuple(tuple,"nexist","10.1.1.1","0000000000","10000000000");
+
+        query1.getSuperVertices();
+                   parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
+
+        */
+
+           /*Case5
+parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
+
+
+
+        */
+        /*Case6
+         parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
+
+query1.searchTuple(formattedlogs.get(1033).t,"exist","10.1.1.10","0000000000","10000000000");
+
+
+        */
+       // parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
+        parse.setLogFilePath("/home/ali/output/Queries/case6/Case6log.txt");
+
+
+        //parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
 
         //parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
 
@@ -59,14 +88,15 @@ public class Main {
         TupleQuery query1= new TupleQuery();
         query1.setLogs(formattedlogs);
 
-        query1.startTimer();
      /*   Tuple tuple= (Tuple) formattedlogs.get(0).t.clone();
         tuple.attributes.get(1).tupleAttributeValue="10.1.1.11";
 */
         query1.startTimer();
        /* query1.searchTuple(formattedlogs.get(418).t,"nexist","10.1.1.2","6000000000","10000000000");
        */
-        query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
+        //query1.searchTuple(formattedlogs.get(305).t,"exist","10.1.1.1","0000000000","10000000000");
+        query1.searchTuple(formattedlogs.get(305).t,"exist","10.1.1.1","0000000000","10000000000");
+
         query1.getSuperVertices();
 
         System.out.println(query1.getPassedTime());

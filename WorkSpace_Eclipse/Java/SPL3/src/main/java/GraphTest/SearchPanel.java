@@ -110,7 +110,11 @@ public class SearchPanel extends ScrollPane implements ActionListener{
         query.setLogs(Graph.initialPanel.getLogFormat());
         if(event.getSource()==button_search){
             if(panel_tuple!=null)panel_container.remove(panel_tuple);
-            tupleStructure= query.getTupleStructure(textfield_tuple_name.getText());
+            try {
+                tupleStructure=(Tuple) query.getTupleStructure(textfield_tuple_name.getText()).clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+            }
 
             if(tupleStructure==null){
                 searchResultText("No such type of Tuples are found. Please Retry.");
@@ -215,7 +219,7 @@ public class SearchPanel extends ScrollPane implements ActionListener{
         gbc.gridy = height++;
         gbc.gridwidth=1;
         gbc.insets = new Insets(0,0,0,0);
-        queryType= new JComboBox(new String[]{"Exit", "NExist"});
+        queryType= new JComboBox(new String[]{"Exist", "NExist"});
         queryType.setSelectedIndex(0);
         panel_tuple.add(queryType, gbc);
 

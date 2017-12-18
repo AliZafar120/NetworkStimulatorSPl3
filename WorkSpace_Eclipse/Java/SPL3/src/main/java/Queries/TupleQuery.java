@@ -342,14 +342,7 @@ public class TupleQuery {
         //findlog
         //if()
         ArrayList<Event> S = new ArrayList<Event>();
-        for (LogFormat log : logs) {
-            if (log.derived == -1 && log.t.attributesEquals(tuple) && log.node.compareTo(node) == 0 && log.t.tupleDestination.compareTo(destination) == 0 && log.exchangeIsderived == isderive) {
-                S.add(new DelayEvent(log.time, log.node, destination, log.t, "" + new BigInteger(destinationArrivalTime).subtract(new BigInteger(log.getTime()))));
-                S.add(new SendEvent(log.time, node, log.t.tupleDestination, tuple));
 
-            }
-
-        }
 
 
         for (LogFormat log : logs) {
@@ -376,7 +369,21 @@ public class TupleQuery {
             if (log.derived == -1 && log.t.attributesEquals(tuple) && log.node.compareTo(node) == 0 && log.exchangeIsderived == isderive) {
                 current.time = log.time;
                 ((ReceiveEvent) current).sender = log.t.tupleSource;
-                S.add(new SendEvent(log.getTime(), log.t.tupleSource, node, tuple, isderive));
+                int i=0;
+                for (LogFormat log2 : logs) {
+                    if(i==665){
+                        System.out.println();
+                    }
+                    if (log2.derived == -1 && log2.t.attributesEquals(log.t) && log2.node.compareTo(log.t.tupleSource) == 0 && log2.t.tupleDestination.compareTo(node) == 0 && log2.exchangeIsderived == isderive) {
+                        S.add(new DelayEvent(log2.time, log2.node, node, log2.t, "" + new BigInteger(log.getTime()).subtract(new BigInteger(log2.getTime()))));
+                        S.add(new SendEvent(log2.time, log.t.tupleSource, node, tuple,isderive));
+
+                    }
+                    i++;
+
+                }
+
+                //S.add(new SendEvent(log.getTime(), log.t.tupleSource, node, tuple, isderive));
                 return S;
             }
 
@@ -959,7 +966,7 @@ public class TupleQuery {
                 if
                         (currentEvent.childs.size() > 0 && currentEvent.childs.get(0).eventName.contains("NAppear")
                         &&
-                        currentEvent.childs.get(0).childs.size() > 0 && currentEvent.childs.get(0).childs.get(0).eventName.contains("NDerive")
+                        currentEvent.childs.get(0).childs.size() > 0 && (currentEvent.childs.get(0).childs.get(0).eventName.contains("NDerive")||currentEvent.childs.get(0).childs.get(0).eventName.contains("NReceive")||currentEvent.childs.get(0).childs.get(0).eventName.contains("NInserted"))
 
                         ) {
                     AbsenceEvent absenceEvent = new AbsenceEvent(((NExistEvent) currentEvent));
@@ -974,7 +981,7 @@ public class TupleQuery {
                         }
                     }
                     //child of NDeriveEvent
-                    if (currentEvent.childs.get(0).childs.get(0).childs.size() > 1) {
+                    if (currentEvent.childs.get(0).childs.get(0).childs.size() > 0) {
                         Event child = currentEvent.childs.get(0).childs.get(0).childs.get(0);
                         child.parent = absenceEvent;
                         absenceEvent.childs.add(0, child);
@@ -1000,7 +1007,7 @@ public class TupleQuery {
                         currentEvent = absenceEvent;
 
                     }
-                    parentEventEndtime = ((AbsenceEvent) currentEvent).ftime;
+                   if(currentEvent.eventName.contains("Absence")) parentEventEndtime = ((AbsenceEvent) currentEvent).ftime;
 
                 }
             //complete of NExist
@@ -1009,7 +1016,7 @@ public class TupleQuery {
                     if
                             (currentEvent.childs.size() > 0 && currentEvent.childs.get(0).eventName.contains("Appear")
                             &&
-                            currentEvent.childs.get(0).childs.size() > 0 && currentEvent.childs.get(0).childs.get(0).eventName.contains("Derive")
+                            currentEvent.childs.get(0).childs.size() > 0 && (currentEvent.childs.get(0).childs.get(0).eventName.contains("Derive")||currentEvent.childs.get(0).childs.get(0).eventName.contains("Received"))
 
                             ) {
                         ExistenceEvent existenceEvent = new ExistenceEvent(((ExistEvent) currentEvent));
@@ -1025,10 +1032,12 @@ public class TupleQuery {
                             }
                         }
                         //child of NDeriveEvent
-                        if (currentEvent.childs.get(0).childs.get(0).childs.size() > 1) {
-                            Event child = currentEvent.childs.get(0).childs.get(0).childs.get(0);
+                        if (currentEvent.childs.get(0).childs.get(0).childs.size() > 0) {
+                            for( Event child:currentEvent.childs.get(0).childs.get(0).childs)
+                            { // Event child = currentEvent.childs.get(0).childs.get(0).childs.get(0);
                             child.parent = existenceEvent;
-                            existenceEvent.childs.add(0, child);
+                            existenceEvent.childs.add(child);
+                            }
 
                         } else {
                             Event child = null;
@@ -1061,7 +1070,7 @@ public class TupleQuery {
                     }
 
 
-                    parentEventEndtime = ((ExistenceEvent) currentEvent).endTime;
+                    if(currentEvent.eventName.compareTo("Existence")==0)parentEventEndtime = ((ExistenceEvent) currentEvent).endTime;
                 }//complete of Exist
 
                 else if (currentEvent.eventName.compareTo("Appear") == 0 && parentEventEndtime != null) {
@@ -1107,6 +1116,17 @@ public class TupleQuery {
                     }
 
                 }//complete of Appear
+
+                if(currentEvent.eventName.compareTo("NAppear")==0){
+                    AbsenceEvent absenceEvent = new AbsenceEvent(((NAppearEvent) currentEvent).getTime(), parentEventEndtime, ((NAppearEvent) currentEvent).node, ((NAppearEvent) currentEvent).tuple);
+                    if (currentEvent.parent != null) {
+                        absenceEvent.parent = currentEvent.parent;
+                        currentEvent.parent.childs.remove(currentEvent);
+                        currentEvent.parent.childs.add(absenceEvent);
+                    }
+                    currentEvent = absenceEvent;
+
+                }
 
                 if (currentEvent.eventName.contains("Derive") || currentEvent.eventName.contains("Send") || currentEvent.eventName.contains("Receive") ||  currentEvent.eventName.contains("Delay")||currentEvent.eventName.contains("Underive")) {
 
@@ -1158,7 +1178,52 @@ public class TupleQuery {
                         currentEvent = absenenceEvent;
 
                     }
+                }//end Dissappear
+
+
+            if (currentEvent.eventName.compareTo("Appear") == 0 && parentEventEndtime != null) {
+                if
+                        (currentEvent.childs.size() > 0 && (currentEvent.childs.get(0).eventName.contains("Derive") || currentEvent.childs.get(0).eventName.contains("Insert") || currentEvent.childs.get(0).eventName.contains("Received"))) {
+                    ExistenceEvent existenceEvent = new ExistenceEvent(((AppearEvent) currentEvent).getTime(), parentEventEndtime, ((AppearEvent) currentEvent).node, ((AppearEvent) currentEvent).tuple);
+
+                    Tuple advertise = (Tuple) ((AppearEvent) currentEvent).tuple.clone();
+                    advertise.type = "advertise";
+                    ExistenceEvent existAdvertise = new ExistenceEvent(((AppearEvent) currentEvent).time,parentEventEndtime, ((AppearEvent) currentEvent).node, advertise);
+
+
+                    if (currentEvent.childs.size() > 0) {//Child of parent NExistEvent
+                        for (int k = 0; k < currentEvent.childs.size(); k++) {
+                            currentEvent.childs.get(k).parent = existenceEvent;
+                            existenceEvent.childs.add(currentEvent.childs.get(k));
+
+                        }
+                    } else {
+                        Event child = null;
+                    }
+
+
+                    if (currentEvent.parent != null) {
+  /*                      existenceEvent.parent=currentEvent.parent;
+                        currentEvent.parent.childs.remove(currentEvent);
+                        currentEvent.parent.childs.add(existenceEvent);*/
+                        if (currentEvent.tuple.type.contains("path") || currentEvent.tuple.type.contains("link") || currentEvent.tuple.type.contains("bestpath")) {
+                            existAdvertise.parent = currentEvent.parent;
+                            currentEvent.parent.childs.remove(currentEvent);
+                            currentEvent.parent.childs.add(existAdvertise);
+                            existAdvertise.childs.add(existenceEvent);
+                            existenceEvent.parent = existAdvertise;
+
+                        } else {
+                            existenceEvent.parent = currentEvent.parent;
+                            currentEvent.parent.childs.remove(currentEvent);
+                            currentEvent.parent.childs.add(existenceEvent);
+                        }
+                    }
+                    currentEvent = existenceEvent;
+
                 }
+
+            }//end dissapppear
 
                 //adding all childevents to the queue
                 for (Event childevents : currentEvent.childs) {
