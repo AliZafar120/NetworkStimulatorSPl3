@@ -156,7 +156,7 @@ public class GraphPanel extends ScrollPane{
         else if(event.eventName.compareToIgnoreCase("NArrive")==0){
             return ((NArriveEvent)event).toString();
         }
-        else if(event.eventName.compareToIgnoreCase("NDerive")==0){
+        else if(event.eventName.contains("NDerive")){
             return ((NDeriveEvent)event).toString();
         }
         else if(event.eventName.compareToIgnoreCase("NExist")==0){

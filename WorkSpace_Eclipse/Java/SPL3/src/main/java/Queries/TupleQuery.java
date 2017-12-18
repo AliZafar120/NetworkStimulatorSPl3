@@ -1106,15 +1106,58 @@ public class TupleQuery {
 
                     }
 
-                }//complete of Exist
+                }//complete of Appear
 
-                if (currentEvent.eventName.contains("Derive") || currentEvent.eventName.contains("Send") || currentEvent.eventName.contains("Receive") || currentEvent.eventName.contains("Underive") || currentEvent.eventName.contains("Delay")) {
+                if (currentEvent.eventName.contains("Derive") || currentEvent.eventName.contains("Send") || currentEvent.eventName.contains("Receive") ||  currentEvent.eventName.contains("Delay")||currentEvent.eventName.contains("Underive")) {
 
                     for (Event childevents : currentEvent.childs) {
                         childevents.parent = currentEvent.parent;
                         currentEvent.parent.childs.add(childevents);
                     }
                     currentEvent.parent.childs.remove(currentEvent);
+                }
+
+                if(currentEvent.eventName.contains("Dissapear")){
+                    if
+                            (currentEvent.childs.size() > 0 && (currentEvent.childs.get(0).eventName.contains("Underive") || currentEvent.childs.get(0).eventName.contains("Delete") || currentEvent.childs.get(0).eventName.contains("Received"))) {
+                        AbsenceEvent absenenceEvent = new AbsenceEvent(((DissapearEvent) currentEvent).getTime(), parentEventEndtime, ((DissapearEvent) currentEvent).node, ((DissapearEvent) currentEvent).tuple);
+
+                        Tuple advertise = (Tuple) ((DissapearEvent) currentEvent).tuple.clone();
+                        advertise.type = "advertise";
+                        AbsenceEvent absentAdvertise = new AbsenceEvent(((DissapearEvent) currentEvent).time,parentEventEndtime, ((DissapearEvent) currentEvent).node, advertise);
+
+
+                        if (currentEvent.childs.size() > 0) {//Child of parent NExistEvent
+                            for (int k = 0; k < currentEvent.childs.size(); k++) {
+                                currentEvent.childs.get(k).parent = absenenceEvent;
+                                absenenceEvent.childs.add(currentEvent.childs.get(k));
+
+                            }
+                        } else {
+                            Event child = null;
+                        }
+
+
+                        if (currentEvent.parent != null) {
+  /*                      existenceEvent.parent=currentEvent.parent;
+                        currentEvent.parent.childs.remove(currentEvent);
+                        currentEvent.parent.childs.add(existenceEvent);*/
+                            if (currentEvent.tuple.type.contains("path") || currentEvent.tuple.type.contains("link") || currentEvent.tuple.type.contains("bestpath")) {
+                                absentAdvertise.parent = currentEvent.parent;
+                                currentEvent.parent.childs.remove(currentEvent);
+                                currentEvent.parent.childs.add(absentAdvertise);
+                                absentAdvertise.childs.add(absenenceEvent);
+                                absenenceEvent.parent = absentAdvertise;
+
+                            } else {
+                                absenenceEvent.parent = currentEvent.parent;
+                                currentEvent.parent.childs.remove(currentEvent);
+                                currentEvent.parent.childs.add(absenenceEvent);
+                            }
+                        }
+                        currentEvent = absenenceEvent;
+
+                    }
                 }
 
                 //adding all childevents to the queue
