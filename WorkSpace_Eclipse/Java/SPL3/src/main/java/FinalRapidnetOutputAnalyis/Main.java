@@ -4,7 +4,6 @@ package FinalRapidnetOutputAnalyis;
 import FinalRapidnetOutputAnalyis.Parser.ApplicationLogParser;
 import FinalRapidnetOutputAnalyis.Tuples.Attribute.TupleAttribute;
 import FinalRapidnetOutputAnalyis.Tuples.Tuple;
-import Queries.Query;
 import Queries.TupleQuery;
 
 import java.util.ArrayList;
@@ -15,7 +14,32 @@ public class Main {
         ArrayList <LogFormat> formattedlogs = new ArrayList<LogFormat>();
 
        ApplicationLogParser parse= new ApplicationLogParser();
-        //parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
+
+
+       /* Case 1 offpathchange
+       parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+
+       query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
+
+
+       */
+
+       /* Case 2
+       parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+
+       query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
+
+
+       */
+
+       /* Case 3 linkfailure
+       parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
+
+       query1.searchTuple(formattedlogs.get(54).t,"nexist","10.1.1.6","6000000000","10000000000");
+
+
+       */
+       //parse.setLogFilePath("/home/ali/output/Queries/case6/Case6Log.txt");
         parse.setLogFilePath("/home/ali/output/Queries/case8/Case8Log.txt");
 
         //parse.setLogFilePath("/home/ali/output/Queries/case7/10verticeBGPblackholelog.txt");
