@@ -3,6 +3,7 @@ package FinalRapidnetOutputAnalyis.Tuples;
 import FinalRapidnetOutputAnalyis.Tuples.Attribute.TupleAttribute;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Tuple implements Cloneable{
 	public String type;
@@ -119,7 +120,12 @@ public class Tuple implements Cloneable{
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return super.clone();
+        Tuple new_tuple=(Tuple)super.clone();
+		List<TupleAttribute> cloneAttributes = new ArrayList<TupleAttribute>(((Tuple) super.clone()).attributes.size());
+		for (TupleAttribute attributes : ((Tuple) super.clone()).attributes) cloneAttributes.add((TupleAttribute) attributes.clone());
+		new_tuple.attributes=new ArrayList<TupleAttribute>(cloneAttributes);
+
+		return new_tuple;
     }
 
     public boolean hasArrayAttribute(){
