@@ -96,18 +96,18 @@ query1.searchTuple(formattedlogs.get(1033).t,"exist","10.1.1.10","0000000000","1
        */
         //query1.searchTuple(formattedlogs.get(305).t,"exist","10.1.1.1","0000000000","10000000000");
         query1.searchTuple(formattedlogs.get(305).t,"exist","10.1.1.1","0000000000","10000000000");
-        System.out.println(formattedlogs.get(305).t);
+       /* System.out.println(formattedlogs.get(305).t);
         Tuple tuple= (Tuple) formattedlogs.get(305).t.clone();
         tuple.attributes.get(0).tupleAttributeValue="10";
-        //
+     */   //
         // ystem.out.println(tuple.attributes.get(3).tupleAttributelistValue);
 
-        System.out.println(tuple);
-        System.out.println(formattedlogs.get(305).t);
+     //   System.out.println(tuple);
+      //  System.out.println(formattedlogs.get(305).t);
 
         //    query1.getSuperVertices();
 
-  //      System.out.println(query1.getPassedTime());
+       System.out.println(query1.getPassedTime());
 
         //Q2//query1.searchTuple(formattedlogs.get(708).t,"nexist","10.1.2.1","6000000000","10000000000");
         //Q1//query1.searchTuple(formattedlogs.get(305).t,"nexist","10.1.1.1","6000000000","10000000000");

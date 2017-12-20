@@ -108,7 +108,7 @@ public class GraphPanel extends ScrollPane{
                 //+" "+current.getTime()+" "+currentEvent.node
                 Object v2;
                 if(parentchilds==1) {
-                     v2 = graph.insertVertex(defaultparent, null, eventname, parent_x -125, parent_y + 300, 200, 200, "whiteSpace=wrap");
+                     v2 = graph.insertVertex(defaultparent, null, eventname, parent_x -50, parent_y + 300, 200, 200, "whiteSpace=wrap");
                 }else {
                     v2 = graph.insertVertex(defaultparent, null, eventname, parent_x - parentchilds * 250 / 2 + childno * 250, parent_y + 300, 200, 200, "whiteSpace=wrap");
                 }
