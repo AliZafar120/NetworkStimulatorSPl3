@@ -1118,7 +1118,7 @@ public class TupleQuery {
                 }//complete of Appear
 
                 if(currentEvent.eventName.compareTo("NAppear")==0){
-                    AbsenceEvent absenceEvent = new AbsenceEvent(((NAppearEvent) currentEvent).getTime(), parentEventEndtime, ((NAppearEvent) currentEvent).node, ((NAppearEvent) currentEvent).tuple);
+                    AbsenceEvent absenceEvent = new AbsenceEvent(((NAppearEvent) currentEvent).stime, parentEventEndtime, ((NAppearEvent) currentEvent).node, ((NAppearEvent) currentEvent).tuple);
                     if (currentEvent.parent != null) {
                         absenceEvent.parent = currentEvent.parent;
                         currentEvent.parent.childs.remove(currentEvent);

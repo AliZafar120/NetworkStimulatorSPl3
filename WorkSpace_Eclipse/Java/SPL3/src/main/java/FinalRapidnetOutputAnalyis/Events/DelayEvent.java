@@ -19,6 +19,7 @@ public class DelayEvent extends Event{
         this.sourceNode=nodeSource;
         this.destinationNode=nodeDestination;
         this.delayTime=""+delayTime;
+        this.tuple=t;
     }
 
     public String toString() {
