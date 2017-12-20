@@ -219,7 +219,7 @@ public class SearchPanel extends ScrollPane implements ActionListener{
         gbc.gridy = height++;
         gbc.gridwidth=1;
         gbc.insets = new Insets(0,0,0,0);
-        queryType= new JComboBox(new String[]{"Exist", "NExist"});
+        queryType= new JComboBox(new String[]{"exist", "nexist"});
         queryType.setSelectedIndex(0);
         panel_tuple.add(queryType, gbc);
 
