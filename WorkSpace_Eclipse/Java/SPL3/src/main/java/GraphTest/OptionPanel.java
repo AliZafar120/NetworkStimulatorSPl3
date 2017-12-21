@@ -38,7 +38,7 @@ public class OptionPanel extends JPanel implements ActionListener {
         panel_button.add(Box.createRigidArea(new Dimension(0,25)));
         panel_button.add(button_queryTuple);
         panel_button.add(Box.createRigidArea(new Dimension(0,25)));
-        panel_button.add(button_back);
+        //panel_button.add(button_back);
 
         add(panel_button);
     }
