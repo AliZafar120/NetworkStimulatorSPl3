@@ -4,13 +4,7 @@ Distributed System Events Querying through Provenance
 This project was done as part of academic reseach in Institute of Information Technology. This academic project was based on paper "Diagnosing missing events in Distributed System through negative provanance".
 
 
-The main mentionable achievements in this project is:
-
-### a) Graphical Representation of provenance graph.
-
-### b) Improvement of Response time
-
-### c) Implementation of base paper.
+The project was implemented following the mentioned paper with representation of the provenance in graphical way and modification of some queries according to own understanding. The response time was improved as logs were kept in main memory.
 
 # Manual
 Please use ubuntu 14.04 LTS and install necessary requirements for rapidnet http://netdb.cis.upenn.edu/rapidnet/ and ns3 https://www.nsnam.org/. Then run the following commands in the downloaded directory:
