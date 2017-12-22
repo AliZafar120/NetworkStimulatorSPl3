@@ -18,6 +18,6 @@ Please use ubuntu 14.04 LTS and install necessary requirements for rapidnet http
 2) ./waf --run scratch/program_file_name --cwd any_directory > output.txt 2>&1
 (please remove the .cc portion of program file name, cwd is changing directory of output in case you need it, here the output is written to output.txt by 2>&1)
 
-3)get the log file of and then use it using the tool which can be opened by running the Workspace/Java/Spl3/src/GraphTest/Graph.java
+3) get the log file of and then use it using the tool which can be opened by running the Workspace/Java/Spl3/src/GraphTest/Graph.java
 
 4) using the tool explore the graph and analyze and query events in the system
